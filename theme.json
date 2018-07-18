@@ -6,8 +6,7 @@
     "isDesktop": true,
     "isMobile": true,
     "isTablet": true,
-    "name": "BaseTheme_PrimaSupply",
-    "allowProduction": true,
+    "name": "PrimaSupply Theme", 
     "baseTheme": "https://github.com/happys-88/BaseTheme_PrimaSupply",
     "baseThemeVersion": {
       "commit": "6983734c0398477feb38901f8c93fa23dc1f7130"

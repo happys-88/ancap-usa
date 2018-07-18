@@ -6,9 +6,14 @@
     "isDesktop": true,
     "isMobile": true,
     "isTablet": true,
+<<<<<<< HEAD
     "name": "AncapTheme",
     "allowProduction": true,
     "baseTheme": "https://github.com/happys-88/ancap-usa",
+=======
+    "name": "PrimaSupply Theme", 
+    "baseTheme": "https://github.com/happys-88/BaseTheme_PrimaSupply",
+>>>>>>> 991c31c7be73b4b3deba3998deb8434f1abae2fc
     "baseThemeVersion": {
       "commit": "HEAD",
       "version": "HEAD"

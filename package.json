@@ -1,10 +1,10 @@
 {
-  "name": "basetheme_primasupply",
+  "name": "ancap-usa",
   "author": {
-    "name": "Happy",
-    "email": "hmasih@stegtechnologies.com"
+    "name": "ashish-steg",
+    "email": "akumar3@stegtechnologies.com"
   },
-  "description": "BaseTheme_PrimaSupply",
+  "description": "ancap-usa",
   "version": "0.1.0",
   "scripts": {
     "clean": "rm -rf compiled",

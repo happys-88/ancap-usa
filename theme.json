@@ -1,16 +1,17 @@
 {
   "about": {
-    "author": "Happy",
+    "author": "ashish-steg",
     "defaultLanguage": "en-US",
     "extends": null,
     "isDesktop": true,
     "isMobile": true,
     "isTablet": true,
-    "name": "BaseTheme_PrimaSupply",
+    "name": "ancap-usa",
     "allowProduction": true,
-    "baseTheme": "https://github.com/happys-88/BaseTheme_PrimaSupply",
+    "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeVersion": {
-      "commit": "6983734c0398477feb38901f8c93fa23dc1f7130"
+      "commit": "HEAD",
+      "version": "HEAD"
     },
     "baseThemeChannel": "stable"
   },

@@ -1,6 +1,6 @@
 {
   "about": {
-    "author": "singh-vsc",
+    "author": "Happy",
     "defaultLanguage": "en-US",
     "extends": null,
     "isDesktop": true,
@@ -8,9 +8,9 @@
     "isTablet": true,
     "name": "AncapTheme",
     "allowProduction": true,
-    "name": "PrimaSupply Theme", 
-    "baseTheme": "https://github.com/happys-88/BaseTheme_PrimaSupply",
-    "baseThemeVersion": {
+    "name": "Ancap USA Theme",  
+    "baseTheme": "https://github.com/happys-88/ancap-usa",
+    "baseThemeVersion": { 
       "commit": "HEAD",
       "version": "HEAD"
     },

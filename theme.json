@@ -6,13 +6,11 @@
     "isDesktop": true,
     "isMobile": true,
     "isTablet": true,
-    "name": "AncapTheme",
     "allowProduction": true,
-    "name": "PrimaSupply Theme", 
+    "name": "PrimaSupply Theme",
     "baseTheme": "https://github.com/happys-88/BaseTheme_PrimaSupply",
     "baseThemeVersion": {
-      "commit": "HEAD",
-      "version": "HEAD"
+      "commit": "a905b10eccab6d53d3c62dad4fb6ddd2cce2b4f2"
     },
     "baseThemeChannel": "stable"
   },

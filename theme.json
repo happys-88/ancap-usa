@@ -1,16 +1,19 @@
 {
   "about": {
-    "author": "singh-vsc",
+    "author": "Happy",
     "defaultLanguage": "en-US",
     "extends": null,
     "isDesktop": true,
     "isMobile": true,
     "isTablet": true,
     "allowProduction": true,
-    "name": "PrimaSupply Theme",
-    "baseTheme": "https://github.com/happys-88/BaseTheme_PrimaSupply",
     "baseThemeVersion": {
-      "commit": "a905b10eccab6d53d3c62dad4fb6ddd2cce2b4f2"
+    "commit": "a905b10eccab6d53d3c62dad4fb6ddd2cce2b4f2"
+    "name": "Ancap USA Theme",  
+    "baseTheme": "https://github.com/happys-88/ancap-usa",
+    "baseThemeVersion": { 
+      "commit": "HEAD",
+      "version": "HEAD"
     },
     "baseThemeChannel": "stable"
   },

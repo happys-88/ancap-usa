@@ -5,9 +5,7 @@
 {% block body-tag-classes %} mz-homepage {% endblock body-tag-classes %}
 
 {% block body-content %}
-    
     {% dropzone "home-slider" scope="page" %}
-
     <div class="container">
         {% dropzone "h1-statement" scope="page" %}  
         
@@ -25,7 +23,7 @@
                 data-cta-text="Shop Now"
                 data-cta-color="#ff7a00">
             </div>
-        </div> 
+        </div>
 
         {% dropzone "shop-by-brand" scope="page" %}
         
@@ -33,17 +31,99 @@
         
         {% dropzone "featured-products" scope="page" %}   
         
-        {% dropzone "customer-logos" scope="page" %}
-        
-        {% dropzone "shop-now-widget" scope="page" %}    
+        {% dropzone "customer-logos" scope="page" %}    
         
     </div>
+
+    <!-- Gallery -->
+    <div class="mz-grid-gallery">
+        <ul>
+            <li>
+                <div class="mz-gallery-img">
+                    <a href="/">
+                        <img src="https://ancap-usa.com/sites/ancap-usa.com/files/styles/portfolio_masonry/public/Front-18472-Verona-Espresso-Cup-2.5oz_0.jpg" alt="">
+                    </a>
+                </div>
+                <div class="mz-title">
+                    <a href="/">Verona</a>
+                </div>
+            </li>
+            <li>
+                <div class="mz-gallery-img">
+                    <a href="/">
+                        <img src="https://ancap-usa.com/sites/ancap-usa.com/files/styles/portfolio_masonry/public/Front-30066-Favorita-Espresso-Cup-2.4oz_0.jpg?itok=KT6Cx0CX" alt="">
+                    </a>
+                </div>
+                <div class="mz-title">
+                    <a href="/">Favorita</a>
+                </div>
+            </li>
+            <li>
+                <div class="mz-gallery-img">
+                    <a href="/">
+                        <img src="https://ancap-usa.com/sites/ancap-usa.com/files/styles/portfolio_masonry/public/Front-20998-Torino-Espresso-Cup-2.4oz_1.jpg?itok=OnZjbbwl" alt="">
+                    </a>
+                </div>
+                <div class="mz-title">
+                    <a href="/">Torino</a>
+                </div>
+            </li>
+            <li>
+                <div class="mz-gallery-img">
+                    <a href="/">
+                        <img src="https://ancap-usa.com/sites/ancap-usa.com/files/styles/portfolio_masonry/public/Front-15807-Edex-Espresso-Cup-2-oz.jpg?itok=P3re3ARY" alt="">
+                    </a>
+                </div>
+                <div class="mz-title">
+                    <a href="/">Edex</a>
+                </div>
+            </li>
+            <li>
+                <div class="mz-gallery-img">
+                    <a href="/">
+                        <img src="https://static.ancap-usa.com/styles/portfolio_masonry/ny26cmplate_0.jpg" alt="">
+                    </a>
+                </div>
+                <div class="mz-title">
+                    <a href="/">New York</a>
+                </div>
+            </li>
+            <li>
+                <div class="mz-gallery-img">
+                    <a href="/">
+                        <img src="https://static.ancap-usa.com/styles/portfolio_masonry/impero26cmplate_0.jpg" alt="">
+                    </a>
+                </div>
+                <div class="mz-title">
+                    <a href="/">Impero</a>
+                </div>
+            </li>
+            <li>
+                <div class="mz-gallery-img">
+                    <a href="/">
+                        <img src="https://static.ancap-usa.com/styles/portfolio_masonry/coup26cmplate_0.jpg" alt="">
+                    </a>
+                </div>
+                <div class="mz-title">
+                    <a href="/">Coup</a>
+                </div>
+            </li>
+            <li>
+                <div class="mz-gallery-img">
+                    <a href="/">
+                        <img src="https://static.ancap-usa.com/styles/portfolio_masonry/conical16cmbowl_0.jpg" alt="">
+                    </a>
+                </div>
+                <div class="mz-title">
+                    <a href="/">Conical</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--/ Gallery -->
+
+    {% dropzone "shop-now-widget" scope="page" %}
     
-    {% require_script "pages/yotpo-review" %} 
+    {% require_script "pages/yotpo-review" %}
 {% endblock body-content %}
-
-{% block body-below-content %}
-
-{% endblock body-below-content %} 
-
-
+{% block body-below-content %}{% endblock body-below-content %} 

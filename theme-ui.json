@@ -406,6 +406,11 @@
             "collapsed": false,
             "items": [
                 {
+                    "fieldLabel": "Profile Id for social sharing (blog)",   
+                    "xtype": "mz-input-text",
+                    "name": "addThisPubIdBlogSharing"     
+                },
+                {
                     "fieldLabel": "Avalara Token", 
                     "xtype": "mz-input-text",
                     "name": "avalaraToken"

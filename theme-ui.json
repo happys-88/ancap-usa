@@ -399,6 +399,33 @@
                     "name": "instagramFollowUsLink" 
                 }
             ]
+        },
+        {
+            "xtype": "panel",
+            "title": "Third Party key details",     
+            "collapsed": false,
+            "items": [
+                {
+                    "fieldLabel": "Profile Id for social sharing (blog)",   
+                    "xtype": "mz-input-text",
+                    "name": "addThisPubIdBlogSharing"     
+                },
+                {
+                    "fieldLabel": "Avalara Token", 
+                    "xtype": "mz-input-text",
+                    "name": "avalaraToken"
+                },
+                {
+                    "fieldLabel": "Avalara Company Code", 
+                    "xtype": "mz-input-text",
+                    "name": "avalaraCompanyCode"
+                },
+                {
+                    "fieldLabel": "MailChimp API Key", 
+                    "xtype": "mz-input-text",
+                    "name": "mailChimpKey"
+                }
+            ]
         }
     ]
 }

@@ -2,50 +2,46 @@
     <div class="mz-footer-top">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="col-sm-4 col-md-4 col-xs-12"> 
-                       {% block footer-logo %}
-                            {% include "modules/page-footer/footer-logo" %}
-                        {% endblock footer-logo %}
-                    </div>
-                    <div class="col-sm-4 col-md-2 col-xs-12">
-                        {% dropzone "footer-dropzone-2" scope="site" %}
-                    </div>
-                    <div class="col-sm-4 col-md-2 col-xs-12">  
-                        <h4><a href="/customer-service">{{ labels.customerService }}</a></h4>
-                        <ul>
-                            {% if not user.isAnonymous %} 
-                                <li><a href="/myaccount">{{ labels.myAccount }}</a></li>
-                            {% else %}
-                                <li><a href="javascript:void(0);" data-toggle="modal" data-target="#loginPopup">{{ labels.myAccount }}</a></li>
-                            {% endif %}
-                        </ul>
-                        {% dropzone "footer-dropzone-3" scope="site" %}
-                        {% block payment-options %}
-                            {% include "modules/page-footer/payment-options" %}
-                        {% endblock payment-options %}
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-xs-12">   
-                        {% block newsletter %}
-                            {% include "modules/page-footer/newsletter" %}
-                        {% endblock newsletter %}
-                        {% block social-bar %}
-                            {% include "modules/page-footer/social-bar" %}
-                        {% endblock social-bar %}
-                        <div class="mz-policy-section">
-                            <div class="mz-policy">
-                                {% dropzone "footer-dropzone-4" scope="site" %}
-                            </div>
-                            <div class="mz-pagefooter-copyright" id="copyright">
-                                <span class="mz-pagefooter-copyrighttext">
-                                    {{ labels.copyRight }} {% now Y %} {{ siteContext.generalSettings.websiteName }}.
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-xs-12">
+                    <ul>
+                        <li>
+                            <i class="fa fa-mobile"></i>
+                            <h6>1.877.745.8869</h6>
+                        </li>
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <h6>LOUISVILLE, KY</h6>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-open-o"></i>
+                            <h6>INFO@ANCAPUSA.COM</h6>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="mz-footer-bottom"></div>
+    <div class="mz-footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="mz-footer-nav">
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">account</a></li>
+                            <li><a href="#">Buy</a></li>
+                        </ul>
+                    </div>
+                    {% block social-bar %}
+                        {% include "modules/page-footer/social-bar" %}
+                    {% endblock social-bar %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mz-pagefooter-copyright">
+        <span class="mz-pagefooter-copyrighttext">
+            &copy; {% now Y %} {{ labels.copyRight }} {{ siteContext.generalSettings.websiteName }}. {{ labels.allRightsReserved }}
+        </span>
+    </div>
 </footer>

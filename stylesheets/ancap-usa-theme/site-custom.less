@@ -40,15 +40,18 @@ body{
   background: @textColorWhite;
   font-family: @fontFamily;
 }
-
+.container {
+    max-width: 1183px;
+}
 .mz-pageheader{
 	.mz-header-bottom{
+		padding: 5px 0;
 		.mz-storebranding{
 			.mz-logo{
-				background: url("../resources/images/ancap-logo.jpg") left top no-repeat;  
+				background: url("../resources/images/ancap-logo-white.png") left top no-repeat;  
 				background-size: contain;
-				width: 253px;
-				height: 80px; 
+				width: 80px;
+				height: 56px; 
 			}
 		}
 		.mz-utilitynav{
@@ -99,17 +102,7 @@ body{
 	} 
 }  
 
-/**** Styles for fixed header ****/ 
-.fixed{
-	.mz-header-bottom{
-		.mz-storebranding{
-			.mz-logo{
-				width: 170px;
-				height: 50px; 
-			}
-		}
-	}
-}
+
 
 .heading-2{
 	color: @secondaryBtnColor;  
@@ -117,21 +110,6 @@ body{
 		background : @secondaryBtnColor;
 	} 
 }
-
-#mz-home-slider{ 
-	.slider{
-		.mz-slide-details{
-			.mz-button{
-				.mzPrimaryBtn();
-				border: 2px solid @primaryBtnColor;
-				transition: none;
-				&:hover{
-					.mzPrimaryBtnHover();
-				}
-			}
-		}	
-	}
-}  
 
 .shop-now-widget{ 
 	.mz-details-container{
@@ -283,3 +261,331 @@ body{
 		}
 	}
 }
+
+
+
+// Ancap USA
+.mz-sticky-header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+	.mz-sitenav {
+	    background: transparent;
+	    .mz-sitenav-list {
+	    	margin-top: 10px;
+		    text-align: right;
+		}
+	    .mz-sitenav-item {
+		    display: inline-block;
+		    margin: 10px 20px;
+		    max-width: 100%;
+	    	.mz-sitenav-link {
+	    		border-bottom: 2px solid transparent;
+	    		font-size: 12px;
+	    		font-weight: 600;
+	    		height: auto!important;
+    			letter-spacing: 1px;
+	    		padding: 5px 0;
+	    		text-transform: uppercase;
+	    	}
+	    	&:hover {
+	    		>.mz-sitenav-link {
+				    background: transparent;
+				    border-bottom: 2px solid #fff;
+				}
+			}
+	    }
+	}
+	.mz-utilitynav {
+		margin-top: 24px;
+		.mz-utilitynav-link {
+		    color: #fff;
+		    .fa {
+			    color: #fff;
+			    font-size: 16px;
+			}
+		}
+		.mz-utilitynav-item {
+		    margin-left: 0;
+		    text-transform: uppercase;
+		    &:last-child {
+			    margin: 0 0 0 18px;
+			}
+		}
+	}
+	&.fixed {
+	    background: #fff;
+	    position: fixed;
+	    top: 0;
+	    width: 100%;
+	    z-index: 99;
+	    .mz-header-bottom {
+	    	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			.mz-storebranding {
+				.mz-logo {
+					background: url("../resources/images/ancap-logo-black.png") left top no-repeat;
+					background-size: contain;
+				}
+			}
+			.mz-utilitynav {
+				margin-top: 24px;
+				.mz-utilitynav-item {
+					.mz-utilitynav-link {
+						color: #000;
+						.fa {
+						    color: #000;
+						    font-size: 16px;
+						}
+					}
+				}
+			}
+		}
+		.mz-sitenav {
+			.mz-sitenav-item {
+				.mz-sitenav-link {
+				    color: #000;
+				}
+				&:hover {
+					>.mz-sitenav-link {
+					    border-bottom: 2px solid #000;
+					}
+				}
+			}
+		}
+	}
+}
+.fixed-header {
+    margin-top: 0;
+}
+
+#searchPopup {
+	background: #fff;
+	.modal-dialog {
+	    width: 100%;
+	    margin: 0;
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	}
+	.modal-content {
+		border: none;
+	    border-radius: 0;
+	    -webkit-box-shadow: none;
+    	box-shadow: none;
+	    min-height: 100%;
+	    padding: 50px 60px;
+	}
+	button {
+		&.close {
+		    position: absolute;
+		    top: 20px;
+		    right: 20px;
+		}
+	}
+	.mz-searchbox {
+		.mz-searchbox-field {
+		    border: none;
+		    border-bottom: 2px solid #000;
+		    display: block;
+		    height: auto;
+		    .twitter-typeahead {
+			    display: block !important;
+			}
+		}
+		.mz-searchbox-button {
+		    display: none;
+		}
+		.mz-searchbox-input {
+			font-size: 30px;
+			width: 100%;
+			height: auto;
+			line-height: 40px;
+			padding: 20px 2px;
+		}
+		.tt-dataset-terms, 
+		.tt-dataset-categories {
+		    display: none;
+		}
+		.tt-dropdown-menu {
+		    border: none;
+		    margin-top: 5px;
+		    width: 100%;
+		}
+		.tt-dataset-pages {
+		    float: none;
+		    border-left: none;
+		    width: 100%;
+		    .tt-suggestions {
+		    	p {
+				    display: none;
+				}
+		    	.tt-suggestion {
+				    width: 50%;
+				    .mz-itemlisting {
+				    	.mz-itemlisting-thumb {
+				    		float: left;
+						    width: 30%;
+						    margin-right: 30px;
+						}
+						.mz-itemlisting-details {
+							.mz-itemlisting-title {
+							    font-size: 20px;
+							    font-weight: 400;
+							    color: #000;
+							}
+						}
+					}
+					&:nth-of-type(3n+2) {
+					    margin-right: 0;
+					    margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.mz-pagefooter {
+    background: #fff;
+    .fa {
+	    color: #9a9a9a;
+	    font-size: 26px;
+	    line-height: 1.1;
+	}
+    .mz-footer-top {
+	    border-top: 1px solid rgba(0, 0, 0, 0.1);
+	    padding: 120px 0;
+	    text-align: center;
+	    ul {
+	    	li {
+	    		display: inline-block;
+	    		float: left;
+    			width: 33.33%;
+	    	}
+	    }
+	    h6 {
+		    font-size: 13px;
+		    letter-spacing: 1px;
+		    line-height: 20px;
+		    margin: 30px 0;
+		}
+	}
+	.mz-footer-bottom {
+		background: #f5f5f5;
+		border-top: none;
+		padding: 142px 0;
+		text-align: center;
+		.mz-footer-nav {
+			display: inline-block;
+		}
+		ul {
+			li {
+				display: inline-block;
+				padding: 0 22px;
+				a {
+					color: #000;
+					display: inline-block;
+					line-height: 26px;
+					text-transform: capitalize;
+					&:hover {
+						color: #575757;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+		.mz-social-icon {
+			display: inline-block;
+		}
+	}
+	.mz-pagefooter-copyright {
+	    background: #252525;
+	    color: #888888;
+	    font-size: 11px;
+	    padding: 22px 45px;
+	    text-transform: uppercase;
+	}
+}
+
+
+#mz-home-slider {
+	.slider {
+		.mz-slide-details {
+			width: 1183px;
+			right: 0;
+		    bottom: 79px;
+		    left: 0;
+		    text-align: left;
+			text-transform: uppercase;
+			h2 {
+			    font-size: 14px;
+			    font-weight: 300;
+			    letter-spacing: 5px;
+			    margin-bottom: 30px;
+			}
+			p {
+			    font-size: 22px;
+			    letter-spacing: 4px;
+			    margin-bottom: 50px;
+			}
+			.mz-button {
+			    background: transparent;
+			    border: 2px solid #fff;
+			    font-size: 18px;
+			    letter-spacing: 3px;
+			    line-height: 23px;
+			    padding: 18px 35px;
+			    text-transform: uppercase;
+			    &:hover {
+			    	background: #fff;
+			    	border: 2px solid #fff;
+			    	color: #000;
+			    }
+			}
+		}
+	}
+}
+
+/*** Home Page Gallery ***/
+.mz-grid-gallery {
+	ul {
+		li {
+			float: left;
+			overflow: hidden;
+			position: relative;
+			width: 25%;
+			text-align: center;
+			transition: all 0.3s ease 0s;
+			&:hover {
+				.mz-gallery-img {
+				    background: #000;
+				    a {
+					    display: block;
+					            transform: scale(1.1,1.1);
+					    -webkit-transform: scale(1.1,1.1);
+					    	-ms-transform: scale(1.1,1.1);
+					            transition: all .3s ease;
+					    -webkit-transition: all .3s ease;
+					       -moz-transition: all .3s ease;
+					    opacity: 0.85;
+					}
+				    img {
+					    transform: scale(1.1,1.1);
+					    transition: all 0.5s;
+					}
+				}
+			}
+		}
+		.mz-title {
+		    font-size: 13px;
+		    text-transform: uppercase;
+		    letter-spacing: 4px;
+		    position: absolute;
+		    width: 100%;
+		    bottom: 40px;
+		}
+	}
+}
+/***\ Home Page Gallery ***/

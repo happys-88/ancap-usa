@@ -114,11 +114,7 @@
             <div class="mz-sticky-header">
                 {% block page-header %}
                     {% include "modules/page-header" %}
-                {% endblock page-header %}
-                
-                {% block site-nav %} 
-                    {% include "modules/site-nav" %}  
-                {% endblock site-nav %}   
+                {% endblock page-header %}   
                 
                 {% block mobile-nav %} 
                     {% include "modules/mobile-nav" %}   
@@ -152,7 +148,16 @@
             {% include "modules/page-header/login-signup-modal" %}
             {% include "modules/checkout/login-checkout-modal" %}
         </div>
-
+        <div class="modal fade" id="searchPopup" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                    <div class="modal-body">
+                        {% include "modules/page-header/search-box" %}
+                    </div>
+                </div>
+            </div>
+        </div>
         {% block back-to-top %}
             <div class="mz-back-to-top-btn" id="back-to-top"><i class="fa fa-chevron-up"></i></div>
         {% endblock back-to-top %}

@@ -402,7 +402,7 @@
         },
         {
             "xtype": "panel",
-            "title": "Third Party Key Details",      
+            "title": "Third Party key details",     
             "collapsed": false,
             "items": [
                 {
@@ -411,9 +411,19 @@
                     "name": "addThisPubIdBlogSharing"     
                 },
                 {
-                    "fieldLabel": "Popular Articles Pubid", 
+                    "fieldLabel": "Avalara Token", 
                     "xtype": "mz-input-text",
-                    "name": "addThisPubId"  
+                    "name": "avalaraToken"
+                },
+                {
+                    "fieldLabel": "Avalara Company Code", 
+                    "xtype": "mz-input-text",
+                    "name": "avalaraCompanyCode"
+                },
+                {
+                    "fieldLabel": "MailChimp API Key", 
+                    "xtype": "mz-input-text",
+                    "name": "mailChimpKey"
                 }
             ]
         }

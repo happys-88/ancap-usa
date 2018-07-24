@@ -6,13 +6,11 @@
     "isDesktop": true,
     "isMobile": true,
     "isTablet": true,
-    "name": "AncapTheme",
     "allowProduction": true,
-    "name": "Ancap USA Theme",  
+    "name": "Ancap USA Theme",
     "baseTheme": "https://github.com/happys-88/ancap-usa",
-    "baseThemeVersion": { 
-      "commit": "HEAD",
-      "version": "HEAD"
+    "baseThemeVersion": {
+      "commit": "06d3e4b0a41707bec0546ffc6788caf0ef921cf8"
     },
     "baseThemeChannel": "stable"
   },
@@ -857,7 +855,9 @@
     "bottomline": "bottomline",
     "questions": "questions",
     "showYotpoGallery": true,
-    "instagramFollowUsLink": "https://www.instagram.com/prima.supply/?hl=en"
+    "instagramFollowUsLink": "https://www.instagram.com/prima.supply/?hl=en",
+    "addThisPubId": "ra-519bb90e58f9bf27",
+    "addThisPubIdBlogSharing": "ra-519bb90e58f9bf27" 
   },
   "layoutWidgets": [
     {

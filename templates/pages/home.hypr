@@ -9,7 +9,6 @@
     <div class="container">
         {% dropzone "h1-statement" scope="page" %}  
         
-        <h2>First commit for testing</h2>
         <div class="yotpo-gallery hidden"> 
             <h2>Pictures Gallery</h2>
             <div class="yotpo yotpo-pictures-gallery"

@@ -8,7 +8,7 @@
     "isTablet": true,
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "63b316b5599721c565abaa72e14a0524af8fb355"
+      "commit": "a905b10eccab6d53d3c62dad4fb6ddd2cce2b4f2"
     },
     "name": "Ancap USA Theme",
     "baseTheme": "https://github.com/happys-88/ancap-usa",
@@ -868,7 +868,7 @@
     "showYotpoGallery": true,
     "instagramFollowUsLink": "https://www.instagram.com/prima.supply/?hl=en",
     "addThisPubId": "ra-519bb90e58f9bf27",
-    "addThisPubIdBlogSharing": "ra-519bb90e58f9bf27" 
+    "addThisPubIdBlogSharing": "ra-519bb90e58f9bf27"
   },
   "layoutWidgets": [
     {

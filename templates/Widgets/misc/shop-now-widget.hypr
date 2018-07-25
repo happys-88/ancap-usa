@@ -5,5 +5,4 @@
         </div>
         <h2 class="mz-title">{{model.config.ButtonTextValue}}</h2>
     </a>
-    <div class="mz-image-overlay"></div>
 </div>

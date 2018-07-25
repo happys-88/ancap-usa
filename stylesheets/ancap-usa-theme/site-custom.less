@@ -37,11 +37,18 @@
 
 /**** Custom Changes ****/
 body{
-  background: @textColorWhite;
-  font-family: @fontFamily;
+  	background: @textColorWhite;
+  	font-family: @fontFamily;
+  	font-size: 13px;
+	color: #626262;
+	line-height: 23px;
+	letter-spacing: 0.02em;
 }
 .container {
     max-width: 1183px;
+}
+.mz-button {
+	letter-spacing: 2px;
 }
 .mz-pageheader{
 	.mz-header-bottom{
@@ -302,6 +309,7 @@ body{
 		margin-top: 24px;
 		.mz-utilitynav-link {
 		    color: #fff;
+		    font-weight: 600;
 		    .fa {
 			    color: #fff;
 			    font-size: 16px;
@@ -548,44 +556,125 @@ body{
 	}
 }
 
-/*** Home Page Gallery ***/
+
+.mz-features-container {
+	padding: 120px 0;
+	h3 {
+		color: #dcc59c;
+		font-size: 24px;
+		font-weight: bold;
+		margin: 0 0 20px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+}
+
+/*** Home Page Gallery and Custom ***/
 .mz-grid-gallery {
+	border-top: 1px solid #e5e5e5;
 	ul {
-		li {
-			float: left;
-			overflow: hidden;
-			position: relative;
-			width: 25%;
-			text-align: center;
-			transition: all 0.3s ease 0s;
+		font-size: 0;
+	}
+	li {
+		display: inline-block;
+		overflow: hidden;
+		position: relative;
+		width: 24.98%;
+		vertical-align: top;
+		text-align: center;
+		transition: all 0.3s ease 0s;
+		.mz-gallery-img {
+			a {
+				display: block;
+			}
 			&:hover {
-				.mz-gallery-img {
-				    background: #000;
-				    a {
-					    display: block;
-					            transform: scale(1.1,1.1);
-					    -webkit-transform: scale(1.1,1.1);
-					    	-ms-transform: scale(1.1,1.1);
-					            transition: all .3s ease;
-					    -webkit-transition: all .3s ease;
-					       -moz-transition: all .3s ease;
-					    opacity: 0.85;
-					}
-				    img {
-					    transform: scale(1.1,1.1);
-					    transition: all 0.5s;
-					}
+			    background: #000;
+			    a {
+				    -webkit-transition: all .3s ease;
+				       -moz-transition: all .3s ease;
+				            transition: all .3s ease;
+				    opacity: 0.85;
+				}
+			    img {
+				    transform: scale(1.1,1.1);
+				    transition: all 0.5s;
 				}
 			}
 		}
+	}
+	.mz-title {
+	    font-size: 13px;
+	    text-transform: uppercase;
+	    letter-spacing: 4px;
+	    position: absolute;
+	    width: 100%;
+	    bottom: 40px;
+	}
+}
+
+.mz-custom-work {
+	padding: 120px 0;
+	h2 {
+		color: #dcc59c;
+	    font-size: 52px;
+	    font-weight: 600;
+	    margin: 0 0 75px;
+	    text-align: center;
+	}
+	li {
+		.mz-gallery-img {
+			&:hover {
+			    background: #000;
+			    -webkit-transition: all 0.3s ease 0s;
+			   	   -moz-transition: all 0.3s ease 0s;
+			            transition: all 0.3s ease 0s;
+			    a {
+				    -webkit-transition: all .3s ease;
+				       -moz-transition: all .3s ease;
+				            transition: all .3s ease;
+				    opacity: 0.5;
+				}
+			    img {
+				    transform: scale(1,1);
+				    cursor: url("../resources/images/icon-zoom-white.png"), pointer;
+				}
+				+ .mz-title {
+					background: #fff;
+				    position: absolute;
+				    bottom: -34px;
+    				-webkit-transition: all .3s ease;
+    				   -moz-transition: all .3s ease;
+				    		transition: all .3s ease;
+				}
+			}
+		}
+	}
+	&.mz-grid-gallery {
 		.mz-title {
-		    font-size: 13px;
-		    text-transform: uppercase;
-		    letter-spacing: 4px;
-		    position: absolute;
-		    width: 100%;
-		    bottom: 40px;
+		    position: static;
+		    padding: 40px 15px 30px;
 		}
 	}
 }
-/***\ Home Page Gallery ***/
+.mz-ancap-btn {
+	background: #fff;
+    border: 2px solid #000;
+    color: #000;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 25px auto 0;
+    padding: 18px 35px;
+    text-align: center;
+    text-transform: uppercase;
+    &:hover {
+    	background: #000;
+    	color: #fff;
+    	text-decoration: none;
+    }
+}
+   
+
+/***\ Home Page Gallery and Custom***/
+

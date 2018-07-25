@@ -44,13 +44,13 @@
     }
     .bx-wrapper {
         .bx-controls-direction {
-            width: 100%;
-            max-width: 1440px;
-            position: absolute;
-            margin: 0 auto;
-            top: 50%;
-            right: 0;
-            left: 0;
+            // width: 100%;
+            // max-width: 1440px;
+            // position: absolute;
+            // margin: 0 auto;
+            // top: 50%;
+            // right: 0;
+            // left: 0;
             a {
                 margin-top: -21px;
                 &.bx-next {
@@ -62,13 +62,20 @@
             }
         }
         .bx-pager {
+            bottom: 40px;
             &.bx-default-pager {
                 a {
-                    width: 15px;
-                    height: 15px;
-                    -moz-border-radius: 50%;
-                    -webkit-border-radius: 50%;
-                    border-radius: 50%;
+                    background: rgba(255,255,255,0.5);
+                    width: 30px;
+                    height: 3px;
+                            border-radius: 0;
+                       -moz-border-radius: 0;
+                    -webkit-border-radius: 0;
+                    &:hover, 
+                    &.active, 
+                    &:focus {
+                        background: #fff;
+                    }
                 }
             }
         }

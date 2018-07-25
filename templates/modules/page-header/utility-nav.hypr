@@ -7,10 +7,6 @@
 
         {% require_script "modules/login-links" %}
 
-        <li class="mz-utilitynav-item live-chat">
-            <a href="javascript:void(0);" class="mz-utilitynav-link" onclick="SnapEngage.startLink();"><i class="fa fa-comments"></i>Live Chat</a>    
-        </li>
-
         <li class="mz-utilitynav-item login-link">
             {% if not user.isAnonymous %} 
                 <div id="mz-logged-in-notice"> 
@@ -57,15 +53,15 @@
                     </div>
                     <!--/ My Account Dropdown -->
                 </div> 
-                
             {% else %}
-                <a href="javascript:void(0);" data-toggle="modal" data-target="#loginPopup" class="mz-utilitynav-link"><i class="fa fa-user"></i>{{ labels.logIn }}</a>
+                <a href="javascript:void(0);" data-toggle="modal" data-target="#loginPopup" class="mz-utilitynav-link">{{ labels.logIn }}</a>
             {% endif %}
         </li>
-
-        {% block global-cart-container %}
-            {% include "modules/page-header/global-cart-container" %} 
-        {% endblock global-cart-container %}
+        <li class="mz-utilitynav-item mz-search-icon">
+            <a href="javascript:void(0);" class="mz-utilitynav-link" data-toggle="modal" data-target="#searchPopup">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+        </li>
     </ul>
 </nav>
 

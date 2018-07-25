@@ -1,20 +1,25 @@
 ﻿<header class="mz-pageheader{% if themeSettings.bannerImageEnabled %} mz-pageheader-hasbanner {% endif %}">
-    <div class="mz-header-top">
-        {% include "modules/page-header/header-top" %}     	
-    </div>
     <div class="mz-header-bottom">
-        <div class="container"> 
-            {% block store-branding %}
-                {% include "modules/page-header/store-branding" %}
-            {% endblock store-branding %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    {% block store-branding %}
+                        {% include "modules/page-header/store-branding" %}
+                    {% endblock store-branding %}
+                </div>
 
-            {% block search-box %}
-                {% include "modules/page-header/search-box" %}
-            {% endblock search-box %}
-
-            {% block utility-nav %}
-                {% include "modules/page-header/utility-nav" %}
-            {% endblock utility-nav %}
+                <div class="col-md-8">
+                    {% block site-nav %}
+                        {% include "modules/site-nav" %}  
+                    {% endblock site-nav %}
+                </div>
+                
+                <div class="col-md-2">
+                    {% block utility-nav %}
+                        {% include "modules/page-header/utility-nav" %}
+                    {% endblock utility-nav %}
+                </div>
+            </div>
         </div>
     </div>
 </header> 

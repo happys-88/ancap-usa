@@ -1,10 +1,10 @@
 {
-  "name": "ancaptheme",
+  "name": "ancap-usa",
   "author": {
-    "name": "singh-vsc",
-    "email": "vsingh@stegtechnologies.com"
+    "name": "ashish-steg",
+    "email": "akumar3@stegtechnologies.com"
   },
-  "description": "",
+  "description": "ancap-usa",
   "version": "0.1.0",
   "scripts": {
     "clean": "rm -rf compiled",

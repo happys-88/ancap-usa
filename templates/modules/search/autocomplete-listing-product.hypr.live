@@ -21,4 +21,3 @@
 	    {{ model.content.productShortDescription|truncatewords(20)|safe }}
 	</div>
 {% endblock %}
-

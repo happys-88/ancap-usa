@@ -119,17 +119,10 @@
                 
                 {% block mobile-nav %} 
                     {% include "modules/mobile-nav" %}   
-                {% endblock mobile-nav %}       
-               
+                {% endblock mobile-nav %}
             </div>
 
-            <div role="main" id="page-content" class="mz-l-pagecontent container">    
-                {% block breadcrumbs %}
-                    {% if themeSettings.showBreadcrumbs %}
-                        {% include "modules/breadcrumbs" %}
-                    {% endif %}
-                {% endblock breadcrumbs %}
-                
+            <div role="main" id="page-content" class="mz-l-pagecontent container">                
                 {% block body-content %}
                     {% dropzone "body" scope="page" %}
                 {% endblock body-content %}

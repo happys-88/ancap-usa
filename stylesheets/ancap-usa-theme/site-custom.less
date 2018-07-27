@@ -50,48 +50,6 @@ body{
 .mz-button {
 	letter-spacing: 2px;
 }
-.mz-pageheader{
-	.mz-header-bottom{
-		padding: 5px 0;
-		.mz-storebranding{
-			.mz-logo{
-				background: url("../resources/images/ancap-logo-white.png") left top no-repeat;  
-				background-size: contain;
-				width: 80px;
-				height: 56px; 
-			}
-		}
-		.mz-utilitynav{
-			#global-cart{
-				.no-cart-item{
-					background: @primaryBtnColor;
-				}
-				.mz-button{ 
-					.mzPrimaryBtn();
-					border: 2px solid @primaryBtnColor;
-					transition:none;
-					&:hover{
-						.mzPrimaryBtnHover();
-					} 
-				}
-				&:before{
-					border-bottom-color: @primaryBtnColor;
-				} 
-			}
-		}
-		.mz-searchbox-button,
-		.no-cart-item{
-			background: @siteBaseColor;
-		}
-		.fa.fa-user,
-		.fa.fa-shopping-cart{
-			color: @siteBaseColor;
-		}
-		.mz-cartmonitor{
-			background: @primaryBtnColor; 
-		}
-	}
-}
 
 /**** Site Navigation ****/
 .mz-sitenav{
@@ -272,7 +230,21 @@ body{
 
 
 // Ancap USA
+.mz-pageheader {
+	.mz-header-bottom {
+		padding: 5px 0;
+		.mz-storebranding{
+			.mz-logo{
+				background: url("../resources/images/ancap-logo-black.png") left top no-repeat;  
+				background-size: contain;
+				width: 80px;
+				height: 56px; 
+			}
+		}
+	}
+}
 .mz-sticky-header {
+	background: #fff;
     position: absolute;
     width: 100%;
     left: 0;
@@ -290,6 +262,7 @@ body{
 		    max-width: 100%;
 	    	.mz-sitenav-link {
 	    		border-bottom: 2px solid transparent;
+	    		color: #000;
 	    		font-size: 12px;
 	    		font-weight: 600;
 	    		height: auto!important;
@@ -300,7 +273,8 @@ body{
 	    	&:hover {
 	    		>.mz-sitenav-link {
 				    background: transparent;
-				    border-bottom: 2px solid #fff;
+				    border-bottom: 2px solid #000;
+				    color: #000;
 				}
 			}
 	    }
@@ -308,18 +282,26 @@ body{
 	.mz-utilitynav {
 		margin-top: 24px;
 		.mz-utilitynav-link {
-		    color: #fff;
+		    color: #000;
 		    font-weight: 600;
 		    .fa {
-			    color: #fff;
-			    font-size: 16px;
+			    color: #000;
+			    font-size: 14px;
 			}
 		}
 		.mz-utilitynav-item {
 		    margin-left: 0;
 		    text-transform: uppercase;
 		    &:last-child {
-			    margin: 0 0 0 18px;
+			    margin: 5px 0 0 18px;
+			}
+		}
+		.mz-global-cart {
+			.mz-utilitynav-link {
+			    .fa {
+				    display: inline-block;
+				    margin-right: 10px;
+				}
 			}
 		}
 	}
@@ -344,7 +326,7 @@ body{
 						color: #000;
 						.fa {
 						    color: #000;
-						    font-size: 16px;
+						    font-size: 14px;
 						}
 					}
 				}
@@ -358,6 +340,66 @@ body{
 				&:hover {
 					>.mz-sitenav-link {
 					    border-bottom: 2px solid #000;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+.mz-homepage {
+	.mz-sticky-header {
+		background: transparent;
+		.mz-header-bottom {
+			.mz-storebranding {
+				.mz-logo {
+					background: url("../resources/images/ancap-logo-white.png") left top no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+		.mz-sitenav {
+		    .mz-sitenav-item {
+		    	.mz-sitenav-link {
+		    		border-bottom: 2px solid transparent;
+		    		color: #fff;
+		    	}
+		    	&:hover {
+		    		>.mz-sitenav-link {
+					    border-bottom: 2px solid #fff;
+					}
+				}
+		    }
+		}
+		.mz-utilitynav {
+			.mz-utilitynav-link {
+			    color: #fff;
+			    .fa {
+				    color: #fff;
+				}
+			}
+		}
+		&.fixed {
+		    background: #fff;
+		    .mz-header-bottom {
+				.mz-storebranding {
+					.mz-logo {
+						background: url("../resources/images/ancap-logo-black.png") left top no-repeat;
+						background-size: contain;
+					}
+				}
+			}
+			.mz-sitenav {
+				.mz-sitenav-item {
+					.mz-sitenav-link {
+					    color: #000;
+					}
+					&:hover {
+						>.mz-sitenav-link {
+						    border-bottom: 2px solid #000;
+						}
 					}
 				}
 			}
@@ -678,3 +720,95 @@ body{
 
 /***\ Home Page Gallery and Custom***/
 
+
+.mz-title-breadcrumbs {
+    float: left;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 80px 0;
+    margin-top: 25px;
+    .mz-category-name {
+    	p {
+    		font-size: 14px;
+    		letter-spacing: 1px;
+    		margin: 0;
+    	}
+    }
+    .separator-line {
+    	background: #fff;
+    	width: 30px;
+    	height: 2px;
+    	margin-top: 20px;
+    	-webkit-transition: width 1s;
+    				transition: width 1s;
+    }
+    &:hover {
+    	.separator-line {
+    		width: 80px;
+    	}
+    }
+}
+
+
+.mz-category {
+    .mz-productlist-tiled {
+        .mz-productlist-item {
+            min-height: 310px; 
+        }
+    }
+    .mz-productlisting-info {
+		.mz-new-arrival-tag,
+		.mz-quick-view,
+		#product-rating,
+		.mz-button,
+		.mz-product-msg {
+			display: none;
+	    	opacity: 0;
+		}
+		.see-price-in-cart {
+			display: none!important;
+		}
+	}
+}
+
+.mz-sitenav {
+	.mz-sitenav-sub-container {
+		background: rgba(27,22,28,0.95);
+		padding: 10px 25px 35px;
+		.mz-sitenav-all-categories {
+			padding: 0;
+			.mz-sitenav-sub {
+			    background: transparent;
+			    margin-top: 20px;
+			    .mz-sitenav-item {
+			    	margin: 0;
+					.mz-sitenav-link {
+						&.sub-link {
+							border-bottom: 1px solid rgba(255,255,255,0.3);
+							color: #fff;
+    						display: inline-block;
+							font-size: 11px;
+							font-weight: 600;
+							margin-bottom: 15px;
+						}
+					}
+					&:hover {
+						.mz-sitenav-link {
+						    background: transparent;
+						    border-bottom: 2px solid transparent;
+						}
+					}
+					.mz-sitenav-sub-sub {
+						.mz-sitenav-item {
+							.mz-sitenav-link {
+								color: #c8c8c8;
+								font-size: 11px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

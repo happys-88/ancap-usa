@@ -9,12 +9,16 @@
 
         <li class="mz-utilitynav-item login-link">
             {% if not user.isAnonymous %} 
-                <div id="mz-logged-in-notice"> 
+                <div class="mz-global-cart">
+                    {% comment %}
                     <span class="login-icon mz-mobile" data-toggle="dropdown">  
                         <i class="fa fa-user"></i><i class="fa fa-angle-down"></i>          
                     </span>
-                    <span class="user-name mz-utilitynav-link" data-toggle="dropdown">My Account</span>  
-                    
+                    {% endcomment %}
+                    <a class="mz-utilitynav-link" href="{% make_url "cart" %}">
+                        <i class="fa fa-shopping-cart"></i>(<span data-mz-role="cartcount">0</span>) {{ labels.item }}
+                    </a>
+                    {% comment %}
                     <!-- My Account Dropdown -->
                     <div class="dropdown-menu">
                         <div class="logged-user"></div>  
@@ -52,7 +56,8 @@
                         </div>
                     </div>
                     <!--/ My Account Dropdown -->
-                </div> 
+                    {% endcomment %}
+                </div>
             {% else %}
                 <a href="javascript:void(0);" data-toggle="modal" data-target="#loginPopup" class="mz-utilitynav-link">{{ labels.logIn }}</a>
             {% endif %}

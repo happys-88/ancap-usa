@@ -1,11 +1,29 @@
 ﻿.mz-productlisting {
-    .mz-productlisting-image{
+    .mz-productlisting-image {
         text-align: center; 
         min-height: 160px;
-        img{
+        img {
             max-width: 160px;
-            max-height: 160px; 
-        } 
+            max-height: 160px;
+        }
+        &.mz-image-hover {
+            img {
+                &:nth-of-type(2) {
+                    display: none;
+                }
+            }
+            &:hover {
+                img {
+                    &:first-of-type {
+                        display: none;
+                    }
+                    &:nth-of-type(2) {
+                        display: block;
+                        margin: 0 auto;
+                    }
+                }
+            } 
+        }
     }
     .mz-productlisting-info {
         margin-top: 5px;
@@ -90,15 +108,14 @@
     } */   
     &.mz-productlist-tiled { 
         .mz-productlist-item {
-            //width: 25%;
             margin-bottom: 30px;
             text-align: center;
             .mz-productlisting {
-                .mz-productlisting-image{
+                .mz-productlisting-image {
                     width: 100%; 
                     text-align: center; 
                 }
-                .mz-productlisting-info{
+                .mz-productlisting-info {
                     width: 100%;
                     text-align: center; 
                 }

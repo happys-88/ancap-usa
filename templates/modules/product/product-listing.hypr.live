@@ -1,13 +1,18 @@
 ﻿{% require_script "pages/stock-message" %}
 <div class="mz-productlisting {% block module-classes %}{% endblock module-classes %}" data-mz-product="{{ model.productCode }}">
-    <div class="mz-productlisting-image">
+    <div class="mz-productlisting-image {% if model.content.productImages.length >1 %}mz-image-hover{% endif %}">
         {% block product-image %}
         <a href="{% make_url "product" model %}">
             {% if model.mainImage.imageUrl %}
                 <img src="{% make_url "image" model.mainImage with max=themeSettings.listProductThumbSize as_parameter %}" {% if model.mainImage.altText %}alt="{{ model.mainImage.altText }}"{% endif %} />
             {% else %}
                 <span class="noimage-placeholder"><span class="noimage-text">{{ labels.productImagePlaceholder }}</span></span> 
-            {% endif %} 
+            {% endif %}
+            {% for image in model.content.productImages %}
+                {% if forloop.counter == 2 %}
+                    <img src="{% make_url "image" image with max=themeSettings.listProductThumbSize as_parameter %}" {% if model.mainImage.altText %}alt="{{ model.mainImage.altText }}"{% endif %} />
+                {% endif %}
+            {% endfor %}
         </a> 
         {% endblock product-image %}
     </div>

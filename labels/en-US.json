@@ -647,5 +647,8 @@
   "addons"                                : "POPULAR ADD-ONS",
   "viewAll"                               : "View All", 
   "disqusComments"                        : "There was trouble loading the comments.",
-  "addonSelectMsg"                        : "Press ctrl to select multiple addons"
+  "addonSelectMsg"                        : "Press ctrl to select multiple addons",
+
+  //Ancap USA
+  "orderedIncrements"                     : "Must be ordered in increments of 6."
 }

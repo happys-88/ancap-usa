@@ -1,8 +1,5 @@
 .shop-now-widget {
     position: relative;
-    .mz-image-container {
-       
-    }
     .mz-title {
         color: #fff;
         font-size: 118px;
@@ -16,18 +13,12 @@
         transform: translateY(-50%);
         z-index: 2
     }
-    .mz-image-overlay {
-        display: none;
-        background: rgba(0,0,0,0.5);
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        z-index: 1;
-    }
     &:hover {
-        .mz-image-overlay {
-            display: block;
+        .mz-image-container {
+            background: #000;
+            img {
+                opacity: 0.5;
+            }
         }
     }
 }

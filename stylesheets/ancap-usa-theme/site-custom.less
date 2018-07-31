@@ -37,53 +37,18 @@
 
 /**** Custom Changes ****/
 body{
-  background: @textColorWhite;
-  font-family: @fontFamily;
+  	background: @textColorWhite;
+  	font-family: @fontFamily;
+  	font-size: 13px;
+	color: #626262;
+	line-height: 23px;
+	letter-spacing: 0.02em;
 }
 .container {
     max-width: 1183px;
 }
-.mz-pageheader{
-	.mz-header-bottom{
-		padding: 5px 0;
-		.mz-storebranding{
-			.mz-logo{
-				background: url("../resources/images/ancap-logo-white.png") left top no-repeat;  
-				background-size: contain;
-				width: 80px;
-				height: 56px; 
-			}
-		}
-		.mz-utilitynav{
-			#global-cart{
-				.no-cart-item{
-					background: @primaryBtnColor;
-				}
-				.mz-button{ 
-					.mzPrimaryBtn();
-					border: 2px solid @primaryBtnColor;
-					transition:none;
-					&:hover{
-						.mzPrimaryBtnHover();
-					} 
-				}
-				&:before{
-					border-bottom-color: @primaryBtnColor;
-				} 
-			}
-		}
-		.mz-searchbox-button,
-		.no-cart-item{
-			background: @siteBaseColor;
-		}
-		.fa.fa-user,
-		.fa.fa-shopping-cart{
-			color: @siteBaseColor;
-		}
-		.mz-cartmonitor{
-			background: @primaryBtnColor; 
-		}
-	}
+.mz-button {
+	letter-spacing: 2px;
 }
 
 /**** Site Navigation ****/
@@ -240,13 +205,112 @@ body{
 		}
 	} 
 }
-.mz-product{
+
+
+.mz-product {
+	.mz-productcodes {
+	    font-size: 10px;
+	    font-weight: normal;
+	    letter-spacing: 3px;
+	    .mz-productcodes-productcode-label {
+	    	font-weight: normal;
+	    }
+	    .mz-productcodes-productcode {
+	    	color: #000;
+	    }
+	}
+	.separator-line {
+    	background: #000;
+    	width: 30px;
+    	height: 2px;
+    	margin: 18px 0 20px;
+    }
+    .options {
+
+    }
+	.mz-productdetail {
+		.mz-price {
+		    line-height: 30px;
+		}
+	}
+	.mz-retailer-buy {
+		.mz-button {
+			background: #fff;
+			border-color: #000;
+			color: #000;
+			font-size: 12px;
+			font-weight: 600;
+			letter-spacing: 2px;
+			margin-right: 20px;
+			padding: 8px 20px 9px;
+			&:hover {
+				background: #000;
+				color: #fff;
+			}
+		}
+	}
+	.mz-product-prop {
+	    border-top: 1px solid #e5e5e5;
+	    padding: 120px 0;
+	}
+	.mz-product-tabs {
+		.nav {
+		    &.nav-tabs {
+		    	border-bottom: none;
+		    	li {
+				    margin-right: 30px;
+				    a {
+				    	border: none;
+				    	border-bottom: 1px solid transparent;
+					    color: #999;
+					    font-size: 11px;
+					    font-weight: 700;
+					    letter-spacing: 2px;
+					    margin-right: 0;
+					    padding: 5px 0;
+					    text-transform: uppercase;
+					    &:hover {
+					    	background: #fff;
+					    	border-bottom: 1px solid #000;
+					    }
+					}
+					&.active {
+						a {
+							color: #000;
+							border-radius: 0;
+						    border-bottom: 1px solid #000;
+						}
+					}
+				}
+			}
+		}
+		.tab-content {
+		    font-size: 14px;
+		    line-height: 22px;
+		    min-height: 150px;
+		    padding: 20px 0;
+		}
+	}
 	#add-to-cart.mz-productdetail-addtocart{
-		background: @primaryBtnColor;
-		transition:none;
-		&:hover{.mzPrimaryBtnHover();}
+	    color: #ab2328;
+		background: #fff;
+	    border: 2px solid #ab2328;
+	    font-size: 14px;
+	    font-weight: 600;
+	    height: 42px;
+		&:hover {
+			color: #fff;
+			background: #ab2328;
+		}
+	}
+	.mz-ordered-increments {
+	    color: #626262;
+	    float: left;
+	    width: 100%;
+	    text-transform: none;
 	}
 }
+
 .mz-cart{
 	.mz-l-container{
 		.continue-btn, #cart-guest-checkout{
@@ -265,7 +329,21 @@ body{
 
 
 // Ancap USA
+.mz-pageheader {
+	.mz-header-bottom {
+		padding: 5px 0;
+		.mz-storebranding{
+			.mz-logo{
+				background: url("../resources/images/ancap-logo-black.png") left top no-repeat;  
+				background-size: contain;
+				width: 80px;
+				height: 56px; 
+			}
+		}
+	}
+}
 .mz-sticky-header {
+	background: #fff;
     position: absolute;
     width: 100%;
     left: 0;
@@ -283,6 +361,7 @@ body{
 		    max-width: 100%;
 	    	.mz-sitenav-link {
 	    		border-bottom: 2px solid transparent;
+	    		color: #000;
 	    		font-size: 12px;
 	    		font-weight: 600;
 	    		height: auto!important;
@@ -293,7 +372,8 @@ body{
 	    	&:hover {
 	    		>.mz-sitenav-link {
 				    background: transparent;
-				    border-bottom: 2px solid #fff;
+				    border-bottom: 2px solid #000;
+				    color: #000;
 				}
 			}
 	    }
@@ -301,17 +381,26 @@ body{
 	.mz-utilitynav {
 		margin-top: 24px;
 		.mz-utilitynav-link {
-		    color: #fff;
+		    color: #000;
+		    font-weight: 600;
 		    .fa {
-			    color: #fff;
-			    font-size: 16px;
+			    color: #000;
+			    font-size: 14px;
 			}
 		}
 		.mz-utilitynav-item {
 		    margin-left: 0;
 		    text-transform: uppercase;
 		    &:last-child {
-			    margin: 0 0 0 18px;
+			    margin: 5px 0 0 18px;
+			}
+		}
+		.mz-global-cart {
+			.mz-utilitynav-link {
+			    .fa {
+				    display: inline-block;
+				    margin-right: 10px;
+				}
 			}
 		}
 	}
@@ -336,7 +425,7 @@ body{
 						color: #000;
 						.fa {
 						    color: #000;
-						    font-size: 16px;
+						    font-size: 14px;
 						}
 					}
 				}
@@ -356,8 +445,99 @@ body{
 		}
 	}
 }
+.mz-homepage {
+	.mz-sticky-header {
+		background: transparent;
+		.mz-header-bottom {
+			.mz-storebranding {
+				.mz-logo {
+					background: url("../resources/images/ancap-logo-white.png") left top no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+		.mz-sitenav {
+		    .mz-sitenav-item {
+		    	.mz-sitenav-link {
+		    		border-bottom: 2px solid transparent;
+		    		color: #fff;
+		    	}
+		    	&:hover {
+		    		>.mz-sitenav-link {
+					    border-bottom: 2px solid #fff;
+					}
+				}
+		    }
+		}
+		.mz-utilitynav {
+			.mz-utilitynav-link {
+			    color: #fff;
+			    .fa {
+				    color: #fff;
+				}
+			}
+		}
+		&.fixed {
+		    background: #fff;
+		    .mz-header-bottom {
+				.mz-storebranding {
+					.mz-logo {
+						background: url("../resources/images/ancap-logo-black.png") left top no-repeat;
+						background-size: contain;
+					}
+				}
+			}
+			.mz-sitenav {
+				.mz-sitenav-item {
+					.mz-sitenav-link {
+					    color: #000;
+					}
+					&:hover {
+						>.mz-sitenav-link {
+						    border-bottom: 2px solid #000;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 .fixed-header {
     margin-top: 0;
+}
+.mz-sitenav {
+	.mz-sitenav-sub-container {
+		background: rgba(27,22,28,0.95);
+		padding: 10px 25px 35px;
+		.mz-sitenav-all-categories {
+			padding: 0;
+			.mz-sitenav-sub {
+			    background: transparent;
+			    margin-top: 20px;
+			    .mz-sitenav-item {
+			    	margin: 0;
+					.mz-sitenav-link {
+						&.sub-link {
+							border-bottom: 1px solid rgba(255,255,255,0.3);
+							color: #fff;
+    						display: inline-block;
+							font-size: 11px;
+							font-weight: 600;
+							margin-bottom: 15px;
+						}
+					}
+					.mz-sitenav-sub-sub {
+						.mz-sitenav-item {
+							.mz-sitenav-link {
+								color: #c8c8c8;
+								font-size: 11px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 #searchPopup {
@@ -548,44 +728,176 @@ body{
 	}
 }
 
-/*** Home Page Gallery ***/
+
+.mz-features-container {
+	padding: 120px 0;
+	h3 {
+		color: #dcc59c;
+		font-size: 24px;
+		font-weight: bold;
+		margin: 0 0 20px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+}
+
+/*** Home Page Gallery and Custom ***/
 .mz-grid-gallery {
+	border-top: 1px solid #e5e5e5;
 	ul {
-		li {
-			float: left;
-			overflow: hidden;
-			position: relative;
-			width: 25%;
-			text-align: center;
-			transition: all 0.3s ease 0s;
+		font-size: 0;
+	}
+	li {
+		display: inline-block;
+		overflow: hidden;
+		position: relative;
+		width: 24.98%;
+		vertical-align: top;
+		text-align: center;
+		transition: all 0.3s ease 0s;
+		.mz-gallery-img {
+			a {
+				display: block;
+			}
 			&:hover {
-				.mz-gallery-img {
-				    background: #000;
-				    a {
-					    display: block;
-					            transform: scale(1.1,1.1);
-					    -webkit-transform: scale(1.1,1.1);
-					    	-ms-transform: scale(1.1,1.1);
-					            transition: all .3s ease;
-					    -webkit-transition: all .3s ease;
-					       -moz-transition: all .3s ease;
-					    opacity: 0.85;
-					}
-				    img {
-					    transform: scale(1.1,1.1);
-					    transition: all 0.5s;
-					}
+			    background: #000;
+			    a {
+				    -webkit-transition: all .3s ease;
+				       -moz-transition: all .3s ease;
+				            transition: all .3s ease;
+				    opacity: 0.85;
+				}
+			    img {
+				    transform: scale(1.1,1.1);
+				    transition: all 0.5s;
 				}
 			}
 		}
+	}
+	.mz-title {
+	    font-size: 13px;
+	    text-transform: uppercase;
+	    letter-spacing: 4px;
+	    position: absolute;
+	    width: 100%;
+	    bottom: 40px;
+	}
+}
+
+.mz-custom-work {
+	padding: 120px 0;
+	h2 {
+		color: #dcc59c;
+	    font-size: 52px;
+	    font-weight: 600;
+	    margin: 0 0 75px;
+	    text-align: center;
+	}
+	li {
+		.mz-gallery-img {
+			&:hover {
+			    background: #000;
+			    -webkit-transition: all 0.3s ease 0s;
+			   	   -moz-transition: all 0.3s ease 0s;
+			            transition: all 0.3s ease 0s;
+			    a {
+				    -webkit-transition: all .3s ease;
+				       -moz-transition: all .3s ease;
+				            transition: all .3s ease;
+				    opacity: 0.5;
+				}
+			    img {
+				    transform: scale(1,1);
+				    cursor: url("../resources/images/icon-zoom-white.png"), pointer;
+				}
+				+ .mz-title {
+					background: #fff;
+				    position: absolute;
+				    bottom: -34px;
+    				-webkit-transition: all .3s ease;
+    				   -moz-transition: all .3s ease;
+				    		transition: all .3s ease;
+				}
+			}
+		}
+	}
+	&.mz-grid-gallery {
 		.mz-title {
-		    font-size: 13px;
-		    text-transform: uppercase;
-		    letter-spacing: 4px;
-		    position: absolute;
-		    width: 100%;
-		    bottom: 40px;
+		    position: static;
+		    padding: 40px 15px 30px;
 		}
 	}
 }
-/***\ Home Page Gallery ***/
+.mz-ancap-btn {
+	background: #fff;
+    border: 2px solid #000;
+    color: #000;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 25px auto 0;
+    padding: 18px 35px;
+    text-align: center;
+    text-transform: uppercase;
+    &:hover {
+    	background: #000;
+    	color: #fff;
+    	text-decoration: none;
+    }
+}
+   
+
+/***\ Home Page Gallery and Custom***/
+
+
+.mz-title-breadcrumbs {
+    float: left;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 80px 0;
+    margin-top: 25px;
+    .mz-category-name {
+    	p {
+    		font-size: 14px;
+    		letter-spacing: 1px;
+    		margin: 0;
+    	}
+    }
+    .separator-line {
+    	background: #fff;
+    	width: 30px;
+    	height: 2px;
+    	margin-top: 20px;
+    	-webkit-transition: width 1s;
+    				transition: width 1s;
+    }
+    &:hover {
+    	.separator-line {
+    		width: 80px;
+    	}
+    }
+}
+
+
+.mz-category {
+    .mz-productlist-tiled {
+        .mz-productlist-item {
+            min-height: 310px; 
+        }
+    }
+    .mz-productlisting-info {
+		.mz-new-arrival-tag,
+		.mz-quick-view,
+		#product-rating,
+		.mz-button,
+		.mz-product-msg {
+			display: none;
+	    	opacity: 0;
+		}
+		.see-price-in-cart {
+			display: none!important;
+		}
+	}
+}

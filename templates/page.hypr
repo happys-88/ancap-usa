@@ -78,9 +78,10 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{% make_url "stylesheet" "/stylesheets/bootstrap/bootstrap.min.css" %}" title="default" />
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
             <link rel="stylesheet" href="{% make_url "stylesheet" "/stylesheets/slider/bxslider.css" %}" title="default" />
             <link rel="stylesheet" href="{% make_url "stylesheet" "/stylesheets/storefront.less" %}" title="default" />
+            <link rel="stylesheet" href="{% make_url "cdn" "/cms/files/override.css" %}" /> 
         {% endblock stylesheets %}
         
         {% block head-tag-scripts %}
@@ -118,17 +119,10 @@
                 
                 {% block mobile-nav %} 
                     {% include "modules/mobile-nav" %}   
-                {% endblock mobile-nav %}       
-               
+                {% endblock mobile-nav %}
             </div>
 
-            <div role="main" id="page-content" class="mz-l-pagecontent container">    
-                {% block breadcrumbs %}
-                    {% if themeSettings.showBreadcrumbs %}
-                        {% include "modules/breadcrumbs" %}
-                    {% endif %}
-                {% endblock breadcrumbs %}
-                
+            <div role="main" id="page-content" class="mz-l-pagecontent container">                
                 {% block body-content %}
                     {% dropzone "body" scope="page" %}
                 {% endblock body-content %}

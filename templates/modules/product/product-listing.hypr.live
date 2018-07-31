@@ -1,13 +1,18 @@
 ﻿{% require_script "pages/stock-message" %}
 <div class="mz-productlisting {% block module-classes %}{% endblock module-classes %}" data-mz-product="{{ model.productCode }}">
-    <div class="mz-productlisting-image">
+    <div class="mz-productlisting-image {% if model.content.productImages.length >1 %}mz-image-hover{% endif %}">
         {% block product-image %}
         <a href="{% make_url "product" model %}">
             {% if model.mainImage.imageUrl %}
                 <img src="{% make_url "image" model.mainImage with max=themeSettings.listProductThumbSize as_parameter %}" {% if model.mainImage.altText %}alt="{{ model.mainImage.altText }}"{% endif %} />
             {% else %}
                 <span class="noimage-placeholder"><span class="noimage-text">{{ labels.productImagePlaceholder }}</span></span> 
-            {% endif %} 
+            {% endif %}
+            {% for image in model.content.productImages %}
+                {% if forloop.counter == 2 %}
+                    <img src="{% make_url "image" image with max=themeSettings.listProductThumbSize as_parameter %}" {% if model.mainImage.altText %}alt="{{ model.mainImage.altText }}"{% endif %} />
+                {% endif %}
+            {% endfor %}
         </a> 
         {% endblock product-image %}
     </div>
@@ -29,6 +34,7 @@
             {% endif %}
         {% endblock product-code %}
 
+        {% comment %}
         {% block product-rating %}     
             <div id="product-rating">
                 <div class="yotpo bottomline">
@@ -37,11 +43,14 @@
                     </div>
                 </div> 
             </div>
-        {% endblock product-rating %}    
+        {% endblock product-rating %}
+        {% endcomment %}   
         
-        <div class="mz-price-in-cart">
-            {% include "modules/product/price-show-stack" %}
-        </div>
+        {% if not user.isAnonymous %}
+            <div class="mz-price-in-cart">
+                {% include "modules/product/price-show-stack" %}
+            </div>
+        {% endif %}
 
         {% block product-extrainfo %}
             {% if dealOfTheDay %}
@@ -57,7 +66,9 @@
                 {% endif %}
             {% endif %}
         {% endblock product-extrainfo %}
-       
+
+
+        {% comment %}
         {% with model|get_product_attribute("tenant~login-for-price") as loginForPrice %}
          {% if loginForPrice.values|first|prop("value") === true %}
            {% if not user.isAnonymous %}
@@ -70,8 +81,8 @@
              {% include "modules/product/product-add-to-cart" %}
              <button class="mz-quick-view" data-mz-productcode-quickview="{{ model.productCode }}" data-toggle="modal" data-target="#quickViewModal">{{ labels.quickShop }}</button>
          {% endif %} 
-       {% endwith %}
-        
+        {% endwith %}
+          
         <div class="mz-product-msg">
             <div class="stock-messages" id="stock-messages-{{ model.productCode }}">
                 {% if model.inventoryInfo.onlineStockAvailable < 10 and model.inventoryInfo.onlineStockAvailable > 0 %}
@@ -98,12 +109,13 @@
                 {% endfor %}
             </div>
         </div>
-
+       
         {% with model|get_product_attribute("tenant~new-arrival") as newArrival %}
             {% if newArrival.values|first|prop("value") == true %}
                 <span class="mz-new-arrival-tag">{{ labels.new }}</span>
             {% endif %} 
-        {% endwith %}   
+        {% endwith %} 
+        {% endcomment %} 
     </div>
 </div>
-{% require_script "pages/stock-message" %}
+{# {% require_script "pages/stock-message" %} #}

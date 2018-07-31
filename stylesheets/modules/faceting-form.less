@@ -1,16 +1,21 @@
 ﻿.mz-facetingform {
     h4 {
-        font-size: 14px;
-        color: @siteBaseColor;
-        font-weight: bold;
+        font-size: 18px;
+        color: #DCC59C;
+        cursor: pointer;
+        font-weight: 600;
         line-height: 24px;
+        letter-spacing: 2px;
+        position: relative;
         text-transform: uppercase;
         &:after {
-            content: "---";
-            display: block;
-            color: #808b98;
+            content: "\f068";
             font-size: 16px;
-            line-height: 10px;
+            font-family: "FontAwesome";
+            font-weight: normal;
+            position: absolute;
+            top: 1px;
+            right: 0;
         }
     }
     .mz-clear-all {
@@ -128,12 +133,12 @@
     .mz-facetingform-facet-hierarchy {
         .mz-facetingform-facet-hierarchy {
             li {
-                line-height: 22px;
+                line-height: 30px;
                 margin: 0 0 0 10px;
                 a {
-                    color: #495363;
+                    color: #888;
                     &:hover {
-                        text-decoration: underline;
+                        color: #dcc59c;
                     }
                 }
             }

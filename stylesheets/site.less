@@ -39,7 +39,7 @@ img{
 .mz-l-pagecontent{
 	background: @textColorWhite;
 	margin-bottom: @gutter; 
-	padding: 90px 15px; 
+	padding: 90px 15px 0; 
 	overflow: visible; 
 	.mz-cms-row {
 		max-width: 100%;
@@ -58,19 +58,19 @@ img[data-mztp]{
 .mz-l-pagecontent {
   	h1 {
 		&.mz-pagetitle {
-		    color: @textColorWhite;
+		    color: #000;
 		    border-bottom: 1px solid #e0e0e0;
 		    font-size: 30px;
-		    font-weight: 600;
-		    margin-top: 16px;
-		    margin-bottom: 40px;
+		    font-weight: 500;
+		    margin: 16px 0 40px;
+		    letter-spacing: 4px;
 		    padding-bottom: 12px;
 		    text-transform: uppercase;
 		}
 	}
 }
 
-.heading-2{
+.heading-2 {
 	font-size: @headingTwoFontSize;
 	color: @headingTwoColor;
 	line-height: @headingTwoFontSize+4;
@@ -535,8 +535,10 @@ img[data-mztp]{
 	.mz-l-pagecontent {
 		h1 {
 			&.mz-pagetitle {
+				color: #fff;
 				border-bottom: none;
 				font-size: 20px;
+    			font-weight: 600;
 				letter-spacing: 6px;
 			    line-height: 45px;
 			    margin: 0 0 5px;
@@ -944,12 +946,12 @@ img[data-mztp]{
 				}
 			}
 		}
-		.is-saleprice{
+		.is-saleprice {
 			color: inherit;
 			font-weight: normal; 
 		}
-		.mz-discount-row{
-			color: @linkColor;  
+		.mz-discount-row {
+			color: #000;  
 		}
 		
 	 }
@@ -957,12 +959,12 @@ img[data-mztp]{
 		margin-top: 15px;  
 		span {
 			display: inline-block;
-			&:last-child{
+			&:last-child {
 				width: 90px; 
 			}
 		}
 	 }
-	 .mz-order-total{
+	 .mz-order-total {
 	 	margin-top: 10px;  
 	 }
 	 .print-in-voice {

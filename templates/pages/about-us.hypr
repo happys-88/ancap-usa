@@ -7,8 +7,23 @@
 {% block body-content %}
 
 <div class="mz-l-container"> 
-	
-    <div class="row"> 
+    <div class="row">
+    	<section class="mz-aboutus-banner">
+			<div class=" container">
+				<div class=" row">
+					<div class="col-md-2">
+						<div class="mz-aboutus-title">
+							<span>About</span>
+							<span class="mz-us">US</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{% dropzone "aboutus-tabs" scope="template" %}
+
+		{% comment %}
         <div class="col-xs-12 col-sm-9 pull-right">
 			<div class="mz-customer-service-section">
 				<h3 class="mz-l-stack-sectiontitle">{{ model.properties.title|safe }}</h3>   
@@ -21,6 +36,7 @@
 				{% include "pages/content-left-nav" %} 
 			</div>
 		</div>
+		{% endcomment %}
     </div> 
 </div> 
 {% endblock body-content %} 

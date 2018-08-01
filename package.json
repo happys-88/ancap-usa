@@ -1,10 +1,10 @@
 {
-  "name": "ancap-usa",
+  "name": "AncapUSA_MasterTheme",
   "author": {
-    "name": "ashish-steg",
-    "email": "akumar3@stegtechnologies.com"
+    "name": "Happy",
+    "email": "hmasih@stegtechnologies.com"
   },
-  "description": "ancap-usa",
+  "description": "AncapUSA_MasterTheme", 
   "version": "0.1.0",
   "scripts": {
     "clean": "rm -rf compiled",

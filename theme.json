@@ -8,7 +8,7 @@
     "isTablet": true,
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "525f49711262faddeb5c906a998a6c7508eb57d8"
+      "commit": "3be134787f20eb452c22b6e5dcd6b60d3dc4820d"
     },
     "name": "Ancap USA Theme",
     "baseTheme": "https://github.com/happys-88/ancap-usa",
@@ -873,7 +873,7 @@
     "noHasstleReturnTooltip": "",
     "tryBeforeYouBuyTooltip": "",
     "priceMatchGuaranteeTooltip": "",
-    "freeShippingTooltip": "" 
+    "freeShippingTooltip": ""
   },
   "layoutWidgets": [
     {

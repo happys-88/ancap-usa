@@ -7,7 +7,7 @@
                     <h3 class="mz-pagetitle">{{ labels.signInCheckout }}</h3>
                     <p>{{ labels.signInCheckoutMsg }}</p>
                     <form method="post" class="mz-loginform mz-loginform-page" name="mz-loginform" action="">
-                       <input type="hidden" name="returnUrl" value="{{ model.returnUrl }}" />
+                       <input type="hidden" name="returnUrl" value="/checkout" />
                        <div class="mz-l-formfieldgroup">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>

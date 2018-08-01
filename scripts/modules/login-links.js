@@ -241,7 +241,11 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
         },
         handleLoginComplete: function (returnUrl) {
             if ( returnUrl ){
-                window.location.href= returnUrl;
+                // window.location.href= returnUrl;
+                var url = HyprLiveContext.locals.pageContext.url;
+                var domain = url.split('?')[0];
+                url = domain + returnUrl;
+                window.location = url;
             }else{
                 window.location.reload();
             }

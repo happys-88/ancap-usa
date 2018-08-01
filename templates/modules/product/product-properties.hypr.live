@@ -35,7 +35,7 @@
                 {% endif %}
             {% endfor %}
         </ul>
-        <div class="tab-content mz-mobile-tabs nav nav-tabs">
+        <div class="tab-content mz-mobile-tabs">
             {% for property in model.properties %}
                 {% if property.attributeFQN == "tenant~field_overview" or property.attributeFQN == "tenant~field_features" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" %}
                     {% if property.attributeFQN == "tenant~field_overview" %} 

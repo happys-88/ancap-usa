@@ -12,35 +12,31 @@
 {% block body-tag-classes %}mz-cart{% endblock body-tag-classes %} 
 
 {% block body-content %}
-
-{% require_script "pages/cart" %}
-{% require_script "pages/product-upsells" %}   
-
-{% preload_json model "cart" %}
-
-<div class="mz-l-container">
-	<h1 class="mz-pagetitle">{{ labels.cart }}</h1>
-	<!-- Check if model is not empty and form product table if not-->
-	{% if not model.isEmpty %}  
-		<form method="post" action="{{ siteContext.secureHost }}{{siteContext.siteSubdirectory}}/cart/checkout" id="cartform">
-			{% dropzone "cart-top" scope="template" %}
-			<input type="hidden" name="id" value="{{model.id}}" />
-	        {% include "modules/common/message-bar" with model=model.messages %}
-	        <div class="mz-table mz-table-cart" id="cart">
-	            {% include "modules/cart/cart-table" %}
-	        </div>
-		</form>
-	
-	<!-- Show empty cart if model is empty -->
-	{% else %}
-		<div class="col-xs-12 mz-cart-empty text-center">
-			<p>{{ labels.cartEmpty }}</p>
-			<a class="mz-button mz-button-large continue-btn" href="/">{{ labels.continueShopping }}</a> 
-		</div>
-    {% endif %}
-
-	<!-- Cart Dropzone -->
-	{% dropzone "cart-advertising" scope="template" %}  
-</div>
-
+	{% require_script "pages/cart" %}
+	{# {% require_script "pages/product-upsells" %} #}   
+	{% preload_json model "cart" %}
+	<div class="mz-l-container">
+		<h1 class="mz-pagetitle">{{ labels.cart }}</h1>
+		<!-- Check if model is not empty and form product table if Not -->
+		{% if not model.isEmpty %}  
+			<form method="post" action="{{ siteContext.secureHost }}{{siteContext.siteSubdirectory}}/cart/checkout" id="cartform">
+				{% dropzone "cart-top" scope="template" %}
+				<input type="hidden" name="id" value="{{model.id}}" />
+		        {% include "modules/common/message-bar" with model=model.messages %}
+		        <div class="mz-table mz-table-cart" id="cart">
+		            {% include "modules/cart/cart-table" %}
+		        </div>
+			</form>
+		<!-- Show empty cart if model is empty -->
+		{% else %}
+			<div class="col-xs-12 mz-cart-empty text-center">
+				<p>{{ labels.cartEmpty }}</p>
+				<a class="mz-button mz-button-large continue-btn" href="/">{{ labels.continueShopping }}</a> 
+			</div>
+	    {% endif %}
+	    
+		<!-- Cart Dropzone -->
+		{% dropzone "cart-advertising" scope="template" %}
+		<!--/ Cart Dropzone -->
+	</div>
 {% endblock body-content %} 

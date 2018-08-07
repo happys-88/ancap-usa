@@ -1,67 +1,121 @@
+.mz-homepage {
+    #page-wrapper {
+        height: 100%;
+    }
+    .mz-l-pagecontent {
+        &.container {
+            height: 100%;
+        }
+    }
+    #mz-drop-zone-home-slider {
+        height: 100%;
+        div {
+            height: 100%;
+        }
+    }
+}
+
 #mz-home-slider {
     .bx-viewport {
-        min-height: 460px;
-        overflow: hidden;
+        height: 100%!important;
+        cursor: w-resize;
     }
+    
     .slider {
-        visibility: hidden;
         .mz-slide {
             display: block;
             background-position: center center; 
             background-size: cover;
-            min-height: 460px;
+            min-height: 100%;
+            height: 100%;
         }
         .mz-slide-details {
-            width: 40%;
-            margin: auto;
+            height: auto;
             position: absolute;
-            bottom: 42px;
-            right: 18%;
-            text-align: center;
+            right: 0;
+            bottom: 79px;
+            left: 0;
+            text-transform: uppercase;
             h2 {
                 color: #fff;
-                font-size: 120px;
-                text-transform: uppercase; 
-                font-weight: 900;
-                margin: 0 0 10px;
+                font-size: 15px;
+                font-weight: 300;
+                letter-spacing: 7px;
+                margin-bottom: 30px;
             }
             p {
                 color: #fff;
-                font-size: 20px;
-                margin: 0 0 @gutter;
+                font-size: 22px;
+                font-weight: 600;
+                letter-spacing: 4px;
+                line-height: 30px;
+                margin-bottom: 55px;
             }
-            button {
-                font-size: @fontSizeLarger;
-                color: #fff;
-                background: #d15f2a;
-                padding: 12px 14px;
-                font-weight: normal;
-                border: none;
-                text-transform: none;
-                margin: 0;
+            .mz-button {
+                background: transparent;
+                border: 2px solid #fff;
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: 600;
+                letter-spacing: 3px;
+                line-height: 23px;
+                padding: 18px 35px;
+                text-transform: uppercase;
+                &:hover {
+                    background: #fff;
+                    border: 2px solid #fff;
+                    color: #000;
+                }
             }
         }
     }
+    
     .bx-wrapper {
+        padding: 0;
         .bx-controls-direction {
-            // width: 100%;
-            // max-width: 1440px;
-            // position: absolute;
-            // margin: 0 auto;
-            // top: 50%;
-            // right: 0;
-            // left: 0;
+            display: none;
             a {
-                margin-top: -21px;
+                margin-top: 0;
+                width: 33px;
+                height: 70px;
+                transform: translateY(-50%);
+                &:after {
+                    color: #000;
+                    background: #fff;
+                    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+                    display: block;
+                    font-size: 24px;
+                    font-family: "FontAwesome";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    padding: 23px 10px;
+                    text-indent: 0px;
+                }
                 &.bx-next {
-                    right: 15px;
+                    right: 0;
+                    &:after {
+                        content: "\f105";
+                        border-radius: 2px 0 0px 2px;                      
+                    }
                 }
                 &.bx-prev {
-                    left: 15px;
+                    left: 0;
+                    &:after {
+                        content: "\f104";
+                        border-radius: 0px 2px 2px 0px;
+                    }
                 }
             }
         }
+        &:hover {
+            .bx-controls-direction {
+                display: block;
+            }
+        }
         .bx-pager {
+            height: auto;
             bottom: 40px;
             &.bx-default-pager {
                 a {

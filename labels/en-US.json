@@ -650,5 +650,14 @@
   "addonSelectMsg"                        : "Press ctrl to select multiple addons",
 
   //Ancap USA
-  "orderedIncrements"                     : "Must be ordered in increments of 6."
+  "orderedIncrements"                     : "Must be ordered in increments of 6.",
+  "customRequestForm"                     : "Custom request form",
+  "customRequestFormMsg"                  :  "For any questions regarding information requested below, review our FAQ below or email custom@ancapusa.com",
+  "collectionSize"                        :  "Collection, Size, And Quantity of all Items to be Customized",
+  "undecoratedItems"                      :  "Undecorated items",
+  "uploadVectorDesign"                    :  "Upload Vector Design Files and/or Design Guides",
+  "additionalVectorFiles"                 :  "Additional Vector Files",
+  "pantoneDesign"                         :  "Pantone #'s for colors in design",
+  "placementInstructions"                 :  "Placement instructions",
+  "notes"                                 :  "Notes *"
 }

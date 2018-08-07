@@ -1,0 +1,21 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %}  - {% parent %}{% endblock title-tag-content %}
+{% block body-tag-classes %} mz-quality {% endblock body-tag-classes %}
+{% block body-content %}
+
+    {% dropzone "quality-listing" scope="page" %}
+
+    {# {% dropzone "quality-video" scope="page" %} #} 
+    <section class="mz-video-container">
+        <div class="mz-video-wrapper">
+            <video autoplay="" muted="" loop="">
+                <source src="http://cdn-sb.mozu.com/25517-m1/cms/files/3633e0d2-5d7b-4d5c-a325-666d32c107a2" type="video/mp4">
+            </video>
+        </div>
+        <div class="mz-gradient-overlay"></div>
+    </section>
+    
+    {% dropzone "quality-advanced-features" scope="page" %}
+    
+{% endblock body-content %}

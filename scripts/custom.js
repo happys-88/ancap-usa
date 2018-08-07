@@ -13,9 +13,8 @@ define([
 		maxSlides: 1,
 		moveSlides: 1,
 		slideMargin: 0,
-		infiniteLoop: false,
+		infiniteLoop: true,
 		pager: true,
-		hideControlOnEnd: true,
 		touchEnabled: true,
 		onSliderLoad: function() {
 			$(".slider").css("visibility", "visible");

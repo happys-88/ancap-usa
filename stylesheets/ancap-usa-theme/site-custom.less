@@ -42,24 +42,6 @@ body{
 	letter-spacing: 2px;
 }
 
-/**** Site Navigation ****/
-.mz-sitenav{
-	.mz-sitenav-item{
-		&:hover{
-			>.mz-sitenav-link{ 
-				background: #5e5f5e;
-			}
-		}
-		.mz-sitenav-link{
-			&.is-current{
-				background: #5e5f5e;
-			} 
-		} 
-	} 
-}  
-
-
-
 .heading-2{
 	color: @secondaryBtnColor;  
 	&:after{
@@ -197,6 +179,12 @@ body{
 	} 
 }
 
+.separator-line {
+	background: #000;
+	width: 30px;
+	height: 2px;
+	margin: 18px 0 20px;
+}
 
 .mz-product-tabs {
 	.nav {
@@ -250,12 +238,6 @@ body{
 	    	color: #000;
 	    }
 	}
-	.separator-line {
-    	background: #000;
-    	width: 30px;
-    	height: 2px;
-    	margin: 18px 0 20px;
-    }
     .options {
 
     }
@@ -330,7 +312,8 @@ body{
 				background: url("../resources/images/ancap-logo-black.png") left top no-repeat;  
 				background-size: contain;
 				width: 80px;
-				height: 56px; 
+				height: 56px;
+				margin-top: 5px;
 			}
 		}
 	}
@@ -346,6 +329,7 @@ body{
 	    background: transparent;
 	    .mz-sitenav-list {
 	    	margin-top: 10px;
+	    	display: block;
 		    text-align: right;
 		}
 	    .mz-sitenav-item {
@@ -522,11 +506,28 @@ body{
 					.mz-sitenav-sub-sub {
 						.mz-sitenav-item {
 							.mz-sitenav-link {
+								background: transparent;
 								color: #c8c8c8;
 								font-size: 11px;
 							}
+							&:hover {
+								.mz-sitenav-link {
+									color: #fff;
+									background: transparent;
+									border-bottom-color: transparent;									
+								}
+							}
 						}
 					}
+				}
+			}
+		}
+	}
+	.mz-sitenav-item {
+		&.has-dropdown {
+			&:hover {
+				.top-arrow {
+    				display: none;
 				}
 			}
 		}
@@ -660,6 +661,7 @@ body{
 				a {
 					color: #000;
 					display: inline-block;
+					font-size: 14px;
 					line-height: 26px;
 					text-transform: capitalize;
 					&:hover {
@@ -677,49 +679,14 @@ body{
 	    background: #252525;
 	    color: #888888;
 	    font-size: 11px;
-	    padding: 22px 45px;
+	    line-height: 18px;
+	    padding: 21px 45px;
 	    text-transform: uppercase;
 	}
 }
 
 
-#mz-home-slider {
-	.slider {
-		.mz-slide-details {
-			width: 1183px;
-			right: 0;
-		    bottom: 79px;
-		    left: 0;
-		    text-align: left;
-			text-transform: uppercase;
-			h2 {
-			    font-size: 14px;
-			    font-weight: 300;
-			    letter-spacing: 5px;
-			    margin-bottom: 30px;
-			}
-			p {
-			    font-size: 22px;
-			    letter-spacing: 4px;
-			    margin-bottom: 50px;
-			}
-			.mz-button {
-			    background: transparent;
-			    border: 2px solid #fff;
-			    font-size: 18px;
-			    letter-spacing: 3px;
-			    line-height: 23px;
-			    padding: 18px 35px;
-			    text-transform: uppercase;
-			    &:hover {
-			    	background: #fff;
-			    	border: 2px solid #fff;
-			    	color: #000;
-			    }
-			}
-		}
-	}
-}
+
 
 
 .mz-features-container {
@@ -852,6 +819,18 @@ body{
     padding: 80px 0;
     margin-top: 25px;
     .mz-category-name {
+    	h1 {
+    		&.mz-pagetitle {
+				color: #fff;
+				border-bottom: none;
+				font-size: 20px;
+				font-weight: 600;
+				letter-spacing: 6px;
+				line-height: 45px;
+				margin: 0 0 5px;
+				padding-bottom: 0;
+    		}
+    	}		
     	p {
     		font-size: 14px;
     		letter-spacing: 1px;
@@ -860,8 +839,6 @@ body{
     }
     .separator-line {
     	background: #fff;
-    	width: 30px;
-    	height: 2px;
     	margin-top: 20px;
     	-webkit-transition: width 1s;
     				transition: width 1s;
@@ -905,7 +882,7 @@ body{
 	}
 }
 .mz-aboutus-banner {
-	background-image: url("https://ancap-usa.com/sites/ancap-usa.com/files/ancap-vineyard.jpg");
+	background-image: url("http://cdn-sb.mozu.com/25517-m1/cms/files/8847c367-f497-4304-93ac-5c49309a80b6");
 	background-position: center center;
     background-size: cover;
     padding: 120px 0;
@@ -966,3 +943,489 @@ body{
 	}
 }
 /***\ About Us ***/
+
+
+/*** Quality Page ***/
+.mz-quality {
+	#page-wrapper {
+	    height: 100%;
+	}
+	.mz-l-pagecontent {
+		&.container {
+			max-width: 100%;
+			height: 100%;
+			padding: 75px 0px 0;
+		}
+	}
+	.mz-quality-listing {
+	    background: #f1e9e1;
+	    padding-bottom: 60px;
+	    .mz-quality-list {
+		    margin-top: 50px;
+		    img {
+			    display: block;
+			    margin: 0 auto;
+			}
+			h3 {
+			    font-weight: 600;
+			    line-height: 30px;
+			    text-transform: uppercase;
+			}
+		}
+	}
+	.mz-video-container {
+	    position: relative;
+	    min-height: 100%;
+	    .mz-video-wrapper {
+		    position: absolute;
+		    width: 100%;
+		    height: 100%;
+		    overflow: hidden;
+		}
+		video {
+		    background-color: #000;
+		    min-width: 100%;
+		    min-height: 100%;
+		    position: absolute;
+		    top: 50%;
+		    left: 0;
+		    -webkit-transform: translate(0, -50%);
+		        -ms-transform: translate(0, -50%);
+		            transform: translate(0, -50%);
+		}
+		.mz-gradient-overlay {
+		    background: rgba(167,73,28,0.9);
+		    background: -moz-linear-gradient(left, rgba(167,73,28,0.9) 0%, rgba(48,41,39,0.9) 100%);
+		    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(167,73,28,0.9)), color-stop(100%, rgba(48,41,39,0.9)));
+		    background: -webkit-linear-gradient(left, rgba(167,73,28,0.9) 0%, rgba(48,41,39,0.9) 100%);
+		    background: -o-linear-gradient(left, rgba(167,73,28,0.9) 0%, rgba(48,41,39,0.9) 100%);
+		    background: -ms-linear-gradient(left, rgba(167,73,28,0.9) 0%, rgba(48,41,39,0.9) 100%);
+		    background: linear-gradient(to right, rgba(167,73,28,0.9) 0%, rgba(48,41,39,0.9) 100%);
+		    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9a562', endColorstr='#608aab', GradientType=1 );
+		    width: 100%;
+		    height: 100%;
+		    position: absolute;
+		    top: 0px;
+		    opacity: 0.8;
+		    z-index: 1;
+		}
+	}
+	.mz-advanced-features {
+	    background: url("http://cdn-sb.mozu.com/25517-m1/cms/files/336a300b-3fe7-4583-9458-f03cf15e6163");
+	    padding: 120px 15px;
+	    float: left;
+	    width: 100%;
+	    h3 {
+		    color: #fff;
+		    font-weight: 600;
+		    letter-spacing: 2px;
+		    margin: 0;
+		    text-transform: uppercase;
+		}
+		p {
+		    font-size: 14px;
+		    line-height: 26px;
+		    margin-bottom: 35px;
+		}
+	}
+	.mz-pagefooter {
+		clear: both;
+	}
+}
+/***\ Quality Page ***/
+
+
+/*** Custom Page ***/
+.mz-custom {
+	.mz-l-pagecontent {
+		&.container {
+			max-width: 100%;
+			padding: 75px 0px 0;
+		}
+	}
+	h3 {
+		color: #000;
+	    font-size: 20px;
+	    font-weight: 600;
+	    margin: 0;
+	    text-align: center;
+		text-transform: uppercase;
+	}
+
+	//Title with breadcrumbs
+	.mz-title-breadcrumbs {
+	    background: #fff;
+    	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	   	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	    color: #000;
+	    margin-top: 0;
+	    h1 {
+    		&.mz-pagetitle {
+				color: #000;
+    		}
+    	}
+	    .separator-line {
+	    	background: #000;
+	    }
+	    .mz-breadcrumbs {
+	    	.mz-breadcrumb-link,
+	    	.mz-breadcrumb-current {
+    			color: #000;
+    		}
+    		a {
+    			&:hover {
+    				color: @goldenColor;
+    				text-decoration: none;
+    			}
+			}
+		}
+	}
+
+	//Custom description
+	.mz-custom-summary-bg {
+		background: #f6f6f6;
+		float: left;
+		width: 100%;
+		.mz-custom-page-title {
+			padding: 100px 0 60px;
+			text-align: center;
+			h1 {
+				&.mz-page-title {
+					font-size: 50px;
+					font-weight: 600;
+					line-height: 45px;
+					margin: 0 15px;
+				}
+			}
+			.separator-line {
+			    display: inline-block;
+			}
+		}
+		.mz-custom-summary {
+		    > div {
+			    margin-bottom: 50px;
+			}
+			h3 {
+			    color: @goldenColor;
+			    font-size: 20px;
+			    font-weight: 700;
+			    margin-bottom: 10%;
+			}
+			p {
+			    font-size: 14px;
+			    line-height: 26px;
+			    text-align: justify;
+			}
+		}
+	}
+
+	//Gallery
+	.mz-custom-work {
+	    padding: 120px 0 30px;
+	}
+	.mz-grid-gallery {
+		border-bottom: 1px solid #e5e5e5;
+		h3 {
+			letter-spacing: 2px;
+			padding-bottom: 75px;
+		}
+	}
+
+	//Order Process
+	.mz-order-process {
+		padding-top: 50px;
+	    text-align: center;
+	    > div {
+		    margin-bottom: 30px;
+		}
+		span {
+		    background: #000;
+		    color: #fff;
+		    display: block;
+		    font-size: 20px;
+		    width: 47px;
+		    margin: 0 auto 20px;
+		    padding: 11px 0;
+		}
+		h3 {
+		    font-weight: 700;
+		    letter-spacing: 2px;
+		    padding-bottom: 90px;
+		}
+		h6 {
+		    margin: 0px 0 7px;
+		    font-weight: 600;
+		    letter-spacing: 1px;
+		    font-size: 13px;
+		    line-height: 20px;
+		    text-transform: uppercase;
+		}
+		p {
+		    width: 90%;
+		    margin: 0 auto;
+		}
+		a {
+		    color: #000;
+		    text-decoration: underline;
+		    &:hover {
+			    color: #575757;
+			    text-decoration: none;
+			}
+		}
+	}
+
+	//Pricing
+	.mz-pricing {
+	    padding: 50px 0;
+	    h3 {
+	    	font-weight: 700;
+	    	letter-spacing: 2px;
+	    	padding: 25px 0;
+	    }
+		.mz-pricing-tabs {
+			float: none;
+    		max-width: 1015px;
+    		margin: 0 auto;
+			.nav-tabs {
+				margin-bottom: 25px;
+				li {
+					a {
+						font-size: 11px;
+						font-weight: 600;
+						color: #575757;
+						letter-spacing: 2px;
+						line-height: 24px;
+						text-transform: uppercase;
+					}
+				}
+			}
+			.tab-content {
+    			font-size: 13px;
+    		}
+    	}
+		.mz-pricing-table {
+		    max-width: 760px;
+	    	margin: 25px auto 0;
+		    text-align: center;
+		    .mx-pricing-box {
+		     	border-right: 1px solid rgba(0, 0, 0, 0.075);
+		    }
+		    .mz-pricing-title {
+		    	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+				padding: 30px 0;
+		    	h4 {
+		    		font-size: 20px;
+				    font-weight: 400;
+				    letter-spacing: 1px;
+				    margin: 0;
+				}
+			}
+			.mz-pricing-price {
+			    color: #333;
+			    padding: 35px 0;
+			    position: relative;
+			    letter-spacing: 0px;
+			    min-height: 175px;
+			    span {
+				    display: block;
+				    font-size: 28px;
+				    font-weight: 400;
+				    margin-bottom: 10px;
+				    vertical-align: top;
+				    strong {
+					    font-size: 18px;
+					    font-weight: 600;
+					}
+					&.mz-price-tenure {
+					    color: #999;
+					    font-size: 16px;
+					    margin: 0;
+					    padding-top: 15px;
+					}
+				}
+				&:after {
+				    content: "";
+				    border-top: 2px solid rgba(0, 0, 0, 1);
+				    width: 80px;
+				    position: absolute;
+				    bottom: 0;
+				    left: 50%;
+				    transform: translateX(-50%);
+				}
+			}
+			.mz-pricing-features {
+				ul {
+				    padding: 35px 0;
+				    li {
+					    padding: 3px 0;
+					}
+					strong {
+					    font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+		
+	// Custom Form
+	.mz-custom-form-section {
+		border-top: 1px solid #e5e5e5;
+		.mz-custom-form {
+		    background: #f5f5f5;
+		    max-width: 576px;
+		    margin: 50px auto;
+		    padding: 5%;
+		    h3 {
+		    	font-size: 20px;
+			    letter-spacing: 2px;
+			    line-height: 30px;
+			    margin: 0 0 20px;
+			    text-align: left;
+			}
+			p {
+			    font-size: 14px;
+			    line-height: 26px;
+			    margin: 13px 0;
+			}
+			label {
+			    font-weight: 500;
+			    margin-bottom: 10px;
+			    text-transform: uppercase;
+			}
+			.form-control {
+			    border: 1px solid #dfdfdf;
+			    border-radius: 0;
+			    -webkit-box-shadow: none;
+			            box-shadow: none;
+			    font-size: 11px;
+			    height: auto;
+			    letter-spacing: 1px;
+			    line-height: 23px;
+			    margin: 0 0 20px 0;
+			    padding: 8px 15px;
+			    resize: none;
+			    &:focus, 
+				&:focus {
+				    border: 1px solid #989898;
+				    -webkit-box-shadow: none;
+				            box-shadow: none;
+				}
+			}
+			.mz-file-managed {
+				input[type="file"] {
+				    float: left;
+				    margin-bottom: 0;
+				    width: 80%;
+				}
+				input[type="submit"] {
+				    width: 20%;
+				}
+			}
+			.mz-button {
+			    background: #000;
+			    border-color: #000;
+			    font-size: 11px;
+			    font-weight: 600;
+			    letter-spacing: 1px;
+			    line-height: 19px;
+			    margin-top: 0;
+			    padding: 9px 14px;
+			    &:hover {
+				    background: #fff;
+				    color: #000;
+				}
+			}
+			.mz-file-description {
+			    font-size: 10px;
+			    float: left;
+			    line-height: 15px;
+			    margin: 5px 0 15px;
+			    width: 100%;
+			}
+		}
+	}
+
+	//FAQs Section
+	.mz-faqs-accordion {
+	    float: none;
+	    margin: 0 auto 50px;
+	    h3 {
+		    letter-spacing: 2px;
+	    	padding-bottom: 25px;
+	    }
+	    .panel {
+		    border: none;
+		    border-radius: 0;
+		    border-top: 1px solid rgba(0,0,0,.15);
+		    -webkit-box-shadow: none;
+    				box-shadow: none;
+		}
+		.panel-heading {
+		    padding: 0;
+		}
+		.panel-group {
+			.panel-default {
+				> .panel-heading {
+				    background-color: #fff;
+				}
+			}
+			.panel {
+				+ .panel {
+				    margin-top: 0;
+				}
+			}
+		}
+		.panel-title {
+		    font-size: 14px;
+		    letter-spacing: 2px;
+		    margin: 0;
+		    position: relative;
+		    text-transform: uppercase;
+		    a {
+			    color: #000;
+			    display: block;
+			    font-weight: 600;
+			    line-height: 26px;
+			    padding: 20px 25px;
+				&:after {
+				    content: "\f068";
+				    color: #9a9a9a;
+				    font-size: 10px;
+				    font-family: "FontAwesome";
+				    position: absolute;
+				    top: 23px;
+				    right: 25px;
+				}
+				&.collapsed {
+				    color: #767676;
+				    font-weight: 400;
+				    &:after {
+					    content: "\f067";
+					}
+				}
+				&:hover,
+				&:visited,
+				&:focus {
+				    text-decoration: none;
+				}
+			}
+		}
+		.panel-body {
+		    padding: 0 60px 25px 25px;
+		    p {
+			    line-height: 23px;
+			    margin-bottom: 20px;
+			}
+		}
+	}
+}
+/***\ Custom Page ***/
+
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	.mz-grid-gallery {
+		li {
+		    width: 49.98%;
+		}
+	}
+}

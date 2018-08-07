@@ -39,23 +39,23 @@
                 {% if not pageContext.query.partial %}
                     {% if pageContext.search.query != "" and pageContext.search.query != 'undefined' %}
                         <h1 class="mz-pagetitle">{{ labels.foundSearchResults|string_format(model.totalCount, pageContext.search.query) }}</h1>
-                        {% else %}
-                            <div class="mz-title-breadcrumbs">
-                                <div class="col-md-7 col-sm-12">
-                                    <div class="mz-category-name">
-                                        <h1 class="mz-pagetitle">{{ navigation.currentNode.name|upper|replace("~", "")|safe }}</h1>
-                                        <p>Pure porcelain with classic style</p>
-                                        <div class="separator-line"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 col-sm-12">
-                                    {% block breadcrumbs %}
-                                        {% if themeSettings.showBreadcrumbs %}
-                                            {% include "modules/breadcrumbs" %}
-                                        {% endif %}
-                                    {% endblock breadcrumbs %}
+                    {% else %}
+                        <div class="mz-title-breadcrumbs">
+                            <div class="col-md-7 col-sm-12">
+                                <div class="mz-category-name">
+                                    <h1 class="mz-pagetitle">{{ navigation.currentNode.name|upper|replace("~", "")|safe }}</h1>
+                                    <p>Pure porcelain with classic style</p>
+                                    <div class="separator-line"></div>
                                 </div>
                             </div>
+                            <div class="col-md-5 col-sm-12">
+                                {% block breadcrumbs %}
+                                    {% if themeSettings.showBreadcrumbs %}
+                                        {% include "modules/breadcrumbs" %}
+                                    {% endif %}
+                                {% endblock breadcrumbs %}
+                            </div>
+                        </div>
                     {% endif %}
                 {% endif %}
                 {% comment %}

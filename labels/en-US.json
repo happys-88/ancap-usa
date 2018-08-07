@@ -648,6 +648,7 @@
   "viewAll"                               : "View All", 
   "disqusComments"                        : "There was trouble loading the comments.",
   "addonSelectMsg"                        : "Press ctrl to select multiple addons",
+  "newArrivals"                           : "New Arrivals",
 
   //Ancap USA
   "orderedIncrements"                     : "Must be ordered in increments of 6.",

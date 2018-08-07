@@ -5,7 +5,7 @@
         {% for sort in model.sorts %} 
           {% with sort.value|default(themeSettings.defaultSort) as sortValue %}
             {% if sort.text == 'Default' %}
-              <option data-mz-url="{% make_url "sorting" model with sortBy="createDate desc" %}" value="createDate desc" selected="selected">{{ labels.newArrivals }}</option>
+              <option data-mz-url="{% make_url "sorting" model with sortBy='createDate desc' %}" value='createDate desc' {% if model.currentSort == 'createDate desc' %} selected="selected"{% endif %}>{{ labels.newArrivals }}</option> 
             {% else %}
               {% if sort.text == 'Date Added: Most Recent First' or sort.text == 'Date Added: Most Recent Last' %}
               {% else %}

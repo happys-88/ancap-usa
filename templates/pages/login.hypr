@@ -23,7 +23,7 @@
                 <a href="/user/forgotpassword" class="mz-forgot">{{ labels.forgotPasswordLink }}</a>
             </div>
             <section data-mz-role="popover-message" class="mz-popover-message"></section>
-            <button class="mz-button mz-button-large mz-login-button" data-mz-action="loginpage-submit">{{ labels.logIn }}</button>
+            <button class="mz-button mz-login-button" data-mz-action="loginpage-submit">{{ labels.logIn }}</button>
         </div>
     </form>
 </div>

@@ -8,7 +8,11 @@
     "isTablet": true,
     "allowProduction": true,
     "baseThemeVersion": {
+<<<<<<< HEAD
       "commit": "63b316b5599721c565abaa72e14a0524af8fb355"
+=======
+      "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
+>>>>>>> bd8bc1e3e11c1ed47a9cf98c294d441e86d36cbc
     },
     "name": "Ancap USA Theme",
     "baseTheme": "https://github.com/happys-88/ancap-usa",
@@ -289,6 +293,30 @@
       "id": "Contact-Us",
       "template": "contact-us",
       "title": "Contact Us",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "quality",
+      "template": "quality",
+      "title": "Quality",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "custom",
+      "template": "custom",
+      "title": "Custom",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "buy",
+      "template": "buy",
+      "title": "Buy",
       "userCreatable": true
     },
     {

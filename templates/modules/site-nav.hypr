@@ -1,7 +1,5 @@
 ﻿<nav class="mz-sitenav" id="mz-sitenav-container"> 
-    <div class="container">
-      
-      <ul class="mz-sitenav-list" 
+    <ul class="mz-sitenav-list" 
           data-mz-contextify='.mz-sitenav-link[href="{{ navigation.currentNode.url }}"]'
           data-mz-contextify-attr='class'
           data-mz-contextify-val='is-current'>
@@ -58,8 +56,7 @@
           {% endfor %}
           {% endpartial_cache %}
           {% require_script "modules/contextify" %}
-      </ul>
-    </div>
+    </ul>
 </nav>
 
 {% comment %}
@@ -67,4 +64,3 @@
     {% include "modules/page-header/search-box-lc" %}
 {% endblock search-box-lc %}
 {% endcomment %}
-

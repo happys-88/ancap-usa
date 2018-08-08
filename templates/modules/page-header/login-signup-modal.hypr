@@ -23,7 +23,7 @@
                                 <a href="/user/forgotpassword" class="mz-forgot">{{ labels.forgotPasswordLink }}</a>
                             </div>
                            
-                            <button class="mz-button mz-button-large mz-login-button" data-mz-action="loginpage-submit">{{ labels.logIn }}</button>
+                            <button class="mz-button mz-login-button" data-mz-action="loginpage-submit">{{ labels.logIn }}</button>
 
                             <section data-mz-role="popover-message" class="mz-popover-message"></section>
                         </div>
@@ -59,7 +59,7 @@
                             </div>        
                                 <input type="hidden" id="emailId" value="{{ model.fulfillmentInfo.fulfillmentContact.email }}">
                             
-                            <button class="mz-button mz-button-large mz-sign-up-page-button" data-mz-action="signuppage-submit">{{ labels.createNewAccount }}</button>
+                            <button class="mz-button mz-sign-up-page-button" data-mz-action="signuppage-submit">{{ labels.createNewAccount }}</button>
                 
                             <section data-mz-role="popover-message" class="mz-popover-message"></section>
                         </div>

@@ -1,0 +1,94 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %}  - {% parent %}{% endblock title-tag-content %}
+{% block body-tag-classes %} mz-custom {% endblock body-tag-classes %}
+{% block body-content %}
+
+    <div class="mz-title-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-12">
+                    <div class="mz-category-name">
+                        <h1 class="mz-pagetitle">{{ navigation.currentNode.name|upper|replace("~", "")|safe }}</h1>
+                        <div class="separator-line"></div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12">
+                    {% block breadcrumbs %}
+                        {% if themeSettings.showBreadcrumbs %}
+                            {% include "modules/breadcrumbs" %}
+                        {% endif %}
+                    {% endblock breadcrumbs %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% dropzone "custom-description" scope="page" %}    
+
+    {% dropzone "custom-gallery" scope="page" %}
+
+    {% dropzone "order-process" scope="page" %}
+    
+    <section>
+        {% dropzone "custom-banner-image" scope="page" %}
+    </section>
+
+    {% dropzone "pricing" scope="page" %}
+    
+    <section class="mz-custom-form-section">
+        <div class="container">
+            <div class="row">
+                <div class="mz-custom-form">
+                    <form>
+                        <h3>{{ labels.customRequestForm }}</h3>
+                        <p>{{ labels.customRequestFormMsg }}</p>
+                        <div class="separator-line"></div>
+                        <input type="text" class="form-control" placeholder="First Name">
+                        <input type="text" class="form-control" placeholder="Laste Name">
+                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="text" class="form-control" placeholder="Business Address">
+
+                        <label for="{{ labels.collectionSize }}">{{ labels.collectionSize }}</label>
+                        <input type="text" class="form-control" id="{{ labels.collectionSize }}" placeholder="e.g. Verona 2.5oz, 24">
+
+                        <label for="{{ labels.undecoratedItems }}">{{ labels.undecoratedItems }}</label>
+                        <input type="text" class="form-control" id="{{ labels.undecoratedItems }}" placeholder="e.g. undecorated saucer collection, size, quantity">
+
+                        <div class="mz-file-upload">
+                            <label for="{{ labels.uploadVectorDesign }}">{{ labels.uploadVectorDesign }}</label>
+                            <div class="mz-file-managed">
+                                <input type="file" class="form-control" id="{{ labels.uploadVectorDesign }}" size="22">
+                                <input type="submit" class="mz-button" value="Upload">
+                                <div class="mz-file-description">Files must be less than <strong>10 MB</strong>.<br>Allowed file types: <strong>jpg jpeg eps pdf ai</strong>.</div>
+                            </div>
+                        </div>
+
+                        <div class="mz-file-upload">
+                            <label for="{{ labels.additionalVectorFiles }}">{{ labels.additionalVectorFiles }}</label>
+                            <div class="mz-file-managed">
+                                <input type="file" class="form-control" id="{{ labels.additionalVectorFiles }}" size="22">
+                                <input type="submit" class="mz-button" value="Upload">
+                                <div class="mz-file-description">Files must be less than <strong>10 MB</strong>.<br>Allowed file types: <strong>eps pdf ai jpeg</strong>.</div>
+                            </div>
+                        </div>
+
+                        <label for="{{ labels.pantoneDesign }}">{{ labels.pantoneDesign }}</label>
+                        <input type="text" class="form-control" id="{{ labels.pantoneDesign }}" placeholder="If unknown, put n/a">
+
+                        <label for="{{ labels.placementInstructions }}">{{ labels.placementInstructions }}</label>
+                        <textarea class="form-control" id="{{ labels.placementInstructions }}" placeholder="Let us know where you’d like your design(s) placed on the cup or saucer."></textarea>
+
+                        <label for="{{ labels.notes }}">{{ labels.notes }}</label>
+                        <textarea class="form-control" id="{{ labels.notes }}" placeholder="Anything we should know about your project?Anything we should know about your project?"></textarea>
+
+                        <button class="mz-button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    {% dropzone "faqs" scope="page" %}
+    
+{% endblock body-content %}

@@ -3,20 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <ul>
-                        <li>
-                            <i class="fa fa-mobile"></i>
-                            <h6>1.877.745.8869</h6>
-                        </li>
-                        <li>
-                            <i class="fa fa-map-marker"></i>
-                            <h6>LOUISVILLE, KY</h6>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope-open-o"></i>
-                            <h6>INFO@ANCAPUSA.COM</h6>
-                        </li>
-                    </ul>
+                    {% dropzone "footer-contact-info" scope="site" %}
                 </div>
             </div>
         </div>
@@ -26,11 +13,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="mz-footer-nav">
-                        <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">account</a></li>
-                            <li><a href="#">Buy</a></li>
-                        </ul>
+                        {% dropzone "footer-nav" scope="site" %}
                     </div>
                     {% block social-bar %}
                         {% include "modules/page-footer/social-bar" %}

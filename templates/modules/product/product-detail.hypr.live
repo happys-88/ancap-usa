@@ -126,7 +126,7 @@
             </div>
         </div>
         <div class="col-md-5 col-xs-12 mz-productdetail-conversion-buttons">
-            <button id="add-to-cart" class="mz-productdetail-addtocart mz-button mz-button-large" data-mz-action="addToCart"><i class="fa fa-shopping-basket"></i> {{ labels.addToCart }}</button>
+            <button id="add-to-cart" class="mz-button mz-productdetail-addtocart" data-mz-action="addToCart"><i class="fa fa-shopping-basket"></i> {{ labels.addToCart }}</button>
         </div>
         <div class="col-md-5 col-xs-12 mz-productdetail-conversion-buttons text-center">
             {% if siteContext.generalSettings.isWishlistCreationEnabled and not user.isAnonymous %}

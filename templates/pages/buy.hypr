@@ -1,0 +1,95 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %}  - {% parent %}{% endblock title-tag-content %}
+{% block body-tag-classes %} mz-buy {% endblock body-tag-classes %}
+{% block body-content %}
+
+    <div class="mz-title-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-12">
+                    <div class="mz-category-name">
+                        <h1 class="mz-pagetitle">{{ navigation.currentNode.name|upper|replace("~", "")|safe }}</h1>
+                        <p>Purchase for your home or cafe</p>
+                        <div class="separator-line"></div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12">
+                    {% block breadcrumbs %}
+                        {% if themeSettings.showBreadcrumbs %}
+                            {% include "modules/breadcrumbs" %}
+                        {% endif %}
+                    {% endblock breadcrumbs %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="mz-our-retailers clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2>To purchase for home, visit one of our retailers:</h2>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="mz-retailer-name">
+                                <img src="{% make_url "cdn" "/cms/files/clive.jpg" %}" alt="Clive">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="mz-retailer-name">
+                                <img src="{% make_url "cdn" "/cms/files/prima-coffee.png" %}" alt="Prima coffee">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="mz-retailer-name">
+                                <img src="{% make_url "cdn" "/cms/files/whole-latte-love.png" %}" alt="Whole latte love">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mz-creating-an-account">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2>Shop for your restaurant or cafe by creating an account below.</h2>
+                    <p>{{ labels.alreadyanAccount }} <a href="/user/login">{{ labels.loginHere }}</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="mz-custom-form-section">
+        <div class="container">
+            <div class="row">
+                <div class="mz-custom-form">
+                    <form method="post" name="mz-signupform">
+                        <input type="hidden" name="returnUrl" value="{{ model.returnUrl }}" />
+        
+                        <label for="{{ labels.emailAddress }}">{{ labels.emailAddress }} *</label>
+                        <input type="email" name="emailAddress" data-mz-signup-emailaddress class="form-control" id="{{ labels.emailAddress }}" placeholder="{{ labels.emailAddress }}">
+                        <p class="mz-description">{{ labels.emailAddressMsg }}</p>
+
+                        <label for="{{ labels.password }}">{{ labels.password }} *</label>
+                        <input type="password" name="password" data-mz-signup-password class="form-control" id="{{ labels.password }}" placeholder="{{ labels.password }}">
+
+                        <label for="{{ labels.confirmPassword }}">{{ labels.confirmPassword }} *</label>
+                        <input type="password" name="confirmPassword" data-mz-signup-confirmpassword class="form-control" id="{{ labels.confirmPassword }}" placeholder="{{ labels.confirmPassword }}">
+                        <p class="mz-description">{{ labels.passwordStrengthMsg }}</p>
+                                
+                        <input type="hidden" id="emailId" value="{{ model.fulfillmentInfo.fulfillmentContact.email }}">
+
+                        <button class="mz-button mz-sign-up-page-button" data-mz-action="signuppage-submit">{{ labels.createNewAccount }}</button>
+
+                        <section data-mz-role="popover-message" class="mz-popover-message"></section>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock body-content %}

@@ -79,7 +79,7 @@
   "purchaseOrderCustomFieldMissing"       : "Purchase order field required, see below",
   "missing"                               : "missing",
   "email"                                 : "Email",
-  "emailAddress"                          : "Email",
+  "emailAddress"                          : "Email Address",
   "logInInput"                            : "Email",
   "creditCard"                            : "Credit Card",
   "newCreditCard"                         : "New Credit Card",
@@ -660,5 +660,11 @@
   "additionalVectorFiles"                 :  "Additional Vector Files",
   "pantoneDesign"                         :  "Pantone #'s for colors in design",
   "placementInstructions"                 :  "Placement instructions",
-  "notes"                                 :  "Notes *"
+  "notes"                                 :  "Notes *",
+
+  //Buy Page
+  "alreadyanAccount"                      :  "Already have an account?",
+  "loginHere"                             :  "Login here",
+  "emailAddressMsg"                       :  "A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.",
+  "passwordStrengthMsg"                   :   "Provide a password for the new account in both fields. Password must be at least 8 characters."
 }

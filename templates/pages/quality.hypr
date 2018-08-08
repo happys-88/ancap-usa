@@ -4,8 +4,9 @@
 {% block body-tag-classes %} mz-quality {% endblock body-tag-classes %}
 {% block body-content %}
 
-    {% dropzone "quality-listing" scope="page" %}
-
+    <section class="mz-quality-bg">
+        {% dropzone "quality-listing" scope="page" %}
+    </section>
     {# {% dropzone "quality-video" scope="page" %} #} 
     <section class="mz-video-container">
         <div class="mz-video-wrapper">

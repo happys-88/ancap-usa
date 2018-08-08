@@ -56,12 +56,8 @@
         .mz-signupform {
             margin-top: 32px;
         }
-        button {
-            &.mz-button {
-                border-radius: 0;
-                width: 100%;
-                padding: 8px 0;
-            }
+        .mz-button {
+            width: 100%;
         }
         .mz-forgot {
             color: #00adce;
@@ -119,31 +115,31 @@
 
 //My Account Page/Section
 .mz-myaccount {
-    .mz-breadcrumbs {
-        position: relative;
-        .mz-breadcrumb-current {
-            nav {
-                position: absolute;
-                top: 8px;
-                left: 140px;
-            }
-            li {
-                &.mz-scrollnav-item {
-                    display: none;
-                    &.active {
-                        display: block;
-                    }
-                    a {
-                        cursor: default;
-                        pointer-events: none;
-                        border-top: 0;
-                        font-weight: 400;
-                        padding: 0;
-                    }
-                }
-            }
-        }
-    }
+    // .mz-breadcrumbs {
+    //     position: relative;
+    //     .mz-breadcrumb-current {
+    //         nav {
+    //             position: absolute;
+    //             top: 8px;
+    //             left: 140px;
+    //         }
+    //         li {
+    //             &.mz-scrollnav-item {
+    //                 display: none;
+    //                 &.active {
+    //                     display: block;
+    //                 }
+    //                 a {
+    //                     cursor: default;
+    //                     pointer-events: none;
+    //                     border-top: 0;
+    //                     font-weight: 400;
+    //                     padding: 0;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     .mz-myaccount-nav {
         margin-top: 40px;
         .mz-l-sidebar {
@@ -275,6 +271,7 @@
         float: left;
         width: 100%;
     }
+    
     //Adderss book
     .mz-accountaddressbook {
         li {
@@ -332,6 +329,7 @@
             line-height: 12px;
         }
     }
+
     //recently order
     .mz-recent-order-product {
         float: left;
@@ -364,6 +362,7 @@
             }
         }
     }
+
     //Order history
     .mz-orderhistory-section {
         .mz-l-paginatedlist-list {
@@ -403,6 +402,7 @@
             }
         }
     }
+
     //Payment
     #paymentmethods {
         .mz-accountpaymentmethods {
@@ -496,6 +496,7 @@
             }
         }
     }
+
     //Wishlist
     .mz-accountwishlist-list {
         .mz-wishlist-itemlisting {
@@ -581,15 +582,15 @@
             }
         }
     }
+
     //Btn
     .mz-button {
-        border-radius: 0;
+        padding: 5px 15px;
         &.mz-accountsettings-editdone,
         &.mz-accountsettings-passworddone,
         &.mz-contact-save,
         &.mz-creditcard-save {
             float: right;
-            line-height: 10px;
             width: 70%;  
         }
         &.mz-accountsettings-passwordedit {
@@ -621,7 +622,7 @@
 .mz-login-page,
 .mz-forget-password,
 .mz-reset-password {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     width: 420px;
     max-width: 100%;
     margin: 0 auto;    
@@ -664,11 +665,8 @@
     .mz-popover-message {
         margin-top: 10px;
     }
-    button {
-        &.mz-button {
-            width: 100%;
-            padding: 8px 0;
-        }
+    .mz-button {
+        width: 100%;
     }
 }
 .mz-reset-password {

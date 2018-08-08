@@ -105,38 +105,6 @@ img[data-mztp]{
 	background: #00adce;
 }
 
-.mz-button{
-	display: inline-block;
-	background: @buttonBgColor;
-	padding: 12px;
-	font-size: 16px;
-	color: @textColorWhite;
-	font-weight: bold;
-	text-transform: uppercase;
-	margin-top: 10px;
-	border-radius: 0px; 
-	transition: all 0.4s ease-in-out;
-	border: 2px solid transparent;
-	&:hover { 
-		background: @textColorWhite;
-		color: @buttonBgColor; 
-		border-color: @buttonBgColor;	
-		text-decoration: none; 
-	}
-	&:visited, &:focus{
-		background: @buttonBgColor;	
-		color: @textColorWhite;
-		outline: none; 
-	}
-	&[disabled]{
-		&:hover{
-			background: @buttonBgColor;
-			color:  @textColorWhite; 
-		}
-	}
-	
-}
-
 .mz-dropzone-empty {
     background: #e0e0e0;
     border: 1px solid #ccc;

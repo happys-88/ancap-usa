@@ -650,5 +650,18 @@
   "addonSelectMsg"                        : "Press ctrl to select multiple addons",
 
   //Ancap USA
-  "orderedIncrements"                     : "Must be ordered in increments of 6."
+  "orderedIncrements"                     : "Must be ordered in increments of 6.",
+
+  //Custom request Footer Form
+  "businessAddressph"                     : "Business Address",
+  "collectionLabel"                       : "COLLECTION, SIZE, AND QUANTITY OF ALL ITEMS TO BE CUSTOMIZED",
+  "collectionph"                          : "e.g. Verona 2.5oz, 24",
+  "itemsLabel"                            : "UNDECORATED ITEMS",
+  "itemsph"                               : "e.g. undecorated saucer collection, size, quantity",
+  "pantoneLable"                          : "PANTONE #'S FOR COLORS IN DESIGN",
+  "pantoneph"                             : "If unknown, put n/a",
+  "instructionLabel"                      : "PLACEMENT INSTRUCTIONS",
+  "instructionph"                         : "Let us know where you'd like your design(s) placed on the cup or saucer",
+  "notesLabel"                            : "NOTES *",
+  "notesph"                               : "Anything we should know about your project?"
 }

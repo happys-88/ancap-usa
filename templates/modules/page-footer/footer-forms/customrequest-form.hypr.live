@@ -1,0 +1,71 @@
+{% block customrequest-form %}
+    		<div class="col-md-6 col-xs-12 mz-contact-form">
+                    <form name="customrequestForm" method="" id="priceGuarranteeForm" action="">    
+                    	<div class="form-group">
+                            <div class="col-sm-8 col-xs-12">
+                                <input type="text" name="firstname" data-mz-value="firstname" placeholder="{{ labels.firstName }}" maxlength="{{themeSettings.firstNameLength}}" required class="form-control">
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="firstname"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">                            
+                            <div class="col-sm-8 col-xs-12">
+                                <input type="text" name="lastname" data-mz-value="lastname" placeholder="{{ labels.lastName }}" maxlength="{{themeSettings.lastNameLength}}" required class="form-control">
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="lastname"></span>
+                            </div>                        
+                        </div>
+                        <div class="form-group">                            
+                            <div class="col-sm-8 col-xs-12">
+                                <input type="email" id="email" name="email" data-mz-value="email" placeholder="{{ labels.emailAddress }}" maxlength="{{themeSettings.emailLength}}" required class="form-control">
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="email"></span>
+                            </div>                           
+                        </div>
+                        <div class="form-group">                            
+                            <div class="col-sm-8 col-xs-12">
+                                <input type="text" name="businessAddr" data-mz-value="businessAddr" placeholder="{{ labels.businessAddress }}" maxlength="{{themeSettings.emailLength}}" required class="form-control">
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="businessAddr"></span>
+                            </div>                          
+                        </div>
+                        <div class="form-group">    
+                            <label class="col-sm-4 col-xs-12" for="{{ labels.collectionLabel }}">{{ labels.collectionLabel }}</label>
+                            <div class="col-sm-8 col-xs-12">
+                                <input type="text" name="collection" placeholder="{{ labels.collectionph }}"  data-mz-value="collection" required class="form-control">
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="collection"></span>                                        
+                            </div>                            
+                        </div>
+                        <div class="form-group">  
+                            <label class="col-sm-4 col-xs-12" for="{{ labels.itemsLabel }}">{{ labels.itemsLabel }}</label>                         
+                            <div class="col-sm-8 col-xs-12">
+                                <input type="text" name="items" placeholder="{{ labels.itemsph }}" required data-mz-value="items" class="form-control">
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="items"></span>
+                            </div>                            
+                        </div>  
+                        <div class="form-group">  
+                            <label class="col-sm-4 col-xs-12" for="{{ labels.pantoneLable }}">{{ labels.pantoneLable }}</label>                         
+                            <div class="col-sm-8 col-xs-12">
+                                <input type="text" name="pantone" placeholder="{{ labels.pantoneph }}" required data-mz-value="pantone" class="form-control">
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="pantone"></span>
+                            </div>                            
+                        </div> 
+                        <div class="form-group">  
+                            <label class="col-sm-4 col-xs-12" for="{{ labels.instructionLabel }}">{{ labels.instructionLabel }}</label>                         
+                            <div class="col-sm-8 col-xs-12">
+                                <input type="text" name="instruction" placeholder="{{ labels.instructionph }}"  required data-mz-value="instruction" class="form-control">
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="instruction"></span>
+                            </div>                            
+                        </div> 
+                        <div class="form-group">  
+                            <label class="col-sm-4 col-xs-12" for="{{ labels.notesLabel }}">{{ labels.notesLabel }}</label>                         
+                            <div class="col-sm-8 col-xs-12">
+                                <input type="text" name="notes" placeholder="{{ labels.notesph }}" required data-mz-value="notes" class="form-control">
+                                <span class="mz-validationmessage" data-mz-validationmessage-for="notes"></span>
+                            </div>                            
+                        </div>
+                        <span id="customRequestError"></span>                              
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-4 col-xs-12">
+                                <button class="mz-button" type="button" data-mz-action="submitRequest">{{ labels.submit }}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    	{% endblock customrequest-form %}

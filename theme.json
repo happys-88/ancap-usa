@@ -8,7 +8,7 @@
     "isTablet": true,
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "3be134787f20eb452c22b6e5dcd6b60d3dc4820d"
+      "commit": "63b316b5599721c565abaa72e14a0524af8fb355"
     },
     "name": "Ancap USA Theme",
     "baseTheme": "https://github.com/happys-88/ancap-usa",
@@ -605,6 +605,7 @@
       "PCBlogs": "e767709c3f",
       "AncapNewsLetter": "c10e06d63a"
     },
+    "merchantEmail": "sales@ancap-usa.com",
     "usStates": [
       {
         "abbreviation": "AL",

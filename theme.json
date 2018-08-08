@@ -309,6 +309,14 @@
     },
     {
       "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "buy",
+      "template": "buy",
+      "title": "Buy",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
       "editor": "landing-page",
       "entityType": "webpage",
       "id": "price-request",

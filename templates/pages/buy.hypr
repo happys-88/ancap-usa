@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h2>Shop for your restaurant or cafe by creating an account below.</h2>
-                    <p>{{ labels.alreadyanAccount }} <a href="/user/login">{{ labesl.loginHere }}</a>.</p>
+                    <p>{{ labels.alreadyanAccount }} <a href="/user/login">{{ labels.loginHere }}</a>.</p>
                 </div>
             </div>
         </div>

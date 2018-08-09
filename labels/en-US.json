@@ -652,7 +652,6 @@
 
   //Ancap USA
   "orderedIncrements"                     : "Must be ordered in increments of 6.",
-<<<<<<< HEAD
 
   //Custom request Footer Form
   "businessAddressph"                     : "Business Address",
@@ -665,8 +664,8 @@
   "instructionLabel"                      : "PLACEMENT INSTRUCTIONS",
   "instructionph"                         : "Let us know where you'd like your design(s) placed on the cup or saucer",
   "notesLabel"                            : "NOTES *",
-  "notesph"                               : "Anything we should know about your project?"
-=======
+  "notesph"                               : "Anything we should know about your project?",
+
   "customRequestForm"                     : "Custom request form",
   "customRequestFormMsg"                  :  "For any questions regarding information requested below, review our FAQ below or email custom@ancapusa.com",
   "collectionSize"                        :  "Collection, Size, And Quantity of all Items to be Customized",
@@ -682,5 +681,5 @@
   "loginHere"                             :  "Login here",
   "emailAddressMsg"                       :  "A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.",
   "passwordStrengthMsg"                   :   "Provide a password for the new account in both fields. Password must be at least 8 characters."
->>>>>>> bd8bc1e3e11c1ed47a9cf98c294d441e86d36cbc
+
 }

@@ -8,11 +8,7 @@
     "isTablet": true,
     "allowProduction": true,
     "baseThemeVersion": {
-<<<<<<< HEAD
-      "commit": "63b316b5599721c565abaa72e14a0524af8fb355"
-=======
-      "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
->>>>>>> bd8bc1e3e11c1ed47a9cf98c294d441e86d36cbc
+      "commit": "9390cdd9131c60ad7722a7404b399573aca0ca09"
     },
     "name": "Ancap USA Theme",
     "baseTheme": "https://github.com/happys-88/ancap-usa",
@@ -510,7 +506,7 @@
   ],
   "settings": {
     "allProductsCategoryId": "",
-    "sessionTimeout": "18000",
+    "sessionTimeout": "1800",
     "backofficeDateTimeFormat": "m/d/Y H:i:s O",
     "extendedPropertiesEnabled": false,
     "extendedPropertyParameters": "",
@@ -582,7 +578,8 @@
     "maxTopLevelNavLabelLength": 20,
     "pageSizeOptions": [
       32,
-      64
+      64,
+      100
     ],
     "viewAllPageSize": 48,
     "productInfinitySize": 48,

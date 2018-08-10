@@ -1,7 +1,11 @@
-﻿{% if not pageContext.query.partial %}
+﻿{% comment %}
+    For View All, plz add thid code
+    "items" : {% json model.items %}
+{% endcomment %}
+
+{% if not pageContext.query.partial %}
     <script type="text/json" id="data-mz-preload-facetedproducts">
         {
-            "items" : {% json model.items %},
             "facets": {% json model.facets %}, 
             "currentPage": {{ model.currentPage }},
             "firstIndex": {{ model.firstIndex }},

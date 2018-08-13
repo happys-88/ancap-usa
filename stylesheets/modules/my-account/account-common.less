@@ -175,7 +175,7 @@
             margin: 0 0 30px;
             text-transform: uppercase;
             a {
-                color: #ab2328;
+                color: @linkColor;
                 float: right;
                 font-size: 13px;
                 font-weight: 600;
@@ -341,14 +341,14 @@
                 top: 3px;
                 right: 0;
                 .mz-accountaddressbook-edit {
-                    color: #ab2328;
+                    color: @linkColor;
                 }
             }
         }
         .mz-accountaddressbook-empty {
             line-height: 12px;
             a {
-                color: #ab2328;
+                color: @linkColor;
                 text-decoration: underline;
                 &:hover {
                     text-decoration: none;
@@ -452,7 +452,7 @@
             }
             .mz-accountpaymentmethods-empty {
                 a {
-                    color: #ab2328;
+                    color: @linkColor;
                     text-decoration: underline;
                     &:hover {
                         text-decoration: none;
@@ -467,7 +467,7 @@
         }
         .mz-paymentmethod-actions {
             .mz-paymentmethod-edit {
-                color: #ab2328;
+                color: @linkColor;
             }
         }
         .mz-accountpaymentmethods-method {
@@ -593,9 +593,6 @@
                     &.mz-itemlisting-action {
                         display: inline-block;
                         margin: 5px 0 0 6px;
-                        &.mz-remove {
-                            color: #ab2328;
-                        }
                     }
                 }
                 .mz-itemlisting-prompt {

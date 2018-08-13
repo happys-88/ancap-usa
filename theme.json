@@ -8,7 +8,7 @@
     "isTablet": true,
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "9390cdd9131c60ad7722a7404b399573aca0ca09"
+      "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
     },
     "name": "Ancap USA Theme",
     "baseTheme": "https://github.com/happys-88/ancap-usa",

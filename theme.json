@@ -6,11 +6,11 @@
     "isDesktop": true,
     "isMobile": true,
     "isTablet": true,
+    "name": "MasterTheme_AncapUSA", 
     "allowProduction": true,
     "baseThemeVersion": {
       "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
     },
-    "name": "Ancap USA Theme",
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
   },

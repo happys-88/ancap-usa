@@ -1584,31 +1584,13 @@
       "editViewFields": [
         {
           "anchor": "50%",
-          "fieldLabel": "Add Image for Hot Deals",
+          "fieldLabel": "Add Image",
           "name": "slideImageOne",
           "xtype": "mz-input-image"
         },
         {
           "anchor": "50%",
-          "fieldLabel": "Add First Title",
-          "name": "TitleOne",
-          "xtype": "mz-input-text"
-        },
-        {
-          "anchor": "50%",
-          "fieldLabel": "Add Second Title",
-          "name": "TitleTwo",
-          "xtype": "mz-input-text"
-        },
-        {
-          "anchor": "50%",
-          "fieldLabel": "Add Third Title",
-          "name": "TitleThree",
-          "xtype": "mz-input-text"
-        },
-        {
-          "anchor": "50%",
-          "fieldLabel": "Button Text Value",
+          "fieldLabel": "Add Title",
           "name": "ButtonTextValue",
           "xtype": "mz-input-text"
         },

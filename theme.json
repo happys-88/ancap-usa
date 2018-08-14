@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "e8ac797ca8c5874a9c513e57f307aa016ee7f11f"
+      "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
@@ -1496,6 +1496,12 @@
               "fieldLabel": "Add Link/Url",
               "name": "slideLinkOne",
               "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Text Color",
+              "name": "slideOneColor",
+              "xtype": "mz-input-color"
             }
           ]
         },
@@ -1532,6 +1538,12 @@
               "fieldLabel": "Add Link/Url",
               "name": "slideLinkTwo",
               "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Text Color",
+              "name": "slideTwoColor",
+              "xtype": "mz-input-color"
             }
           ]
         },
@@ -1568,6 +1580,12 @@
               "fieldLabel": "Add Link/Url",
               "name": "slideLinkThree",
               "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Text Color",
+              "name": "slideThreeColor",
+              "xtype": "mz-input-color"
             }
           ]
         }

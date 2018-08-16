@@ -41,15 +41,15 @@
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="mz-retailer-name">
                                 <a href="https://prima-coffee.com/manufacturers/ancap">
-                                    <img src="{% make_url "cdn" "/cms/files/prima-coffee.png" %}" alt="Prima coffee"
-                                </a>>
+                                    <img src="{% make_url "cdn" "/cms/files/prima-coffee.png" %}" alt="Prima coffee">
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="mz-retailer-name">
                                 <a href="https://www.wholelattelove.com/brands/ancap">
-                                    <img src="{% make_url "cdn" "/cms/files/whole-latte-love.png" %}" alt="Whole 
-                                </a>latte love">
+                                    <img src="{% make_url "cdn" "/cms/files/whole-latte-love.png" %}" alt="Whole latte love">
+                                </a>
                             </div>
                         </div>
                     </div>

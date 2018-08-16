@@ -443,9 +443,9 @@
             "collapsed": false,
             "items": [
                 {
-                    "fieldLabel": "Profile Id for social sharing (blog)",   
+                    "fieldLabel": "Add This Profile Id for Social Sharing & Popular Articles",    
                     "xtype": "mz-input-text",
-                    "name": "addThisPubIdBlogSharing"     
+                    "name": "addThisPubId"      
                 },
                 {
                     "fieldLabel": "Avalara Token", 

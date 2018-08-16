@@ -95,9 +95,12 @@
 }
 
 .mz-checkout {
-	.mz-sticky-header {
-	    border: 1px solid #e0e0e0; 
-	} 
+	.mz-l-pagecontent {
+		padding: 0;
+		&.container {
+			max-width: 100%;
+		}
+	}
 	.mz-l-2column-right {
 		.mz-l-column {
 		    padding-left: 15px;
@@ -125,16 +128,27 @@
 		        width: 100%;
 		    }
 		}
+		label {
+		    color: #000;
+		    font-weight: 600;
+		}
 		input[type="text"], 
 	    input[type="password"],
 	    input[type="email"], 
 	    input[type="tel"],
 	    select {
-	        border: 1px solid #d4d4d4;
+	        border: 1px solid #dfdfdf;
 	        border-radius: 0;
 	        margin-bottom: 0;
 	        width: 100%;
 	        height: 36px;
+	        -webkit-box-shadow: none;
+						box-shadow: none;
+	        &:focus {
+				border: 1px solid #989898;
+				-webkit-box-shadow: none;
+						box-shadow: none;
+	        }
 	    }
 		h4 {
 			border-bottom: 1px solid #495363;
@@ -146,12 +160,13 @@
 		}
 		.mz-formstep-header {
 			&.mz-checkoutform-header {
-			    background-color: #495363;
+			    background-color: #353535;
 			    font-weight: 500;
-			    font-size: 18px;
-			    line-height: 20px;
+			    font-size: 16px;
+			    line-height: 22px;
+    			letter-spacing: 2px;
 			    padding-left: 15px;
-			    text-transform: capitalize;
+			    text-transform: uppercase;
 			}
 		}
 		.mz-checkoutform-active {
@@ -162,9 +177,6 @@
     		padding-left: 0;
     		&.mz-paymentselector-externalworkflows{
     			margin-top: 25px;
-    			.form-group{
-    				margin: 0; 
-    			}
     		}
 		}
 		.mz-formstep-next {
@@ -228,9 +240,11 @@
 				width: 100%;
 			}
 			.mz-product-name {
-					font-weight: 700;
-					margin: 0;
-				}
+    			font-size: 13px;
+				font-weight: 600;
+    			margin: 0;
+    			text-transform: uppercase;
+			}
 		}
 		.mz-checkoutform-shipping {
 			label {
@@ -245,7 +259,6 @@
 		}
 		.mz-same-shipping-address {
 			label {
-				color: #495363;
 				margin-bottom: 0;
 				text-transform: capitalize;
 			}
@@ -254,18 +267,16 @@
 			.col-sm-4 {
 				text-align: right;
 			    label {
-					color: #495363;
 					line-height: 36px;
 					margin-bottom: 0;
 					text-transform: capitalize;
-					position: relative;
-					top: -2px;  
+					// position: relative;
+					// top: -2px;  
 				}
 			}
 		}
 		.mz-payment-credit-card-savepayment-row {
 			label {
-				color: #495363;
 				margin-bottom: 0;
 				text-transform: capitalize;
 			}
@@ -279,7 +290,6 @@
 			label {
 				float: right;
 				width: calc(~"100% - 20px"); 
-			    color: #495363;
 			    margin-bottom: 0;
 			    text-transform: capitalize;
 			}
@@ -287,7 +297,6 @@
 		.mz-prima-address {
 			margin-top: 20px;
 			address {
-				color: #495363;
 				font-size: 16px;
 			    font-style: italic;
 			    text-transform: none;
@@ -298,7 +307,6 @@
 				&.mz-label {
 				    text-align: right;
 				    label {
-					    color: #495363;
 					    line-height: 35px;
 					    text-transform: capitalize;
 					}
@@ -313,7 +321,6 @@
 			}
 			label {
 				display: block;
-				color: #495363;
 				line-height: 36px;
 				margin-bottom: 0;
 				text-align: right;
@@ -336,12 +343,13 @@
 			}
 		}
 		.mz-checkout-saved-billingaddress {
-			color: #495363;
+			color: #626262;
 			.mz-addresssummary {
 				span {
 					text-transform: none;
 					&:first-child {
-						font-weight: 700;
+						color: #000;
+						font-weight: 600;
 					}
 				}
 			}
@@ -416,11 +424,13 @@
 		}
 		h3 {
 			&.mz-summary-header {
-			    background: #495363;
-			    color: #fff;
-			    font-size: 18px;
-			    padding: 6.25px 15px;
-			    line-height: 20px;
+				background: #353535;
+				color: #fff;
+				font-size: 16px;
+				letter-spacing: 2px;
+				line-height: 22px;
+				padding: 6.25px 15px;
+				text-transform: uppercase;
 			}
 		}
 		.mz-summary-edit {
@@ -512,9 +522,11 @@
 					    .mz-order-product-info {
 					        padding-left: 120px;
 					        .mz-product-name {
-					        	font-size: 14px;
-							    margin-top: 0;
-							    margin-bottom: 8px;
+					        	font-size: 13px;
+								font-weight: 600;
+								margin-top: 0;
+								margin-bottom: 8px;
+								text-transform: uppercase;
 					        }
 					        .mz-product-options {
 							    span {
@@ -596,7 +608,15 @@
 				clear: initial;
 			}
 		}
-		
+		.mz-checkoutform-review {
+			&.mz-formstep {
+				.mz-formstep-desc {
+				    font-size: 14px;
+				    font-weight: 600;
+				    color: #000;
+				}
+			}
+		}
 	}
 }
 
@@ -628,7 +648,6 @@
 		}
 	}
 	p {
-		color: #495363;
 		margin: 10px 0;
 		text-transform: none;
 		span {

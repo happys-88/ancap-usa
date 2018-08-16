@@ -4,13 +4,13 @@
             <div class="mz-slide" style="background-image: url('{{ model.config.slideImageOne.imageUrl }}');">
                 <div class="container mz-slide-details">
                     {% if model.config.slideTitleOne %}
-                        <h2>{{ model.config.slideTitleOne }}</h2>
+                        <h2 style="color: {{ model.config.slideOneColor }}">{{ model.config.slideTitleOne }}</h2>
                     {% endif %}
                     {% if model.config.slideShortDescOne %}
-                        <p>{{ model.config.slideShortDescOne }}</p>
+                        <p style="color: {{ model.config.slideOneColor }}">{{ model.config.slideShortDescOne }}</p>
                     {% endif %}
                     {% if model.config.slideButtonOne %}
-                        <a class="mz-button">{{ model.config.slideButtonOne }}</a>
+                        <a class="mz-button" style="color: {{ model.config.slideOneColor }}; border-color: {{ model.config.slideOneColor }}">{{ model.config.slideButtonOne }}</a>
                     {% endif %}
                 </div>
             </div>
@@ -20,13 +20,13 @@
             <div class="mz-slide" style="background-image: url('{{ model.config.slideImageTwo.imageUrl }}');">
                 <div class="container mz-slide-details">
                     {% if model.config.slideTitleTwo %}
-                        <h2>{{ model.config.slideTitleTwo }}</h2>
+                        <h2 style="color: {{ model.config.slideTwoColor }}">{{ model.config.slideTitleTwo }}</h2>
                     {% endif %}
                     {% if model.config.slideShortDescTwo %}
-                        <p>{{ model.config.slideShortDescTwo }}</p>
+                        <p style="color: {{ model.config.slideTwoColor }}">{{ model.config.slideShortDescTwo }}</p>
                     {% endif %}
                     {% if model.config.slideButtonTwo %}
-                        <a class="mz-button">{{ model.config.slideButtonTwo }}</a>
+                        <a class="mz-button" style="color: {{ model.config.slideTwoColor }}; border-color: {{ model.config.slideTwoColor }}">{{ model.config.slideButtonTwo }}</a>
                     {% endif %}
                 </div>
             </div>
@@ -36,13 +36,13 @@
             <div class="mz-slide" style="background-image: url('{{ model.config.slideImageThree.imageUrl }}');">
                 <div class="container mz-slide-details">
                     {% if model.config.slideTitleThree %}
-                        <h2>{{ model.config.slideTitleThree }}</h2>
+                        <h2 style="color: {{ model.config.slideThreeColor }}">{{ model.config.slideTitleThree }}</h2>
                     {% endif %}
                     {% if model.config.slideShortDescThree %}
-                        <p>{{ model.config.slideShortDescThree }}</p>
+                        <p style="color: {{ model.config.slideThreeColor }}">{{ model.config.slideShortDescThree }}</p>
                     {% endif %}
                     {% if model.config.slideButtonThree %}
-                        <a class="mz-button">{{ model.config.slideButtonThree }}</a>
+                        <a class="mz-button" style="color: {{ model.config.slideThreeColor }}; border-color: {{ model.config.slideThreeColor }}">{{ model.config.slideButtonThree }}</a>
                     {% endif %}
                 </div>
             </div>

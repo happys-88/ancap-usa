@@ -13,7 +13,26 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="mz-footer-nav">
-                        {% dropzone "footer-nav" scope="site" %}
+                        <ul>
+                            <li><a href="/our-story">About</a></li>
+                            <li>
+                                {% if not user.isAnonymous %}
+                                    <a href="/myaccount">Account</a>                                    
+                                {% else %}
+                                    <a href="/user/Signup">Account</a>                                
+                                {% endif %}
+                            </li>
+                            <li>
+                                {% if not user.isAnonymous %}
+                                    <a href="/myaccount">Buy</a>
+                                {% else %}
+                                    <a href="/buy">Buy</a>
+                                {% endif %}
+                            </li>
+                            <li><a href="/quality">Quality</a></li>
+                            <li><a href="/custom">Custom</a></li>
+                        </ul>
+                        {# {% dropzone "footer-nav" scope="site" %} #}
                     </div>
                     {% block social-bar %}
                         {% include "modules/page-footer/social-bar" %}

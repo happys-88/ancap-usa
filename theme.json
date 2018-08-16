@@ -6,15 +6,11 @@
     "isDesktop": true,
     "isMobile": true,
     "isTablet": true,
+    "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-<<<<<<< HEAD
-      "commit": "63b316b5599721c565abaa72e14a0524af8fb355"
-=======
-      "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
->>>>>>> bd8bc1e3e11c1ed47a9cf98c294d441e86d36cbc
+      "commit": "e8ac797ca8c5874a9c513e57f307aa016ee7f11f"
     },
-    "name": "Ancap USA Theme",
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
   },
@@ -510,7 +506,7 @@
   ],
   "settings": {
     "allProductsCategoryId": "",
-    "sessionTimeout": "18000",
+    "sessionTimeout": "1800",
     "backofficeDateTimeFormat": "m/d/Y H:i:s O",
     "extendedPropertiesEnabled": false,
     "extendedPropertyParameters": "",
@@ -582,7 +578,8 @@
     "maxTopLevelNavLabelLength": 20,
     "pageSizeOptions": [
       32,
-      64
+      64,
+      100
     ],
     "viewAllPageSize": 48,
     "productInfinitySize": 48,
@@ -1472,33 +1469,39 @@
           "items": [
             {
               "anchor": "50%",
-              "fieldLabel": "Add Title",
-              "name": "slideTitleOne",
-              "xtype": "mz-input-text"
-            },
-            {
-              "anchor": "50%",
-              "fieldLabel": "Add Short Description",
-              "name": "slideShortDescOne",
-              "xtype": "mz-input-text"
-            },
-            {
-              "anchor": "50%",
-              "fieldLabel": "Add Link/Url",
-              "name": "slideLinkOne",
-              "xtype": "mz-input-text"
-            },
-            {
-              "anchor": "50%",
               "fieldLabel": "Add Image",
               "name": "slideImageOne",
               "xtype": "mz-input-image"
             },
             {
-              "anchor": "50%",
+              "anchor": "100%",
+              "fieldLabel": "Add Title",
+              "name": "slideTitleOne",
+              "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Short Description",
+              "name": "slideShortDescOne",
+              "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
               "fieldLabel": "Add Button Ttile",
               "name": "slideButtonOne",
               "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Link/Url",
+              "name": "slideLinkOne",
+              "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Text Color",
+              "name": "slideOneColor",
+              "xtype": "mz-input-color"
             }
           ]
         },
@@ -1508,33 +1511,39 @@
           "items": [
             {
               "anchor": "50%",
+              "fieldLabel": "Add Image",
+              "name": "slideImageTwo",
+              "xtype": "mz-input-image"
+            },
+            {
+              "anchor": "100%",
               "fieldLabel": "Add Title",
               "name": "slideTitleTwo",
               "xtype": "mz-input-text"
             },
             {
-              "anchor": "50%",
+              "anchor": "100%",
               "fieldLabel": "Add Short Description",
               "name": "slideShortDescTwo",
               "xtype": "mz-input-text"
             },
             {
-              "anchor": "50%",
-              "fieldLabel": "Add Link/Url",
-              "name": "slideLinkTwo",
-              "xtype": "mz-input-text"
-            },
-            {
-              "anchor": "50%",
+              "anchor": "100%",
               "fieldLabel": "Add Button Ttile",
               "name": "slideButtonTwo",
               "xtype": "mz-input-text"
             },
             {
-              "anchor": "50%",
-              "fieldLabel": "Add Image",
-              "name": "slideImageTwo",
-              "xtype": "mz-input-image"
+              "anchor": "100%",
+              "fieldLabel": "Add Link/Url",
+              "name": "slideLinkTwo",
+              "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Text Color",
+              "name": "slideTwoColor",
+              "xtype": "mz-input-color"
             }
           ]
         },
@@ -1544,33 +1553,39 @@
           "items": [
             {
               "anchor": "50%",
-              "fieldLabel": "Add Title",
-              "name": "slideTitleThree",
-              "xtype": "mz-input-text"
-            },
-            {
-              "anchor": "50%",
-              "fieldLabel": "Add Short Description",
-              "name": "slideShortDescThree",
-              "xtype": "mz-input-text"
-            },
-            {
-              "anchor": "50%",
-              "fieldLabel": "Add Link/Url",
-              "name": "slideLinkThree",
-              "xtype": "mz-input-text"
-            },
-            {
-              "anchor": "50%",
               "fieldLabel": "Add Image",
               "name": "slideImageThree",
               "xtype": "mz-input-image"
             },
             {
-              "anchor": "50%",
+              "anchor": "100%",
+              "fieldLabel": "Add Title",
+              "name": "slideTitleThree",
+              "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Short Description",
+              "name": "slideShortDescThree",
+              "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
               "fieldLabel": "Add Button Ttile",
               "name": "slideButtonThree",
               "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Link/Url",
+              "name": "slideLinkThree",
+              "xtype": "mz-input-text"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Text Color",
+              "name": "slideThreeColor",
+              "xtype": "mz-input-color"
             }
           ]
         }
@@ -1587,31 +1602,13 @@
       "editViewFields": [
         {
           "anchor": "50%",
-          "fieldLabel": "Add Image for Hot Deals",
+          "fieldLabel": "Add Image",
           "name": "slideImageOne",
           "xtype": "mz-input-image"
         },
         {
           "anchor": "50%",
-          "fieldLabel": "Add First Title",
-          "name": "TitleOne",
-          "xtype": "mz-input-text"
-        },
-        {
-          "anchor": "50%",
-          "fieldLabel": "Add Second Title",
-          "name": "TitleTwo",
-          "xtype": "mz-input-text"
-        },
-        {
-          "anchor": "50%",
-          "fieldLabel": "Add Third Title",
-          "name": "TitleThree",
-          "xtype": "mz-input-text"
-        },
-        {
-          "anchor": "50%",
-          "fieldLabel": "Button Text Value",
+          "fieldLabel": "Add Title",
           "name": "ButtonTextValue",
           "xtype": "mz-input-text"
         },

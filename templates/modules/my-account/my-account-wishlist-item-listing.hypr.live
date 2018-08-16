@@ -25,7 +25,7 @@
 
 {% block item-listing-actions %}
 	<div class="col-md-3 col-xs-12 text-right">
-		<a class="mz-itemlisting-action" href="javascript:;" data-mz-action="beginRemoveItem" data-mz-item-id="{{ model.id }}"><i class="fa fa-times-circle"></i> {{ labels.remove }}</a>
+		<a class="mz-itemlisting-action mz-remove" href="javascript:;" data-mz-action="beginRemoveItem" data-mz-item-id="{{ model.id }}"><i class="fa fa-times-circle"></i> {{ labels.remove }}</a>
 		<a class="mz-button mz-itemlisting-action" href="javascript:;" data-mz-action="addItemToCart" data-mz-item-id="{{ model.id }}">{{ labels.addToCart }}</a>
 	</div>
 {% endblock item-listing-actions %}

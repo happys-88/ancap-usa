@@ -151,13 +151,9 @@
                 margin: 0;
                 .mz-scrollnav-link {
                     border-top: 1px solid #e0e0e0;
-                    color: #495363;
-                    font-weight: 700;
-                    &:visited, 
-                    &:focus, 
-                    &:active {
-                        color: #495363;
-                    }
+                    color: #000;
+                    font-weight: 600;
+                    text-transform: uppercase;
                 }
                 &.active {
                     a {
@@ -172,19 +168,17 @@
     h3 {
         &.mz-l-stack-sectiontitle {
             border-bottom: 1px solid #e0e0e0;
-            font-size: 22px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
             line-height: 40px;
             margin: 0 0 30px;
             text-transform: uppercase;
             a {
-                color: #d15f2a;
+                color: @linkColor;
                 float: right;
-                font-size: 14px;
-                font-weight: 500;
-                &:hover {
-                    color: #d15f2a;
-                }
+                font-size: 13px;
+                font-weight: 600;
                 &.mz-link-edit-accountsettings {
                     float: right;
                 }
@@ -199,7 +193,10 @@
     }
     .mz-itemlisting {
         .mz-itemlisting-title {
-            color: #495363;
+            color: #000;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
     }
     .form-group {
@@ -208,21 +205,41 @@
         margin-bottom: 15px;
     }
     .control-label {
-        line-height: 35px;
+        line-height: 34px;
         margin-bottom: 0;
         text-align: right;
     }
     .mz-label {
         text-align: right;
         label {
-            line-height: 35px;
+            color: #000;
+            font-weight: 600;
+            line-height: 34px;
             margin-bottom: 0;
         }
     }
+    label {
+        color: #000;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
     .form-control {
         border-radius: 0;
-        border: 1px solid #d4d4d4;
+        border: 1px solid #dfdfdf;
         margin-bottom: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        &:focus {
+            border: 1px solid #989898;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+    }
+    .checkbox {
+        label {
+            color: #000;
+            font-weight: 600;
+        }
     }
     .mz-l-formfieldgroup {
         display: block;
@@ -261,7 +278,8 @@
             width: 100%;
         }
         .mz-accountsettings-displayname {
-            font-weight: 700;
+            color: #000;
+            font-weight: 600;
         }
     }
     .mz-accountsettings-password {
@@ -282,33 +300,35 @@
                     width: 50%;
                     margin: 0 0 30px;
                     padding: 0;
+                    max-width: 585px;
                 }
                 .mz-accountaddressbook-contactdetails {
                     &.mz-addresssummary {
                         span {
                             &:nth-child(1) {
-                                font-weight: 700;
+                                color: #000;
+                                font-weight: 600;
                             }
                         }
                     }
                 }
             }
         }
-        .mz-new-accountaddressbook {
-            li {
-                &.mz-accountaddressbook-contact {
-                    &.mz-accountaddressbook-form {
-                        max-width: 585px;
-                        width: 100%;
-                    }
-                }
-            }
-        }
+        // .mz-new-accountaddressbook {
+        //     li {
+        //         &.mz-accountaddressbook-contact {
+        //             &.mz-accountaddressbook-form {
+        //                 max-width: 585px;
+        //                 width: 100%;
+        //             }
+        //         }
+        //     }
+        // }
         .mz-accountaddressbook-contact {
             border-left: 1px solid #e0e0e0;
             border-right: 0;
             float: left;
-            width: 33.33%;
+            width: 50%;
             min-height: 200px;
             margin: 0 0 30px 0;
             padding: 0 15px;
@@ -318,15 +338,22 @@
             }
             .mz-accountaddressbook-actions {
                 position: absolute;
-                top: 0;
+                top: 3px;
                 right: 0;
                 .mz-accountaddressbook-edit {
-                    color: #d15f2a;
+                    color: @linkColor;
                 }
             }
         }
         .mz-accountaddressbook-empty {
             line-height: 12px;
+            a {
+                color: @linkColor;
+                text-decoration: underline;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
         }
     }
 
@@ -410,7 +437,7 @@
                 border-left: 1px solid #e0e0e0;
                 border-right: 0;
                 width: 50%;
-                min-height: 200px;
+                min-height: 150px;
                 margin: 0 0 30px 0;
                 padding: 0 15px;
                 position: relative;
@@ -419,8 +446,17 @@
                 }
                 .mz-paymentmethod-actions {
                     position: absolute;
-                    top: 0;
+                    top: 3px;
                     right: 0;
+                }
+            }
+            .mz-accountpaymentmethods-empty {
+                a {
+                    color: @linkColor;
+                    text-decoration: underline;
+                    &:hover {
+                        text-decoration: none;
+                    }
                 }
             }
             .mz-accountpaymentmethods-form {
@@ -431,7 +467,7 @@
         }
         .mz-paymentmethod-actions {
             .mz-paymentmethod-edit {
-                color: #d15f2a;
+                color: @linkColor;
             }
         }
         .mz-accountpaymentmethods-method {
@@ -480,7 +516,7 @@
                     }
                     label {
                         display: block;
-                        line-height: 33px;
+                        line-height: 34px;
                         margin-bottom: 0;
                         text-align: right;
                         &[for="editingcard-is-primary"] {
@@ -536,6 +572,8 @@
                     text-align: center;
                 }
                .mz-title {
+                    color: #000;
+                    font-weight: 700;
                     border-bottom: 1px solid #ccc;
                     margin-bottom: 20px;
                     padding: 10px 0;
@@ -554,19 +592,7 @@
                 a {
                     &.mz-itemlisting-action {
                         display: inline-block;
-                        line-height: 10px;
                         margin: 5px 0 0 6px;
-                        &.mz-button {
-                            &:hover,
-                            &:focus,
-                            &:active {
-                                color: #d15f2a;
-                                text-decoration: none;
-                            }
-                        }
-                        .fa {
-                            color: #d15f2a;
-                        }
                     }
                 }
                 .mz-itemlisting-prompt {
@@ -585,7 +611,7 @@
 
     //Btn
     .mz-button {
-        padding: 5px 15px;
+        padding: 6px 15px;
         &.mz-accountsettings-editdone,
         &.mz-accountsettings-passworddone,
         &.mz-contact-save,
@@ -604,9 +630,9 @@
             border-color: #fff;
             border-left: 0;
             color: #666;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 10px;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 18px;
             padding-right: 0;
             padding-left: 0;
             text-decoration: underline;
@@ -621,7 +647,8 @@
 //Logout and Forget password Page
 .mz-login-page,
 .mz-forget-password,
-.mz-reset-password {
+.mz-reset-password,
+.mz-signup-form {
     border: 1px solid #ddd;
     width: 420px;
     max-width: 100%;

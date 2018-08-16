@@ -20,69 +20,81 @@
     {% block site-nav %} {% endblock %} 
     {% block mobile-nav %} {% endblock %}
 
-    <div class="mz-logo-header">      
-        <div class="mz-storebranding pull-left">
-            <a class="mz-logo" href="{{siteContext.siteSubdirectory}}/" title="{{ siteContext.generalSettings.websiteName }}">
-                <img src="{% make_url "cdn" "/cms/files/prima-supply-logo.png" %}" alt="Prima Supply">   
-            </a>
+    <div class="mz-logo-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="mz-storebranding pull-left">
+                        <a class="mz-logo" href="{{siteContext.siteSubdirectory}}/" title="{{ siteContext.generalSettings.websiteName }}">
+                            <img src="../resources/images/ancap-logo-black.png" alt="Ancap USA">   
+                        </a>
+                    </div>
+                    <div class="phone-no pull-right"> 
+                        <a href="tel:+18777458869">1.877.745.8869</a>   
+                    </div>          
+                </div>
+            </div>
         </div>
-        <div class="phone-no pull-right"> 
-            <a href="tel:+(888)810-5043">(888) 810-5043</a>   
-        </div>          
-    </div>  
+    </div> 
    
     {% block checkout-top-content %}
         {% dropzone "checkout-top" scope="template" %} 
     {% endblock checkout-top-content %}
 
     <div class="mz-l-container">
-        <h1 class="mz-pagetitle">{{ labels.checkout }}</h1>
-        <form id="checkout-form" class="mz-checkoutform mz-checkout-section mz-l-2column mz-l-2column-right fades-in" method="post" onsubmit="return false;">
-            {% include "modules/common/message-bar" with model=model.messages %}
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="mz-pagetitle">{{ labels.checkout }}</h1>
+                    <form id="checkout-form" class="mz-checkoutform mz-checkout-section mz-l-2column mz-l-2column-right fades-in" method="post" onsubmit="return false;">
+                        {% include "modules/common/message-bar" with model=model.messages %}
 
-            <div class="mz-l-column" id="checkout-rightcol">
-                <div class="mz-formstep mz-checkoutform-ordersummary" id="order-summary">
-                    {% include "modules/checkout/checkout-order-summary" %}
+                        <div class="mz-l-column" id="checkout-rightcol">
+                            <div class="mz-formstep mz-checkoutform-ordersummary" id="order-summary">
+                                {% include "modules/checkout/checkout-order-summary" %}
+                            </div>
+                            <div class="mz-checkoutform-couponcode clearfix" id="coupon-code-field">
+                                {% include "modules/checkout/coupon-code-field" %}
+                            </div>  
+                        </div>
+
+                        <div class="mz-l-column">
+                            <div class="mz-formstep mz-checkoutform-shippingaddress" id="step-shipping-address">
+                                {% include "modules/checkout/step-shipping-address" %}
+                            </div>
+
+                            <div class="mz-formstep mz-checkoutform-shippingmethod" id="step-shipping-method" {% if not model.requiresFulfillmentInfo %}style="display:none"{% endif %}>
+                                {% include "modules/checkout/step-shipping-method" %}
+                            </div>
+
+                            {% include "modules/checkout/checkout-shipping-items-detail" %}
+
+                            <div class="mz-formstep mz-checkoutform-tbyb" id="step-tbyb">
+                                {% include "modules/checkout/step-tbyb" %}
+                            </div>
+
+                            <div class="mz-formstep mz-checkoutform-paymentinfo" id="step-payment-info">
+                                {% include "modules/checkout/step-payment-info" %}
+                            </div>
+
+                            <div class="mz-formstep mz-checkoutform-review" id="step-review">
+                                {% include "modules/checkout/step-review" %}
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="mz-checkoutform-couponcode clearfix" id="coupon-code-field">
-                    {% include "modules/checkout/coupon-code-field" %}
-                </div>  
             </div>
-
-            <div class="mz-l-column">
-                <div class="mz-formstep mz-checkoutform-shippingaddress" id="step-shipping-address">
-                    {% include "modules/checkout/step-shipping-address" %}
-                </div>
-
-                <div class="mz-formstep mz-checkoutform-shippingmethod" id="step-shipping-method" {% if not model.requiresFulfillmentInfo %}style="display:none"{% endif %}>
-                    {% include "modules/checkout/step-shipping-method" %}
-                </div>
-
-                {% include "modules/checkout/checkout-shipping-items-detail" %}
-
-                <div class="mz-formstep mz-checkoutform-tbyb" id="step-tbyb">
-                    {% include "modules/checkout/step-tbyb" %}
-                </div>
-
-                <div class="mz-formstep mz-checkoutform-paymentinfo" id="step-payment-info">
-                    {% include "modules/checkout/step-payment-info" %}
-                </div>
-
-                <div class="mz-formstep mz-checkoutform-review" id="step-review">
-                    {% include "modules/checkout/step-review" %}
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 
-    {% block page-footer %} {% endblock %}
+    {% block page-footer %}{% endblock page-footer %}
 
-    <div class="mz-checkout-footer">  
-        <div class="mz-pagefooter-copyright" id="copyright">
+    <div class="mz-pagefooter mz-checkout-footer">  
+        <div class="mz-pagefooter-copyright">
             <span class="mz-pagefooter-copyrighttext">
-                {{ labels.copyRight }} {% now Y %} {{ siteContext.generalSettings.websiteName }}.
+                &copy; {% now Y %} {{ labels.copyRight }} {{ siteContext.generalSettings.websiteName }}. {{ labels.allRightsReserved }}
             </span>
-        </div>      
+        </div>     
     </div> 
 {% endblock body-content %}
 

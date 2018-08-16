@@ -33,51 +33,11 @@
                     }
                 }
 
-                if($('.learningCenterInput').is(':focus') && name==='Pages') { 
-                    var valArray = filterCatsArray();
-                    var result = _.filter(thisGroup.suggestions, function(someThing) {
-                        var boolVal = false;
-                        return someThing.suggestion.productType === 'content';
-                        /*if(someThing.suggestion.categories.length > 0) {
-                            $.each(someThing.suggestion.categories, function(index, obj){
-                                if(valArray.indexOf(obj.categoryId) >= 0) {
-                                    boolVal = true;
-                                    return false;
-                                } else {
-                                    boolVal = false;
-                                }                                
-                            });
-                            console.log("Boolval : "+boolVal);
-                            return boolVal;
-                        } else {
-                            return true;
-                        }*/
-                    });
-                    return result;
-                } else if($('#globalSearch').is(':focus') && name==='Pages') {
-                    var valArrayGlobal = filterCatsArray();
+                if($('#globalSearch').is(':focus') && name==='Pages') {
+                    // var valArrayGlobal = filterCatsArray();
                     var resultGlobal = _.filter(thisGroup.suggestions, function(someThing) {
-                    var boolVal = false;
-                    return someThing.suggestion.productType !== 'content';
-                        /*if(someThing.suggestion.categories.length > 0) {
-                            $.each(someThing.suggestion.categories, function(index, obj){
-                                if(valArrayGlobal.indexOf(obj.categoryId) == -1) {
-                                    boolVal = true;
-                                    return false;
-                                } else {
-                                    boolVal = false;
-                                }                                
-                            });
-                            return boolVal;
-                        } else {
-                            return true;
-                        }*/
-
-                        /*if(someThing.suggestion.categories.length > 0) {
-                            return valArrayGlobal.indexOf(someThing.suggestion.categories[0].categoryId) == -1;
-                        } else {
-                            return true;
-                        }*/
+                        var boolVal = false;
+                        return someThing.suggestion.productType !== 'content';
                     });
                     
                     return resultGlobal;
@@ -87,12 +47,13 @@
         },
         filterCatsArray= function(){
             var categories = HyprLiveContext.locals.themeSettings.searchSuggestionFilter;
-            
-            var arrayCats = categories.split(',');          
             var categoryArray = [];
-            for(var i = 0; i < arrayCats.length; i++) {
-                if(arrayCats[i] !== '') {
-                    categoryArray.push(Number(arrayCats[i]));
+            if(categories !== '') {
+                var arrayCats = categories.split(',');          
+                for(var i = 0; i < arrayCats.length; i++) {
+                    if(arrayCats[i] !== '') {
+                        categoryArray.push(Number(arrayCats[i]));
+                    }
                 }
             }
             return categoryArray;

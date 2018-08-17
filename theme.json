@@ -553,7 +553,7 @@
         "tagName": "p"
       }
     ],
-    "defaultPageSize": 15,
+    "defaultPageSize": 32,
     "defaultSort": "createDate asc",
     "enablePartialCaching": true,
     "loadGoogleFonts": [
@@ -1493,6 +1493,12 @@
               "fieldLabel": "Add Text Color",
               "name": "slideOneColor",
               "xtype": "mz-input-color"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Hover Text Color",
+              "name": "slideOneHoverColor",
+              "xtype": "mz-input-color"
             }
           ]
         },
@@ -1535,6 +1541,12 @@
               "fieldLabel": "Add Text Color",
               "name": "slideTwoColor",
               "xtype": "mz-input-color"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Hover Text Color",
+              "name": "slideTwoHoverColor",
+              "xtype": "mz-input-color"
             }
           ]
         },
@@ -1576,6 +1588,12 @@
               "anchor": "100%",
               "fieldLabel": "Add Text Color",
               "name": "slideThreeColor",
+              "xtype": "mz-input-color"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Hover Text Color",
+              "name": "slideThreeHoverColor",
               "xtype": "mz-input-color"
             }
           ]

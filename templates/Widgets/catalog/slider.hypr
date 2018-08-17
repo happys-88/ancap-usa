@@ -10,7 +10,19 @@
                         <p style="color: {{ model.config.slideOneColor }}">{{ model.config.slideShortDescOne }}</p>
                     {% endif %}
                     {% if model.config.slideButtonOne %}
-                        <a class="mz-button" style="color: {{ model.config.slideOneColor }}; border-color: {{ model.config.slideOneColor }}">{{ model.config.slideButtonOne }}</a>
+                        <a class="mz-button" 
+                            style="
+                                color: {{ model.config.slideOneColor }}; 
+                                border-color: {{ model.config.slideOneColor }}
+                            " 
+                            onMouseOver="
+                                this.style.color='{{ model.config.slideOneHoverColor }}',
+                                this.style.background='{{ model.config.slideOneColor }}'
+                            " 
+                            onMouseOut="
+                                this.style.color='{{ model.config.slideOneColor }}',
+                                this.style.background='transparent'
+                            ">{{ model.config.slideButtonOne }}</a>
                     {% endif %}
                 </div>
             </div>
@@ -26,7 +38,20 @@
                         <p style="color: {{ model.config.slideTwoColor }}">{{ model.config.slideShortDescTwo }}</p>
                     {% endif %}
                     {% if model.config.slideButtonTwo %}
-                        <a class="mz-button" style="color: {{ model.config.slideTwoColor }}; border-color: {{ model.config.slideTwoColor }}">{{ model.config.slideButtonTwo }}</a>
+                        <a class="mz-button" 
+                            style="
+                                color: {{ model.config.slideTwoColor }}; 
+                                border-color: {{ model.config.slideTwoColor }}
+                            " 
+                            onMouseOver="
+                                this.style.color='{{ model.config.slideTwoHoverColor }}',
+                                this.style.background='{{ model.config.slideTwoColor }}'
+                            " 
+                            onMouseOut="
+                                this.style.color='{{ model.config.slideTwoColor }}',
+                                this.style.background='transparent'
+                            "
+                        >{{ model.config.slideButtonTwo }}</a>
                     {% endif %}
                 </div>
             </div>
@@ -42,7 +67,20 @@
                         <p style="color: {{ model.config.slideThreeColor }}">{{ model.config.slideShortDescThree }}</p>
                     {% endif %}
                     {% if model.config.slideButtonThree %}
-                        <a class="mz-button" style="color: {{ model.config.slideThreeColor }}; border-color: {{ model.config.slideThreeColor }}">{{ model.config.slideButtonThree }}</a>
+                        <a class="mz-button" 
+                            style="
+                                color: {{ model.config.slideThreeColor }}; 
+                                border-color: {{ model.config.slideThreeColor }}
+                            " 
+                            onMouseOver="
+                                this.style.color='{{ model.config.slideThreeHoverColor }}',
+                                this.style.background='{{ model.config.slideThreeColor }}'
+                            " 
+                            onMouseOut="
+                                this.style.color='{{ model.config.slideThreeColor }}',
+                                this.style.background='transparent'
+                            "
+                        >{{ model.config.slideButtonThree }}</a>
                     {% endif %}
                 </div>
             </div>

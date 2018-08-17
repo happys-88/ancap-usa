@@ -21,8 +21,8 @@
             </div>
             <div class="col-sm-3 col-lg-2 mz-customer-service-nav">     
                 {% comment %}
-                    {% include "modules/customer-service/service-nav" %}
-                    {% endcomment %}
+                    {% include "pages/content-left-nav" %}
+                {% endcomment %} 
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "e8ac797ca8c5874a9c513e57f307aa016ee7f11f"
+      "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
@@ -553,7 +553,7 @@
         "tagName": "p"
       }
     ],
-    "defaultPageSize": 32, 
+    "defaultPageSize": 32,
     "defaultSort": "createDate asc",
     "enablePartialCaching": true,
     "loadGoogleFonts": [
@@ -893,7 +893,7 @@
     "questions": "questions",
     "showYotpoGallery": true,
     "instagramFollowUsLink": "https://www.instagram.com/prima.supply/?hl=en",
-    "addThisPubId": "ra-519bb90e58f9bf27", 
+    "addThisPubId": "ra-519bb90e58f9bf27",
     "showProductTooltip": true,
     "noHasstleReturnTooltip": "",
     "tryBeforeYouBuyTooltip": "",
@@ -1501,6 +1501,12 @@
               "fieldLabel": "Add Text Color",
               "name": "slideOneColor",
               "xtype": "mz-input-color"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Hover Text Color",
+              "name": "slideOneHoverColor",
+              "xtype": "mz-input-color"
             }
           ]
         },
@@ -1543,6 +1549,12 @@
               "fieldLabel": "Add Text Color",
               "name": "slideTwoColor",
               "xtype": "mz-input-color"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Hover Text Color",
+              "name": "slideTwoHoverColor",
+              "xtype": "mz-input-color"
             }
           ]
         },
@@ -1584,6 +1596,12 @@
               "anchor": "100%",
               "fieldLabel": "Add Text Color",
               "name": "slideThreeColor",
+              "xtype": "mz-input-color"
+            },
+            {
+              "anchor": "100%",
+              "fieldLabel": "Add Hover Text Color",
+              "name": "slideThreeHoverColor",
               "xtype": "mz-input-color"
             }
           ]

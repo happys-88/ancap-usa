@@ -461,6 +461,10 @@
                     "fieldLabel": "MailChimp API Key", 
                     "xtype": "mz-input-text",
                     "name": "mailChimpKey"
+                },{
+                    "fieldLabel": "MailChimp Deals", 
+                    "xtype": "mz-input-textarea",
+                    "name": "mailchimpDeals"
                 }
             ]
         }

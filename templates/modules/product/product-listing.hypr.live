@@ -22,12 +22,11 @@
         {% else %}
             <a class="mz-productlisting-title" href="{% make_url "product" model %}">{{model.content.productName}}</a>
         {% endif %}
-        {% comment %}
+        
         {% if model.content.productShortDescription and themeSettings.listProductShortDesc %}
             <p class="mz-productlisting-shortdesc">{{ model.content.productShortDescription|truncatewords(themeSettings.maxProductSummaryWords)|safe }}</p>
         {% endif %}
-        {% endcomment %}  
-
+        
         {% block product-code %}
             {% if themeSettings.listProductCode %}
                 <div class="mz-productlisting-productcode">{{model.productCode}}</div> 

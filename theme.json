@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "63b316b5599721c565abaa72e14a0524af8fb355"
+      "commit": "5c31ad66955366ff3cd214dd74d06b355cc79d86"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
@@ -621,7 +621,7 @@
     "avalaraToken": "MjAwMDA4NDgwMzpFQUQyM0JBQzMzNzRBN0I3",
     "avalaraCompanyCode": "PRIMALLC",
     "mailChimpKey": "1afe25343b7a71ed977589911f618df7-us7",
-    "mailchimpDeals":"{\"AncapNewsLetter\": \"c10e06d63a\" }",
+    "mailchimpDeals": "{\"AncapNewsLetter\": \"c10e06d63a\" }",
     "merchantEmail": "sales@ancap-usa.com",
     "usStates": [
       {

@@ -119,7 +119,7 @@ define([
 		$(window).scroll(function() {    
 		    var scroll = $(window).scrollTop();  
 
-		    if (scroll >= 34) {
+		    if (scroll >= 1) {
 		        $("body").addClass("header-fixed");
 		        $(".mz-sticky-header").addClass("fixed"); 
 		        $("#page-content").addClass("fixed-header");		        

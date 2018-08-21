@@ -535,6 +535,7 @@ body{
 		    position: absolute;
 		    top: 20px;
 		    right: 20px;
+		    z-index: 1;
 		}
 	}
 	.mz-searchbox {
@@ -604,6 +605,7 @@ body{
     background: #fff;
     float: left;
     width: 100%;
+    clear: both;
     .fa {
 	    color: #9a9a9a;
 	    font-size: 26px;
@@ -726,6 +728,8 @@ body{
 }
 
 .mz-custom-work {
+	float: left;
+	width: 100%;
 	padding: 120px 0;
 	h2 {
 		color: @goldenColor;
@@ -1521,12 +1525,28 @@ body{
 	margin-top: 20px;      
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
+	.mz-custom-work {
+    	padding: 90px 0;
+	}
+	.mz-features-container {
+	    padding: 90px 0;
+	}
 	.mz-aboutus-banner {
 	    padding: 90px 0;
 	}
 	.mz-grid-gallery {
 		li {
 		    width: 49.98%;
+		}
+	}
+	.mz-buy {
+		.mz-our-retailers {
+		    padding: 90px 0;
+		}
+	}
+	.mz-quality {
+		.mz-advanced-features {
+		    padding: 90px 15px;
 		}
 	}
 }

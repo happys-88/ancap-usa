@@ -29,37 +29,39 @@
 
     <div itemscope itemtype="http://schema.org/Product" class="mz-l-container">
         <div class="row">
-            <div data-mz-productimages class="col-xs-12 col-sm-6 mz-productimages mz-l-sidebar">
-                {% include "modules/product/product-images" with model=prodMod %}
-            </div> 
-            <div class="col-xs-12 col-sm-6 mz-productdetail-wrap">
-                {% include "modules/common/message-bar" with model=prodMod %}   
-                {% comment %}
-                <div class="yotpo-review-section-pdp">   
-                    <!-- Yotpo Rating -->
-                    {% block star-rating %}
-                        <div class="yotpo bottomLine" data-product-id="{{prodMod.productCode}}" id="reviewLink"></div>  
-                    {% endblock star-rating %} 
-
-                    {% block question-answer %}
-                        <div class='yotpo QABottomLine' data-appkey='{{ themeSettings.yotpoApiKey }}' data-product-id='{{ prodMod.productCode }}' id="askQuestionLink"></div> 
-                    {% endblock question-answer %}
-                    <!-- Yotpo Rating --> 
-                </div>
-                {% endcomment %}
-                <div id="product-detail" class="mz-productdetail mz-l-stack">
-                    {% include "modules/product/product-detail" with model=prodMod %}
+            <div class="col-xs-12">
+                <div data-mz-productimages class="col-xs-12 col-sm-6 mz-productimages mz-l-sidebar">
+                    {% include "modules/product/product-images" with model=prodMod %}
                 </div> 
+                <div class="col-xs-12 col-sm-6 mz-productdetail-wrap">
+                    {% include "modules/common/message-bar" with model=prodMod %}   
+                    {% comment %}
+                    <div class="yotpo-review-section-pdp">   
+                        <!-- Yotpo Rating -->
+                        {% block star-rating %}
+                            <div class="yotpo bottomLine" data-product-id="{{prodMod.productCode}}" id="reviewLink"></div>  
+                        {% endblock star-rating %} 
+
+                        {% block question-answer %}
+                            <div class='yotpo QABottomLine' data-appkey='{{ themeSettings.yotpoApiKey }}' data-product-id='{{ prodMod.productCode }}' id="askQuestionLink"></div> 
+                        {% endblock question-answer %}
+                        <!-- Yotpo Rating --> 
+                    </div>
+                    {% endcomment %}
+                    <div id="product-detail" class="mz-productdetail mz-l-stack">
+                        {% include "modules/product/product-detail" with model=prodMod %}
+                    </div> 
+                </div>
+                <div class="col-xs-12 mz-product-prop">
+                    {% include "modules/product/product-properties" with model=prodMod %} 
+                </div>
+                {% comment %}
+                {% block yotpo-reviews-questions %} 
+                    {% include "modules/product/yotpo-review-and-qa" with model=prodMod reviewData=reviews %}
+                    {% require_script "pages/yotpo-review" %} 
+                {% endblock yotpo-reviews-questions %}  
+                {% endcomment %}
             </div>
-            <div class="col-xs-12 mz-product-prop">
-                {% include "modules/product/product-properties" with model=prodMod %} 
-            </div>
-            {% comment %}
-            {% block yotpo-reviews-questions %} 
-                {% include "modules/product/yotpo-review-and-qa" with model=prodMod reviewData=reviews %}
-                {% require_script "pages/yotpo-review" %} 
-            {% endblock yotpo-reviews-questions %}  
-            {% endcomment %}
         </div>
     </div>
 

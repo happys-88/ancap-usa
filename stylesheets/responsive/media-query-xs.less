@@ -304,7 +304,7 @@
 			.mz-facetingform {
 				background: #fff;
 				position: absolute;
-			    top: 107px;
+			    top: 58px;
 			    right: 0;
 			    left: 0;
 				z-index: 1;
@@ -320,18 +320,11 @@
 				padding-left: 0;
 			}
 		}
+		.mz-title-breadcrumbs {
+		    margin-top: 48px;
+		}
 		.mz-l-paginatedlist {
-			margin-top: 0;
-			h1 {
-				&.mz-pagetitle {
-					font-size: 18px;
-					margin-top: 11px;
-					margin-bottom: 0;
-					padding-right: 15px;
-					padding-bottom: 16px;
-					padding-left: 15px;
-				}
-			}			
+			margin-top: 0;		
 			.mz-l-tiles {
 				margin-top: 18px;
 			}
@@ -367,27 +360,19 @@
 			}
 			.mz-productlist-tiled {
 				.mz-productlist-item {
-					&.col-xs-6 {
-						width: 50%;
-						padding: 0 6px 0 12px;
-						min-height: 370px;   
-						&:nth-child(even){
-							padding: 0 12px 0 6px;      
-						}
-					}
-					button {
-						&.add-to-cart {
-							width: calc(~'100% - 30px');
-							max-width: 320px;
-						}
-					}
-					&:hover {
-						button {
-							&.mz-quick-view {
-							    display: none;
-							}
-						}
-					}
+					// button {
+					// 	&.add-to-cart {
+					// 		width: calc(~'100% - 30px');
+					// 		max-width: 320px;
+					// 	}
+					// }
+					// &:hover {
+					// 	button {
+					// 		&.mz-quick-view {
+					// 		    display: none;
+					// 		}
+					// 	}
+					// }
 					.mz-productlisting{
 						.mz-productlisting-title{
 							.multiLineEllipsis(16px, 2);
@@ -587,43 +572,43 @@
 		.mz-pagetitle {
 			font-size: 16px;
 		}
-		.mz-brand-certifications {
-			padding: 15px 0;
-			border-top: 1px solid #e0e0e0e0;
-			margin-top: 20px;
-			ul {
-				li {
-					&.service-tooltips {
-						border-top: 1px solid #e0e0e0;
-						margin-top: 15px;
-						padding-top: 15px;
-						text-align: center;
-						.mz-tooltip {
-							display: inline-block;
-							float: none;
-							border-right: 0;
-						}
-					}
-					&.product-certifications {
-						border-right: 0;
-					}
-					.mz-tooltip {
-						&:after {
-							top: 40px;
-						}
-						&:before {
-							top: 39px;
-						}
-						.mz-tooltip-text {
-							top: 58px;
-							right: 0;
-							left: 0;
-							margin: 0 auto;
-						}
-					}
-				}
-			}
-		}
+		// .mz-brand-certifications {
+		// 	padding: 15px 0;
+		// 	border-top: 1px solid #e0e0e0e0;
+		// 	margin-top: 20px;
+		// 	ul {
+		// 		li {
+		// 			&.service-tooltips {
+		// 				border-top: 1px solid #e0e0e0;
+		// 				margin-top: 15px;
+		// 				padding-top: 15px;
+		// 				text-align: center;
+		// 				.mz-tooltip {
+		// 					display: inline-block;
+		// 					float: none;
+		// 					border-right: 0;
+		// 				}
+		// 			}
+		// 			&.product-certifications {
+		// 				border-right: 0;
+		// 			}
+		// 			.mz-tooltip {
+		// 				&:after {
+		// 					top: 40px;
+		// 				}
+		// 				&:before {
+		// 					top: 39px;
+		// 				}
+		// 				.mz-tooltip-text {
+		// 					top: 58px;
+		// 					right: 0;
+		// 					left: 0;
+		// 					margin: 0 auto;
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 
 	/**** Yotpo Reviews ****/
@@ -1072,15 +1057,16 @@
 	.mz-forget-password,
 	.mz-reset-password,
 	.mz-signup-form {
+		margin-bottom: 20px;
 		padding: 15px 15px 30px;
 		.mz-pagetitle {
 		    font-size: 20px;
 		}
 	}
 	.mz-myaccount {
-		.mz-breadcrumbs {
-		    padding: 0;
-		}
+		// .mz-breadcrumbs {
+		//     padding: 0;
+		// }
 		.mz-myaccount-panels {
 		    margin-top: 15px;
 		    width: 100%;
@@ -1105,16 +1091,16 @@
 			.mz-accountsettings {
 		        .mz-accountsettings-section,
 		        .mz-accountsettings-btn-section {
-		            max-width: 380px;
+		            max-width: 100%;
 		        }
 		    }
 		    .mz-accountsettings-password {
-	            max-width: 380px;
+	            max-width: 100%;
 	        }
 	        .mz-orderlisting {
 	        	.mz-orderlisting-detail {        		
 				    background-color: #fff;
-				    color: #495363;
+				    color: #000;
 	        		.mz-orderlisting-details-item {
 					    display: block;
 					    margin-bottom: 10px;
@@ -1133,65 +1119,42 @@
 				}
 			}
 		    .mz-accountaddressbook {
-		    	.mz-old-accountaddressbook {
-		    		li {
-		    			&.mz-accountaddressbook-contact {
-						    border-bottom: 1px solid #e0e0e0;
-						    width: 100%!important;
-						    min-height: 160px;
-						    margin-bottom: 0;
-						    padding: 15px;
-						    &:nth-child(odd) {
-						    	border-right: 0!important;
-						    }
-						    &:last-child {
-							    border-bottom: 0;
-							}
-						    &.mz-accountaddressbook-form {
-						    	margin-bottom: 0;
-							    max-width: 380px;
-							    width: 100%;
-							    padding: 15px 0;
-							}
-						}
-					}
-				}
-				.mz-accountaddressbook-list {
+		    	.mz-accountaddressbook-list {
 				    margin-top: 0;
 				    border: 1px solid #ccc;
 				    float: left;
 				    width: 100%;
+				}
+	    		li {
+	    			&.mz-accountaddressbook-contact {
+	    				border-left: none;
+					    border-top: 1px solid #e0e0e0;
+					    width: 100%!important;
+					    min-height: 160px;
+					    margin-bottom: 0;
+					    padding: 15px;
+					    &:first-child {
+						    border-top: 0;
+						}
+					    &.mz-accountaddressbook-form {
+					    	margin-bottom: 0;
+						    max-width: 100%;
+						    width: 100%;
+						    padding: 15px 0;
+						}
+					}
 				}
 				.mz-accountaddressbook-contact {
 					.mz-accountaddressbook-actions {
 					    top: 15px;
 					}
 				}
-				.mz-new-accountaddressbook {
-					border-top: 1px solid #e0e0e0;
-					float: left;
-					padding-top: 15px;
-    				width: 100%;
-		    		li {
-		    			&.mz-accountaddressbook-contact {
-						    &.mz-accountaddressbook-form {
-							    max-width: 380px;
-							    width: 100%;
-							}
-						}
-					}
-				}
-				.mz-accountaddressbook-contact {
-		            .mz-accountaddressbook-actions {
-		                font-size: 12px;
-		            }
-		        }
 			}
 			#paymentmethods {
 				.mz-accountpaymentmethods {
 					.mz-accountpaymentmethods-form {
-					    border-bottom: 1px solid #e0e0e0;
-					    max-width: 380px;
+					    border-bottom: 1px solid #ccc;
+					    max-width: 100%;
 					    padding-top: 15px;
 					    .mz-creditcardform {
 					    	label {
@@ -1229,7 +1192,6 @@
 						margin: 0;
 						padding: 15px;
 						.mz-paymentmethod-actions {
-						    font-size: 12px;
 						    top: 15px;
 						}
 					}
@@ -1532,7 +1494,8 @@
 	.mz-aboutus-banner {
 	    padding: 50px 0;
 	}
-	.mz-aboutus {
+	.mz-aboutus,
+	.mz-product {
 		.mz-product-tabs {
 			.nav.nav-tabs {
 		    	height: auto;
@@ -1549,8 +1512,9 @@
 						    border-bottom: 2px solid #000;
 						}
 					}
-					&:last-child {
-						margin-top: 15px;
+					margin-top: 15px;
+					&:first-child {
+						margin-top: 0;
 					}
 				}
 			}
@@ -1559,7 +1523,8 @@
 	
 	//Buy and custom Common
 	.mz-custom,
-	.mz-buy {
+	.mz-buy,
+	.mz-category {
 		.mz-title-breadcrumbs {
 		    padding: 40px 0;
 		    .mz-breadcrumbs {
@@ -1654,6 +1619,17 @@
 	.mz-quality {
 		.mz-advanced-features {
 		    padding: 50px 15px;
+		}
+	}
+	//Product
+	.mz-product {
+		.mz-product-prop {
+		    padding: 50px 0;
+		}
+		.mz-product-tabs {
+			.nav.nav-tabs {
+			    padding-bottom: 0;
+			}
 		}
 	}
 

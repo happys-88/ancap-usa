@@ -7,7 +7,7 @@
 		.mz-header-bottom {
 			padding: 14px 15px; 
 			.mz-storebranding {
-				width: 150px;   
+				width: 80px;   
 				.mz-logo {
 					height: 47px;
 					margin-top: 0;
@@ -95,7 +95,7 @@
 		padding: 5px 10px;
 		position: absolute;
 		top: 5px;
-    	right: 120px;
+    	right: 130px;
 		.mz-hamburger-icon {
 			background: none;
 			cursor: pointer;
@@ -322,158 +322,154 @@
 	.mz-myaccount {
 		.mz-myaccount-panels {
 			.mz-accountaddressbook {
-				.mz-old-accountaddressbook {
-					li {
-				        &.mz-accountaddressbook-contact {
-				        	width: 50%;
-						    border-left: 0;
-				            &.mz-accountaddressbook-form {
-				            	.mz-label {
-				            		width: 100%;
-								    text-align: left;
-								}
+				li {
+			        &.mz-accountaddressbook-contact {
+			            &.mz-accountaddressbook-form {
+			            	.mz-label {
+			            		width: 100%;
+							    text-align: left;
+							}
+							.col-sm-8 {
+								width: 100%;
+							}
+							.mz-addressform-address2 {
+								width: 100%;
 								.col-sm-8 {
-									width: 100%;
-								}
-								.mz-addressform-address2 {
-									width: 100%;
-									.col-sm-8 {
-										margin-left: 0;
-									}
-								}
-								.mz-contacttypes {
-									div {
-										margin-left: 0;
-									}
-								}
-								.mz-account-contact-actions {
 									margin-left: 0;
 								}
-				            }
-				            &:nth-child(odd) {
-						    	border-right: 1px solid #e0e0e0;
-			    				border-left: 0;
-			    				padding-left: 15px;
-						    }
-				        }
-				        &:nth-child(odd) {
-					    	&.mz-accountaddressbook-contact {
-				           		&.mz-accountaddressbook-form {
-				           			padding-left: 0;
-				           		}
-				           	}
+							}
+							.mz-contacttypes {
+								div {
+									margin-left: 0;
+								}
+							}
+							.mz-account-contact-actions {
+								margin-left: 0;
+							}
+			            }
+			            &:nth-child(odd) {
+					    	border-right: 1px solid #e0e0e0;
+		    				border-left: 0;
+		    				padding-left: 15px;
 					    }
+			        }
+			        &:nth-child(odd) {
+				    	&.mz-accountaddressbook-contact {
+			           		&.mz-accountaddressbook-form {
+			           			padding-left: 0;
+			           		}
+			           	}
 				    }
-				}
+			    }
 			}
 		}
 	}
 	/***\ My Account ***/
 
 	/**** Mobile Nav Learning Center ****/
-	.mz-learning-center{
-		.lc-breadcrumbs{  
-			float: left;
-			width: 100%; 
-			margin: 20px 0 15px;   
-		}	
-	}
+	// .mz-learning-center{
+	// 	.lc-breadcrumbs{  
+	// 		float: left;
+	// 		width: 100%; 
+	// 		margin: 20px 0 15px;   
+	// 	}	
+	// }
 	
-	.mz-mobilenav-lcenter{  
-		.toggle-btn{  
-			float: left; 
-		    width: 100%;
-		    text-align: left;
-		    background: #f3f3f3;
-		    font-size: 16px;
-		    color: #333;
-		    text-transform: uppercase;
-		    padding: 18px 25px 18px 15px;  
-		    border: none;
-		    border-bottom: 1px solid #e3e3e3; 
-		    .fa{  
-		    	float: right; 
-			    font-size: 30px;
-			    color: #1a3155;
-			    line-height: 18px;
-			    &:before {
-					content: "\f107";    
-				}
-			}
-			&.active{
-				.fa { 
-					&:before { 
-						content: "\f106";   
-					}
-				}
-			}
+	// .mz-mobilenav-lcenter{  
+	// 	.toggle-btn{  
+	// 		float: left; 
+	// 	    width: 100%;
+	// 	    text-align: left;
+	// 	    background: #f3f3f3;
+	// 	    font-size: 16px;
+	// 	    color: #333;
+	// 	    text-transform: uppercase;
+	// 	    padding: 18px 25px 18px 15px;  
+	// 	    border: none;
+	// 	    border-bottom: 1px solid #e3e3e3; 
+	// 	    .fa{  
+	// 	    	float: right; 
+	// 		    font-size: 30px;
+	// 		    color: #1a3155;
+	// 		    line-height: 18px;
+	// 		    &:before {
+	// 				content: "\f107";    
+	// 			}
+	// 		}
+	// 		&.active{
+	// 			.fa { 
+	// 				&:before { 
+	// 					content: "\f106";   
+	// 				}
+	// 			}
+	// 		}
 			
-		}
-		#mz-mobilenav-containerLC{
-			width: 100%;
-			top: 56px; 
-			background: #f3f3f3;
-			padding-bottom: 20px;  
-		}
-		.mz-sitenav{
-			.mz-sitenav-item{
-				width: 100%; 
-				max-width: 100%;   
-			}
-			.panel-group{
-				.panel{
-					border-color: #e3e3e3; 
-					.panel-heading{
-						.panel-title{
-							a{
-								padding: 11px 25px 11px 15px;   
-								background: #f3f3f3; 
-								text-transform: uppercase;
-								color: #333;
-								.glyphicon{
-									color: #1a3155;
-									right: 25px;  	
-								}   
-							}
-						}		
-					}
-					.mz-sitenav-sub-sub{
-						padding-left: 15px; 
-					}		
-				}
-			}
-			// .learning-center-search{
-			// 	padding: 0 18px;
-			// 	margin-top: 10px;   
-			// 	.mz-searchbox{ 
-			// 		.mz-searchbox-field{
-			// 			width: 100%;
-			// 			height: auto;  
-			// 			background: #f3f3f3; 
-			// 			border: none;
-			// 			border-bottom: 1px solid #000;
-			// 			.twitter-typeahead{
-			// 				width: 100%;  
-			// 			} 
-			// 			.mz-searchbox-input{
-			// 				background: #f3f3f3;
-			// 				width: calc(~"100% - 46px"); 
-			// 				height: 40px;
-			// 				padding: 0 15px 0 0;     
-			// 			}
-			// 			.mz-searchbox-button{
-			// 				background: #f3f3f3;
-			// 				height: 40px;
-			// 				.fa{ 
-			// 					color: #1a3155; 
-			// 				}
-			// 			}
-			// 		}
-			// 	}	
-			// }
+	// 	}
+	// 	#mz-mobilenav-containerLC{
+	// 		width: 100%;
+	// 		top: 56px; 
+	// 		background: #f3f3f3;
+	// 		padding-bottom: 20px;  
+	// 	}
+	// 	.mz-sitenav{
+	// 		.mz-sitenav-item{
+	// 			width: 100%; 
+	// 			max-width: 100%;   
+	// 		}
+	// 		.panel-group{
+	// 			.panel{
+	// 				border-color: #e3e3e3; 
+	// 				.panel-heading{
+	// 					.panel-title{
+	// 						a{
+	// 							padding: 11px 25px 11px 15px;   
+	// 							background: #f3f3f3; 
+	// 							text-transform: uppercase;
+	// 							color: #333;
+	// 							.glyphicon{
+	// 								color: #1a3155;
+	// 								right: 25px;  	
+	// 							}   
+	// 						}
+	// 					}		
+	// 				}
+	// 				.mz-sitenav-sub-sub{
+	// 					padding-left: 15px; 
+	// 				}		
+	// 			}
+	// 		}
+	// 		// .learning-center-search{
+	// 		// 	padding: 0 18px;
+	// 		// 	margin-top: 10px;   
+	// 		// 	.mz-searchbox{ 
+	// 		// 		.mz-searchbox-field{
+	// 		// 			width: 100%;
+	// 		// 			height: auto;  
+	// 		// 			background: #f3f3f3; 
+	// 		// 			border: none;
+	// 		// 			border-bottom: 1px solid #000;
+	// 		// 			.twitter-typeahead{
+	// 		// 				width: 100%;  
+	// 		// 			} 
+	// 		// 			.mz-searchbox-input{
+	// 		// 				background: #f3f3f3;
+	// 		// 				width: calc(~"100% - 46px"); 
+	// 		// 				height: 40px;
+	// 		// 				padding: 0 15px 0 0;     
+	// 		// 			}
+	// 		// 			.mz-searchbox-button{
+	// 		// 				background: #f3f3f3;
+	// 		// 				height: 40px;
+	// 		// 				.fa{ 
+	// 		// 					color: #1a3155; 
+	// 		// 				}
+	// 		// 			}
+	// 		// 		}
+	// 		// 	}	
+	// 		// }
 				
-		}
-	}
+	// 	}
+	// }
 	/**** Mobile Nav Learning Center End ****/
 
 	.mz-l-pagecontent{
@@ -490,6 +486,11 @@
 			.mz-button{
 				font-size: 14px;   
 			}		
+		}
+	}
+	.mz-category {
+		.mz-title-breadcrumbs {
+		    padding: 40px 0;
 		}
 	}
 }

@@ -29,9 +29,6 @@
             margin: 10px 0;
             text-transform: uppercase;
         }
-        p {
-            color: #666;
-        }
         .mz-l-formfieldgroup {
             display: block;
             .input-group {
@@ -60,7 +57,7 @@
             width: 100%;
         }
         .mz-forgot {
-            color: #00adce;
+            color: @linkColor;
             text-decoration: underline;
             &:hover {
                 text-decoration: none;
@@ -79,39 +76,39 @@
         }
     }
 }
-#mz-logged-in-notice {
-    .dropdown-menu {
-        border: 1px solid #415265;
-        width: 240px;
-        border-radius: 0;
-        border-top: 20px solid #415265;
-        margin-top: 10px;
-        padding: 0;
-        position: absolute;
-        left: -82px;
-        &:after {
-            content: "";
-            border: 10px solid transparent;
-            border-bottom: 10px solid #415265;
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            top: -40px;
-            right: 0;
-            left: 0;
-            margin: auto;
-        }
-    }
-    .my-account-details {
-        h4 {
-            border-top: 1px solid #e0e0e0;
-            font-size: 14px;
-            margin: 0;
-            padding: 12px 15px;
-            text-transform: uppercase;
-        }
-    }
-}
+// #mz-logged-in-notice {
+//     .dropdown-menu {
+//         border: 1px solid #415265;
+//         width: 240px;
+//         border-radius: 0;
+//         border-top: 20px solid #415265;
+//         margin-top: 10px;
+//         padding: 0;
+//         position: absolute;
+//         left: -82px;
+//         &:after {
+//             content: "";
+//             border: 10px solid transparent;
+//             border-bottom: 10px solid #415265;
+//             width: 20px;
+//             height: 20px;
+//             position: absolute;
+//             top: -40px;
+//             right: 0;
+//             left: 0;
+//             margin: auto;
+//         }
+//     }
+//     .my-account-details {
+//         h4 {
+//             border-top: 1px solid #e0e0e0;
+//             font-size: 14px;
+//             margin: 0;
+//             padding: 12px 15px;
+//             text-transform: uppercase;
+//         }
+//     }
+// }
 
 //My Account Page/Section
 .mz-myaccount {
@@ -141,7 +138,7 @@
     //     }
     // }
     .mz-myaccount-nav {
-        margin-top: 40px;
+        margin: 40px 0 30px;
         .mz-l-sidebar {
             margin-top: 0;
         }
@@ -652,15 +649,12 @@
     border: 1px solid #ddd;
     width: 420px;
     max-width: 100%;
-    margin: 0 auto;    
+    margin: 0 auto 15px;    
     padding: 15px 30px 30px;
     .mz-pagetitle {
         font-size: 22px;
         margin: 10px 0;
         text-transform: uppercase;
-    }
-    p {
-        color: #666;
     }
     .mz-l-formfieldgroup {
         display: block;
@@ -683,7 +677,7 @@
         }
     }
     .mz-forgot {
-        color: #00adce;
+        color: @linkColor;
         text-decoration: underline;
         &:hover {
             text-decoration: none;

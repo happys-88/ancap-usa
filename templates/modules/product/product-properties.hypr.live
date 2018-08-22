@@ -1,23 +1,6 @@
-{% comment %}
-{% if model.properties and themeSettings.showProductDetailProperties %}
-    {% for property in model.properties %}
-        {% if property.attributeFQN == "tenant~field_overview" or property.attributeFQN == "tenant~field_features" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" or property.attributeFQN == "tenant~field_promo_text" %}  
-            <div class="col-md-12 mz-productdetail-properties mz-l-stack-section">
-                <div class="mz-propertylist mz-propertylist-justified">
-                    <h2 class="heading-2"><span>{{property.attributeDetail.name}}</span></h2>
-                    {% for v in property.values %}
-                        <div>{% if v.stringValue %}{{v.stringValue|safe}}{% else %}{{v.value|safe}}{% endif %}</div>
-                    {% endfor %}
-                </div>
-            </div> 
-        {% endif %}
-    {% endfor %}
-{% endif %}
-{% endcomment %}
-
 {% if model.properties and themeSettings.showProductDetailProperties %}
     <div class="mz-product-tabs"> 
-        <ul class="nav nav-tabs hidden-xs" role="tablist">
+        <ul class="nav nav-tabs" role="tablist">
             {% for property in model.properties %}
                 {% if property.attributeFQN == "tenant~field_overview" or property.attributeFQN == "tenant~field_features" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" %}
                     {% if property.attributeFQN == "tenant~field_overview" %} 
@@ -39,25 +22,21 @@
             {% for property in model.properties %}
                 {% if property.attributeFQN == "tenant~field_overview" or property.attributeFQN == "tenant~field_features" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" %}
                     {% if property.attributeFQN == "tenant~field_overview" %} 
-                        <li class="active visible-xs" role="presentation"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
                         <div role="tabpanel" class="tab-pane active" id="overview">
                             {{ model|get_product_attribute_value("tenant~field_overview")|safe }}      
                         </div>
                     {% endif %}
                     {% if property.attributeFQN == "tenant~field_features" %} 
-                        <li class="visible-xs" role="presentation"><a href="#features" aria-controls="features" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
                         <div role="tabpanel" class="tab-pane" id="features">
                             {{ model|get_product_attribute_value("tenant~field_features")|safe }}    
                         </div>
                     {% endif %}
                     {% if property.attributeFQN == "tenant~field_spec_text" %} 
-                        <li class="visible-xs" role="presentation"><a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
                         <div role="tabpanel" class="tab-pane" id="specification">
                             {{ model|get_product_attribute_value("tenant~field_spec_text")|safe }}    
                         </div>
                     {% endif %}
                     {% if property.attributeFQN == "tenant~body" %} 
-                        <li class="visible-xs" role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
                         <div role="tabpanel" class="tab-pane" id="description">
                             {{ model|get_product_attribute_value("tenant~body")|safe }}    
                         </div>

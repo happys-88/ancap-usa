@@ -221,20 +221,19 @@ body{
 	    	color: #000;
 	    }
 	}
-    .options {
-
-    }
 	.mz-productdetail {
 		.mz-price {
 		    line-height: 30px;
 		}
 	}
 	.mz-retailer-buy {
+		margin-top: 50px;
 		.mz-button {
 			background: #fff;
 			color: #000;
-			margin-right: 20px;
-			padding: 8px 20px 9px;
+			height: 44px;
+			margin: 0 20px 20px 0;
+			padding: 10px 20px;
 			&:hover {
 				background: #000;
 				color: #fff;
@@ -243,18 +242,57 @@ body{
 	}
 	.mz-product-prop {
 	    border-top: 1px solid #e5e5e5;
+	    margin-top: 60px;
 	    padding: 120px 0;
 	}
-	#add-to-cart.mz-productdetail-addtocart{
-	    color: #ab2328;
-		background: #fff;
-	    border: 2px solid #ab2328;
-	    font-size: 14px;
-	    font-weight: 600;
-	    height: 42px;
-		&:hover {
-			color: #fff;
-			background: #ab2328;
+	.mz-productdetail {
+		.mz-productdetail-qty {
+			height: 44px;
+		}
+	}
+	.mz-productdetail-conversion-controls,
+	.mz-productdetail-conversion-buttons {
+		margin-top: 20px;
+	}
+	// Should be add in button page
+	button{
+	    &#add-to-wishlist {
+	        color: #000;
+	        border: none;
+	        height: 44px;
+	        background: #fff;
+	        padding: 0;
+	        text-decoration: underline;
+	        &:hover {
+	            text-decoration: none;
+	        }
+	    }
+	}
+	button {
+	    &#add-to-cart {
+	        margin-top: 0;
+	        width: 100%;
+	        height: 40px;
+	        &.is-disabled {
+	            background: #d15f2a;
+	            border: 1px solid transparent;
+	            opacity: 0.5;
+	        }
+	    }
+	}
+	#add-to-cart {
+		&.mz-productdetail-addtocart{
+		    color: #ab2328;
+			background: #fff;
+		    border: 2px solid #ab2328;
+		    font-size: 14px;
+		    font-weight: 600;
+		    max-width: 200px;
+		    height: 46px;
+			&:hover {
+				color: #fff;
+				background: #ab2328;
+			}
 		}
 	}
 	.mz-ordered-increments {
@@ -824,7 +862,7 @@ body{
     }
     .separator-line {
     	background: #fff;
-    	margin-top: 20px;
+    	margin: 20px 0 0;
     	-webkit-transition: width 1s;
     				transition: width 1s;
     }
@@ -1547,6 +1585,23 @@ body{
 	.mz-quality {
 		.mz-advanced-features {
 		    padding: 90px 15px;
+		}
+	}
+	.mz-product {
+		.mz-product-prop {
+		    padding: 90px 0;
+		}
+	}
+}
+
+@media screen and (max-width: 479px) {
+	.mz-category {
+		.mz-l-paginatedlist {
+			.mz-productlist-tiled {
+				.mz-productlist-item {
+					width: 100%;
+				}
+			}
 		}
 	}
 }

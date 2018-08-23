@@ -96,11 +96,6 @@ body{
 .mz-pagefooter{
 	background: @siteBaseColor;
 }
-.mz-table.mz-table-cart{
-	.mz-carttable-header{ 
-		background: @primaryBtnColor;
-	}
-}
 
 /**** Footer ****/
 .mz-pagefooter{
@@ -121,45 +116,6 @@ body{
 			}
 		}
 	}
-}
-
-/**** Category and checkout pages ****/
-.mz-category, .mz-confirmation, .mz-checkout {
-	.mz-button{
-		transition:none;
-		border: 2px solid @primaryBtnColor;
-		.mzPrimaryBtn();
-		&:hover{
-			.mzPrimaryBtnHover();
-			background: #fff !important;
-		}
-	}
-	.mz-button[disabled="disabled"]{
-		.mzPrimaryBtnBg();
-		&:hover{
-			.mzPrimaryBtn();
-			background:@primaryBtnColor !important;
-		}
-	}
-	.mz-checkoutform{
-		.mz-checkoutform-couponcode{
-			.mz-button{
-				transition:none;
-				border: 2px solid @primaryBtnColor;
-				.mzPrimaryBtn();
-				&:hover{
-					.mzPrimaryBtnHover();
-				}
-			}
-			.mz-button[disabled]{
-				.mzPrimaryBtnBg();
-				&:hover{
-					border-color: @primaryBtnColor;
-					.mzPrimaryBtn();
-				}
-			}
-		} 
-	} 
 }
 
 .separator-line {
@@ -316,6 +272,9 @@ body{
 			&:hover{.mzPrimaryBtn();}
 		}
 	}
+	.mz-carttable-total-main-container {
+        color: #000;
+    }
 }
 
 
@@ -1542,26 +1501,6 @@ body{
 }
 /***\ Buy ***/
 
-
-.mz-logo-header { 
-	border-bottom: 1px solid rgba(0,0,0,0.1);
-    margin-bottom: 25px;
-    padding: 11px 0;
-    .mz-logo {
-	    width: 80px;
-	    display: block;
-	}
-	.phone-no {
-		font-size: 16px;
-		margin-top: 15px;    
-		a {
-			color: @textColor;	
-		}
-	}     
-}
-.mz-checkout-footer {
-	margin-top: 20px;      
-}
 @media screen and (min-width: 768px) and (max-width: 991px) {
 	.mz-custom-work {
     	padding: 90px 0;

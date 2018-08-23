@@ -94,6 +94,22 @@
     }
 }
 
+.mz-logo-header { 
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 11px 0;
+    .mz-logo {
+	    width: 80px;
+	    display: block;
+	}
+	.phone-no {
+		font-size: 16px;
+		margin-top: 15px;    
+		a {
+			color: @textColor;	
+		}
+	}     
+}
+
 .mz-checkout {
 	.mz-l-pagecontent {
 		padding: 0;
@@ -160,7 +176,7 @@
 		}
 		.mz-formstep-header {
 			&.mz-checkoutform-header {
-			    background-color: #353535;
+			    background-color: #000;
 			    font-weight: 500;
 			    font-size: 16px;
 			    line-height: 22px;
@@ -424,7 +440,7 @@
 		}
 		h3 {
 			&.mz-summary-header {
-				background: #353535;
+				background: #000;
 				color: #fff;
 				font-size: 16px;
 				letter-spacing: 2px;
@@ -457,25 +473,15 @@
 			    float: left;
 			}
 			.mz-button {
-				border-color: #d15f2a;
-				background: #d15f2a;
 				float: right;
-				line-height: 8px;
+				line-height: 18px;
 				margin-top: 0;
 				width: 27%;
-			    &[disabled] {
-			    	opacity: 0.5;
-			    	&:hover {
-				    	border-color: #d15f2a;
-				    	background: #d15f2a;
-				    	color: #fff;
-				    }
-			    }
-			    &:hover {
-			    	border-color: #d15f2a;
-			    	background: #fff;
-			    	color: #d15f2a;
-			    }
+				height: 36px;
+				&[disabled]:hover {
+					background-color: @primaryBtnColor;
+        			color: #fff;
+				}
 			}
 			.mz-remove-coupon{
 				cursor: pointer;
@@ -556,7 +562,7 @@
 						font-weight: 400;
 					}
 				    .mz-order-product-save-price {
-				        color: #d15f2a;
+				        color: @linkColor;
 				    }
 				    .mz-carttable-item-discount{
 				    	text-align: right; 
@@ -618,6 +624,18 @@
 			}
 		}
 	}
+	.mz-button {
+		border-color: @primaryBtnColor;
+		background: @primaryBtnColor;
+		&:hover {
+			color: @primaryBtnColor;
+			background: #fff;
+		}
+	}
+}
+
+.mz-checkout-footer {
+	margin-top: 20px;      
 }
 
 .mz-confirmation {

@@ -24,7 +24,9 @@
         {% endif %}
         
         {% if model.content.productShortDescription and themeSettings.listProductShortDesc %}
-            <p class="mz-productlisting-shortdesc">{{ model.content.productShortDescription|truncatewords(themeSettings.maxProductSummaryWords)|safe }}</p>
+            <div class="mz-productlisting-shortdesc"> 
+                <span itemscope="description">{{ model.content.productShortDescription|truncatewords(themeSettings.maxProductSummaryWords)|safe }}</span>
+            </div> 
         {% endif %}
         
         {% block product-code %}

@@ -21,14 +21,17 @@
             padding: 0;
             min-width: auto;
             text-transform: uppercase;
+            &:after {
+                content: "\f057";
+                font-family: "FontAwesome";
+                color: #d15f2a;
+                margin-left: 3px;
+            }
             .fa {
                 color: #d15f2a;
                 margin-left: 5px;
             }
             &:active {
-                -webkit-box-shadow: none;
-                -moz-box-shadow: none;
-                    box-shadow: none;
                 -webkit-box-shadow: none;
                 -moz-box-shadow: none;
                     box-shadow: none;
@@ -132,6 +135,16 @@
                         color: @goldenColor;
                     }
                 }
+            }
+        }
+    }
+}
+
+.mz-searchresults {
+    .mz-faceting-section {
+        .mz-l-sidebaritem {
+            &:first-child {
+                display: none;
             }
         }
     }

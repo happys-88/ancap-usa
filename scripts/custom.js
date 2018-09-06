@@ -213,6 +213,13 @@ define([
 		}  
 		
 		// Checkout Changes
+		$(document).on('click',"select[data-mz-value='savedPaymentMethodId']", function(){
+  			var defaultcardselect = $("[data-mz-value='savedPaymentMethodId']").val();
+	        if(defaultcardselect===""){
+	            var first= $("[data-mz-value='savedPaymentMethodId']").val($("[data-mz-value='savedPaymentMethodId'] option:nth(1)").val());
+	        }
+      	});
+      	
 		setTimeout(function(){ 
 			$("#checkout-form").find("#step-shipping-address.is-complete").addClass("mz-shipping-address-complete");
 		}, 1000);

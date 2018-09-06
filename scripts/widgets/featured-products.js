@@ -23,7 +23,7 @@ function ($, bxSlider) {
             
         }
         
-        if(eachSlide.length > 6){  
+        if ((minSlides == 2 && eachSlide.length > 2) || (minSlides >=4  && eachSlide.length > 6)) {  
             $(".mz-featured-products .mz-productlist-list").bxSlider({
                 auto: false,
                 speed: 600,  

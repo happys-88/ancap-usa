@@ -1,8 +1,9 @@
 define([ 
 	"modules/jquery-mozu",
 	'modules/api',
-	"bxslider" 
-], function( $, api, bxslider) { 
+	'hyprlivecontext',
+	"bxslider",
+], function( $, api, HyprLiveContext, bxslider) {  
 	
 	//home slider
 	$('#mz-home-slider .slider').bxSlider({
@@ -266,6 +267,10 @@ define([
 				$(this).toggleClass("active");       
 			}); 
 		}
+
+		if(!HyprLiveContext.locals.user.isAuthenticated){
+			localStorage.setItem("previousTime", null); 
+		} 
 
 		// Global Cart Continue btn
 		// $(document).on('click','#continueShoppingGlobalCart', function(){   

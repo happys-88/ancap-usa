@@ -33,57 +33,11 @@
                     }
                 }
 
-                if($('.learningCenterInput').is(':focus') && name==='Pages') { 
-                    var valArray = filterCatsArray();
-                    console.log("Hello");
-                    var result = _.filter(thisGroup.suggestions, function(someThing) {
-                        var prodTypeVal = someThing.suggestion.productType;
-                        return prodTypeVal.toUpperCase() === 'CONTENT';
-                        /*
-                        var boolVal = false;
-                        if(someThing.suggestion.categories.length > 0) {
-                            $.each(someThing.suggestion.categories, function(index, obj){
-                                if(valArray.indexOf(obj.categoryId) >= 0) {
-                                    boolVal = true;
-                                    return false;
-                                } else {
-                                    boolVal = false;
-                                }                                
-                            });
-                            console.log("Boolval : "+boolVal);
-                            return boolVal;
-                        } else {
-                            return true;
-                        }*/
-                    });
-                    return result;
-                } else if($('#globalSearch').is(':focus') && name==='Pages') {
-                    var valArrayGlobal = filterCatsArray();
-                    console.log("Hello");
+                if($('#globalSearch').is(':focus') && name==='Pages') {
+                    // var valArrayGlobal = filterCatsArray();
                     var resultGlobal = _.filter(thisGroup.suggestions, function(someThing) {
-                    var prodTypeVal = someThing.suggestion.productType;
-                    return prodTypeVal.toUpperCase() !== 'CONTENT';
-                        /*
                         var boolVal = false;
-                        if(someThing.suggestion.categories.length > 0) {
-                            $.each(someThing.suggestion.categories, function(index, obj){
-                                if(valArrayGlobal.indexOf(obj.categoryId) == -1) {
-                                    boolVal = true;
-                                    return false;
-                                } else {
-                                    boolVal = false;
-                                }                                
-                            });
-                            return boolVal;
-                        } else {
-                            return true;
-                        }*/
-
-                        /*if(someThing.suggestion.categories.length > 0) {
-                            return valArrayGlobal.indexOf(someThing.suggestion.categories[0].categoryId) == -1;
-                        } else {
-                            return true;
-                        }*/
+                        return someThing.suggestion.productType !== 'content';
                     });
                     
                     return resultGlobal;
@@ -93,12 +47,13 @@
         },
         filterCatsArray= function(){
             var categories = HyprLiveContext.locals.themeSettings.searchSuggestionFilter;
-            
-            var arrayCats = categories.split(',');          
             var categoryArray = [];
-            for(var i = 0; i < arrayCats.length; i++) {
-                if(arrayCats[i] !== '') {
-                    categoryArray.push(Number(arrayCats[i]));
+            if(categories !== '') {
+                var arrayCats = categories.split(',');          
+                for(var i = 0; i < arrayCats.length; i++) {
+                    if(arrayCats[i] !== '') {
+                        categoryArray.push(Number(arrayCats[i]));
+                    }
                 }
             }
             return categoryArray;
@@ -219,30 +174,14 @@
                 e.preventDefault();
             }
         });
-        /*$('[data-mz-form="lcSearchBox"]').on('submit', function(e) { 
-            var searchVal = $("[data-mz-input='learningCenter']").val().trim();    
-            if (searchVal === "") {
-                window.alert(Hypr.getLabel('blankSearchResult'));
-                e.preventDefault();
-            } else if (searchVal.length < 3) {
-                window.alert("Your keyword or item number must be at least 3 characters long");
-                e.preventDefault();
-            }
-        });*/
         $('[data-mz-form="lcSearchBox"]').on('submit', function(e) { 
-            var searchVal = "";
-            var searchvalue = $('[placeholder="Search Learning Center"]');       
-            for(var i=0; i<searchvalue.length; i++){
-                if(searchvalue[i].value!==""){
-                    searchVal = searchvalue[i].value.trim();  
-                }
-            }
+            var searchVal = $('#learningCenter').val().trim();  
             if (searchVal === "") {
                 window.alert(Hypr.getLabel('blankSearchResult'));
                 e.preventDefault();
             } else if (searchVal.length < 3) {
                 window.alert("Your keyword or item number must be at least 3 characters long");
-                e.preventDefault(); 
+                e.preventDefault();
             }
         });
     });

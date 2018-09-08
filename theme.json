@@ -505,6 +505,12 @@
     }
   ],
   "settings": {
+    "ogSiteNameTwitter": "@AncapUSA",
+    "ogSiteNameFb": "Ancap USA",  
+    "ogImageWidth": "500",
+    "ogImageHeight": "270", 
+    "ogVideoWidth": "500",
+    "ogVideoHeight": "270",
     "allProductsCategoryId": "",
     "allProductsCategoryIdLC": "", 
     "sessionTimeout": "1800",

@@ -2,7 +2,7 @@ define([
 	"modules/jquery-mozu",
 	"modules/api",
 	"hyprlivecontext",
-	"bxslider",
+	"bxslider" 
 ], function( $, api, HyprLiveContext, bxslider) {  
 	
 	//home slider

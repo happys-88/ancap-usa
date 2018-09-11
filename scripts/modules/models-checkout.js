@@ -289,6 +289,7 @@
                     
                 }
                 this.set('liftGateProducts',liftGateProducts);
+                
             },
             relations: {
                 fulfillmentContact: FulfillmentContact
@@ -333,6 +334,11 @@
                     }
                 });
                 lineItems.push({primaShip:primaShipProds, distShip:distributorShipProds, liftGate: liftGateSelected, freightShipment: freightShipmentSelected});
+                if(this.parent.get('tbybInfo').tbybItemExist() && this.stepStatus() === 'incomplete') {
+                    this.parent.get('tbybInfo').stepStatus('incomplete');
+                } else {
+                    this.parent.get('tbybInfo').stepStatus('complete');
+                }
                 return lineItems;
             },
             liftGateSelected: function() {
@@ -487,7 +493,7 @@
                 if(this.parent.get('tbybInfo').tbybItemExist()) {
                     this.parent.get('tbybInfo').stepStatus('incomplete');
                 } else {
-                    this.parent.get('tbybInfo').stepStatus('invalid');
+                    this.parent.get('tbybInfo').stepStatus('complete');
                     this.parent.get('billingInfo').calculateStepStatus();
                 }
             }
@@ -537,13 +543,16 @@
                         if(propertytwo.name === 'Try Before You Buy' && propertytwo.values[0].value === true ){
                             var itemOptions = item.product.options;
                             var optionsVals = '';
+                            var optionsCodes = '';
                             var prodFullName = item.product.name;
                             if(itemOptions.length > 0) {                                
                                 for(var optionindex in itemOptions){
                                     var option = itemOptions[optionindex];
-                                    optionsVals = optionsVals.concat(option.value);
+                                    optionsVals = optionsVals.concat(option.stringValue);
+                                    optionsCodes = optionsCodes.concat(option.value);
                                     if(optionindex < itemOptions.length-1) {
                                         optionsVals = optionsVals.concat(",");
+                                        optionsCodes = optionsCodes.concat("_");
                                     }  
                                 }
                                
@@ -551,8 +560,16 @@
                             }
                             
                             var pCode = item.product.variationProductCode ? item.product.variationProductCode : item.product.productCode;
-                            var selectionCode = pCode+"_"+item.id;
-                            prodVals.push({prodName:item.product.name, prodFullName:prodFullName, prodCode: item.product.productCode, varCode:item.product.variationProductCode, prodId:item.id, selCode: selectionCode});
+                            // var selectionCode = pCode+"_"+item.id;
+                            var selectionCode = '';
+                            if(optionsCodes !== ''){
+                                selectionCode = pCode+"_"+optionsCodes;
+                            } else {
+                                selectionCode = pCode;
+                            }
+                            
+                            var prod_match = pCode+"_"+item.id;
+                            prodVals.push({prodName:item.product.name, prodFullName:prodFullName, prodMatch:prod_match, prodCode: item.product.productCode, varCode:item.product.variationProductCode, prodId:item.id, selCode: selectionCode});
                             break;
                         }
                     }
@@ -653,12 +670,34 @@
                     for(var prodindex in tbybProducts ){
                         var itemVal = tbybProducts[prodindex].product.productCode;
                         var itemVarVal = tbybProducts[prodindex].product.variationProductCode;
-                        var itemCode = '';
-                        if(typeof itemVarVal !== 'undefined') {
-                            itemCode = itemVarVal+"_"+tbybProducts[prodindex].id;
-                        } else {
-                            itemCode = itemVal+"_"+tbybProducts[prodindex].id;    
+                        // var optionCodes = this.productOptionsCodes(tbybProducts[prodindex]);
+                        var item = tbybProducts[prodindex];
+                        var properties = item.product.properties; 
+                        var property = _.filter(properties, 
+                        function(attr) { return attr.name === 'Try Before You Buy' && attr.values[0].value === true ; });
+
+                        var optionsCodes = '';
+                        if(property.length > 0) {
+                            var itemOptions = item.product.options;
+                            
+                            if(itemOptions.length > 0) {                                
+                                for(var optionindex in itemOptions){
+                                    var option = itemOptions[optionindex];
+                                    optionsCodes = optionsCodes.concat(option.value);
+                                    if(optionindex < itemOptions.length-1) {
+                                        optionsCodes = optionsCodes.concat("_");
+                                    }  
+                                }
+                            }  
                         }
+                        var pCode = item.product.variationProductCode ? item.product.variationProductCode : item.product.productCode;
+                        var itemCode = '';
+                        if(optionsCodes !== '') {
+                            itemCode = pCode+"_"+optionsCodes;
+                        } else {
+                            itemCode = pCode;
+                        }
+                        
                         if(itemCode === obj.values[0]) {
                             selectedTbybExists = true;
                         }                    
@@ -1531,7 +1570,8 @@
                 if (paymentTypeIsCard && !Hypr.getThemeSetting('isCvvSuppressed')) return this.stepStatus('incomplete'); // initial state for CVV entry
 
                 if (!fulfillmentComplete) return this.stepStatus('new');
-                if (thereAreActivePayments && (balanceNotPositive || (this.get('paymentType') === 'PaypalExpress2' && window.location.href.indexOf('PaypalExpress2=complete') !== -1))) return this.stepStatus('complete');
+
+                if (thereAreActivePayments && (balanceNotPositive || (this.get('paymentType') === 'PaypalExpress' && window.location.href.indexOf('PaypalExpress=complete') !== -1))) return this.stepStatus('complete');
                 return this.stepStatus('incomplete');
 
             },
@@ -1584,26 +1624,23 @@
             submit: function () {
 
                 var order = this.getOrder();
+                var paymentType = order.get('billingInfo.paymentType');
+                if (paymentType == 'CreditCard') {
+                   var cvv = order.get('billingInfo.card.cvv');
+                    if (!cvv) {
+                        this.get('card').selected = true;
+                    } 
+                }
                 // just can't sync these emails right
+                if(order.get('billingInfo.billingContact.email') !== '') {
                 order.syncBillingAndCustomerEmail();
+                }
 
                 // This needs to be ahead of validation so we can check if visa checkout is being used.
                 var currentPayment = order.apiModel.getCurrentPayment();
 
                 // the card needs to know if this is a saved card or not.
                 this.get('card').set('isSavedCard', order.get('billingInfo.usingSavedCard')); 
-
-                // if ($("#mz-payment-security-code-0").val() === undefined || $("#mz-payment-security-code-0").val() === "" ){
-                //     var error1 = {"items":[]};
-                //     var errorItem1 = {};
-                //     errorItem1.name = "card.cvv";
-                //     errorItem1.message = "Please enter your CVV number";
-                //     error1.items.push(errorItem1);
-                //     if (error1.items.length > 0) {
-                //         order.onCheckoutError(error1);
-                //     } 
-                //     return false;
-                // }
 
                 // the card needs to know if this is Visa checkout (or Amazon? TBD)
                 if (currentPayment) {
@@ -1808,7 +1845,7 @@
                         var paymentWorkflow = latestPayment && latestPayment.paymentWorkflow,
                         visaCheckoutPayment = activePayments && _.findWhere(activePayments, { paymentWorkflow: 'VisaCheckout' }),
                         allStepsComplete = function () {
-                            return _.reduce(steps, function(m, i) { return m + i.stepStatus(); }, '') === 'completecompletecomplete';
+                            return _.reduce(steps, function(m, i) { return m + i.stepStatus(); }, '') === 'completecompletecompletecomplete';
                         },
                         isReady = allStepsComplete();
 

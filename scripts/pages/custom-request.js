@@ -27,7 +27,6 @@ define(['modules/api',
                 this.trigger('error', { message: msg || 'Something went wrong!! Please try after sometime!' });
             },
             submitRequest: function() {
-                alert("Hello");
                 var self = this;
                 var labels = HyprLiveContext.locals.labels;
                 var firstname = self.model.get('firstname');

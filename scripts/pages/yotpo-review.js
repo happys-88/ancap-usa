@@ -5,10 +5,9 @@ define([
 	"modules/backbone-mozu", 
 	"hyprlivecontext",
 	"modules/models-product", 
-	"modules/api",
-	"yotpo"
+	"modules/api"
 ], 
-function ($, _, Hypr, Backbone, HyprLiveContext, ProductModel, api, yotpo) {  
+function ($, _, Hypr, Backbone, HyprLiveContext, ProductModel, api) {  
 
 	$(document).ready(function(){
 		var singleImgContainer = $(".yotpo-single-image-container");
@@ -40,7 +39,7 @@ function ($, _, Hypr, Backbone, HyprLiveContext, ProductModel, api, yotpo) {
 	            }
 	            $('#popular-articles').html(artContent);
 	        }, function(err) {
-	            console.log("Failure : "+JSON.stringify(err));
+	            console.log("Error : "+JSON.stringify(err));
 	        }); 
 	   }
 
@@ -97,10 +96,6 @@ function ($, _, Hypr, Backbone, HyprLiveContext, ProductModel, api, yotpo) {
 		  e.preventDefault();
 		  $(this).tab('show');   
 		});
-
-		// Show yotpo ratings for featured products
-		yotpo.showYotpoRatingStars(".mz-productlist-item");      
 	});  
-
 }); 
  

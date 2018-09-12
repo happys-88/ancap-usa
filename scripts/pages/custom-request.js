@@ -38,9 +38,7 @@ define(['modules/api',
                 var pantone = self.model.get('pantone');
                 var instruction = self.model.get('instruction');
                 var notes = self.model.get('notes');
-                console.log("Validate");
                 if (!self.model.validate()) {
-                    console.log("Validated");
                     api.request("POST", "/commonRoute",
                     {
                         requestFor:'customRequestAncap',
@@ -54,15 +52,9 @@ define(['modules/api',
                         instruction: instruction,
                         notes: notes
                     }).then(function (response){
-                    // console.log("Tax Estimation : "+JSON.stringify(response));
                         var errorMessage = labels.emailMessage;
                         if(response[0]) {
-                            /*if(response[0] !== 'one' && response[0].indexOf('ITEM_ALREADY_EXISTS') < 0) {
-                                console.log("Error : "+response[0]);
-                                errorMessage  = labels.contactUsError;
-                                $("#commerceialFormError").html(errorMessage);
-                                $("#commerceialFormError").show(); 
-                            } else*/ if(response[0] !== 'two') {
+                            if(response[0] !== 'two') {
                                 console.log("Error : "+response[0]);
                                 errorMessage  = labels.contactUsError;
                                 $("#customRequestError").html(errorMessage);

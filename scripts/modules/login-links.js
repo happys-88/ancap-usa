@@ -307,9 +307,9 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
                     var email = resp.data.customerAccount.emailAddress;
                     if(deals !== '') {
                         $.get("/mailchimp", {accountId:email, deals:deals},  function(res){ 
-                           console.log("Response : "+res);   
+                           console.log("Success");   
                         }).fail(function(err) {
-                            console.log("Failure "+JSON.stringify(err));   
+                            console.log("Error : "+JSON.stringify(err));   
                         });
                     }
                     if (self.redirectTemplate) {

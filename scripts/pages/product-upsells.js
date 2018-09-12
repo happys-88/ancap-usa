@@ -7,15 +7,13 @@ define([
 	"modules/api",
 	"modules/models-product",
 	"pages/cart",
-	"modules/models-cart",
-	"yotpo"
-], function ($, _, Backbone, Hypr, bxslider, api, ProductModel, cart, cartModel, yotpo) { 
+	"modules/models-cart"
+], function ($, _, Backbone, Hypr, bxslider, api, ProductModel, cart, cartModel) { 
 	var slider;  
 	var productUpSellView = Backbone.MozuView.extend({
 	    templateName: 'modules/product/product-upsells',   
 	    productCarousel: function () {
 			//this.render();
-			yotpo.showYotpoRatingStars(); 
 			var minSlides,
 			    maxSlides,
 			    slideWidth,
@@ -122,7 +120,6 @@ define([
 					Upsellview.render();
 					Upsellview.productCarousel();
 
-					yotpo.showYotpoRatingStars(); 
 				});
 				} 
    			};

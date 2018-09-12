@@ -3,7 +3,6 @@ define(['modules/jquery-mozu', 'underscore', 'modules/backbone-mozu', 'hyprlive'
         CheckoutModels, HyprLiveContext) {
 
     	$(document).ready(function () {
-    		console.log("ELEMENT : "+$('#itemsDetail').length);
 	    	var checkoutData = require.mozuData('checkout');
 	    	var ShippingItemsDetail = Backbone.MozuView.extend({
 				templateName: "modules/checkout/checkout-shipping-items-detail",
@@ -20,6 +19,5 @@ define(['modules/jquery-mozu', 'underscore', 'modules/backbone-mozu', 'hyprlive'
 				el: $('#itemsDetail')
 			});
 			view.render();
-			// console.log("After Render");
 	    });
     });

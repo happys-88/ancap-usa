@@ -5,9 +5,8 @@ define([
     'modules/backbone-mozu',
     'hyprlivecontext',
     'bxslider',
-    'sdk',
-    'yotpo'
-], function($, _, api, Backbone, HyprLiveContext, bxslider, sdk, yotpo) { 
+    'sdk'
+], function($, _, api, Backbone, HyprLiveContext, bxslider, sdk) { 
     var sitecontext = HyprLiveContext.locals.siteContext,
         cdn = sitecontext.cdnPrefix,
         siteID = cdn.substring(cdn.lastIndexOf('-') + 1),
@@ -127,7 +126,6 @@ define([
                             });
                            
                             var renderedView = view.render();
-                            yotpo.showYotpoRatingStars();    
                         
                             if(orderedProductList.length > 1){
                                 var minSlides,

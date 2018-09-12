@@ -31,21 +31,18 @@
                         break;
                     }
                 }
-
                 if($('.learningCenterInput').is(':focus') && name==='Pages') { 
-                    var valArray = filterCatsArray();
                     var result = _.filter(thisGroup.suggestions, function(someThing) {
                         var prodTypeVal = someThing.suggestion.productType;
                         return prodTypeVal.toUpperCase() === 'CONTENT';
                     });
                     return result;
                 } else if($('#globalSearch').is(':focus') && name==='Pages') {
-                    var valArrayGlobal = filterCatsArray();
                     var resultGlobal = _.filter(thisGroup.suggestions, function(someThing) {
                     var prodTypeVal = someThing.suggestion.productType;
                     return prodTypeVal.toUpperCase() !== 'CONTENT';
                     });
-                    
+                    console.log("Results : "+JSON.stringify(resultGlobal));
                     return resultGlobal;
                 }            
                 return thisGroup.suggestions;

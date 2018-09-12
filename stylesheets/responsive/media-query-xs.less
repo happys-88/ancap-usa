@@ -1522,7 +1522,12 @@
 	//Home Page
 	#mz-home-slider {
 		.bx-wrapper {
-			.bx-pager {
+			&:hover {
+	            .bx-controls-direction {
+	                display: none;
+	            }
+	        }
+	        .bx-pager {
 			    bottom: 25px;
 			}
 		}
@@ -1549,6 +1554,17 @@
 		ul {
 			li {
 			    width: 100%;
+			    &:hover {
+			    	.mz-gallery-img {
+				        background: transparent;
+				        a {
+					        opacity: 1;
+					    }
+				    }
+				    .mz-title {
+				        position: static;
+				    }
+				}
 			}
 		}
 	}

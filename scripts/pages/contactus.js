@@ -29,7 +29,6 @@ define(['modules/api',
                 var email = self.model.get('email');
                 var selectedTopic = self.model.get('selectedTopic');
                 var message = self.model.get('message');
-                console.log(self.model);
                 if (!self.model.validate()) {
                     var brontoUrl = HyprLiveContext.locals.themeSettings.brontoUrl;
                     if (brontoUrl !== '') {

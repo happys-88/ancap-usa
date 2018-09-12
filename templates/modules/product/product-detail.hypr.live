@@ -15,6 +15,7 @@
 
 <div class="mz-stock-availability clearfix">
     <div class="mz-stock">
+    {% comment %}
     {% if model|get_product_attribute("tenant~field_display_oos1") and model.inventoryInfo.onlineStockAvailable and model.inventoryInfo.manageStock === true %} 
         {% if model|get_product_attribute_value("tenant~field_display_oos1") === 0 %}
               {% if model.inventoryInfo.onlineStockAvailable < 10 %}
@@ -75,8 +76,10 @@
             <p>{{ labels.outOfStock }} </p>
             {% endif %}
     {% endif %}
+    {% endcomment %}
     </div>
     <div class="mz-availability">
+      {% comment %}
         {% if model.inventoryInfo.manageStock %}
             {% if model.totalCount == 0 or model.inventoryInfo.onlineStockAvailable === 0 %}
                 {% if model|get_product_attribute_value("tenant~expected_ship_date_message") %}
@@ -92,6 +95,7 @@
                 <p>({{ model|get_product_attribute_value("tenant~expected_ship_date_message") }})</p>
             {% endif %}
         {% endif %}
+        {% endcomment %}
     </div>
 </div>
 
@@ -109,7 +113,7 @@
         <div class="col-md-6">
             <div class="row">
                 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
-                    {% include "modules/product/price-show-stack" with hasStock=model.totalCount %} 
+                    {% include "modules/product/price-show-stack" %} 
                 </div>
             </div>
         </div>

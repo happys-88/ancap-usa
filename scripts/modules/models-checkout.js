@@ -266,30 +266,6 @@
                 if(storefrontOrderAttributes && storefrontOrderAttributes.length > 0) {
                     this.set('orderAttributes', storefrontOrderAttributes);
                 }
-                var liftGateProducts = [];
-                var items = require.mozuData('checkout').items;
-                var i = 0;
-                var j = 0;
-                i = parseInt(i,10);
-                j = parseInt(j,10);
-                for(var index in items){
-                    var item = items[index];
-                    var properties = item.product.properties;
-                    
-                    for(var propindex in properties){
-                        var property = properties[propindex];
-                        if(property.name === 'Free Liftgate' && property.values[0].value === true ){
-                            this.set('liftGateProduct',true);
-                            this.set('liftGatePrice', HyprLiveContext.locals.themeSettings.liftGatePrice);
-                            liftGateProducts[i] = item;
-                            i++;
-                            break;
-                        }
-                    }
-                    
-                }
-                this.set('liftGateProducts',liftGateProducts);
-                
             },
             relations: {
                 fulfillmentContact: FulfillmentContact
@@ -299,71 +275,6 @@
                     required: true,
                     msg: Hypr.getLabel('chooseShippingMethod')
                 }
-            },
-            helpers: ['modelItems', 'liftGateSelected', 'freightShipmentSelected'],
-            modelItems: function() {
-                var items = this.getOrder().get('items');
-                
-                var lineItems = [];
-                var primaShipProds = [];
-                var distributorShipProds = [];
-                _.each(items, function(item) {
-                    _.each(item.product.properties, function(property){
-                        if (property.attributeFQN === 'tenant~field_display_oos1') {
-                            if (property.values[0].value === 0) {
-                                distributorShipProds.push(item);
-                            } else if(property.values[0].value !== 0 ){
-                                primaShipProds.push(item);
-                            }
-                        } 
-                    });
-                });
-
-                var order = this.getOrder();
-                var liftGateSelected = false;
-                var freightShipmentSelected = false;
-                _.each(order.attributes.attributes, function(attributes) {
-                    if (attributes.fullyQualifiedName === 'tenant~lift-gate') {
-                        if (attributes.values[0] === 'True') {
-                            liftGateSelected = true; 
-                        } 
-                    } else if(attributes.fullyQualifiedName === 'tenant~freight-shipment') {
-                        if (attributes.values[0] === 'True') {
-                            freightShipmentSelected = true; 
-                        } 
-                    }
-                });
-                lineItems.push({primaShip:primaShipProds, distShip:distributorShipProds, liftGate: liftGateSelected, freightShipment: freightShipmentSelected});
-                if(this.parent.get('tbybInfo').tbybItemExist() && this.stepStatus() === 'incomplete') {
-                    this.parent.get('tbybInfo').stepStatus('incomplete');
-                } else {
-                    this.parent.get('tbybInfo').stepStatus('complete');
-                }
-                return lineItems;
-            },
-            liftGateSelected: function() {
-                var order = this.getOrder();
-                var liftGateSelected = false;
-                _.each(order.attributes.attributes, function(attributes) {
-                    if (attributes.fullyQualifiedName === 'tenant~lift-gate') {
-                        if (attributes.values[0] === 'True') {
-                            liftGateSelected = true; 
-                        } 
-                    }
-                });
-                return liftGateSelected;
-            },
-            freightShipmentSelected: function() {
-                var order = this.getOrder();
-                var freightShipmentSelected = false;
-                _.each(order.attributes.attributes, function(attributes) {
-                    if(attributes.fullyQualifiedName === 'tenant~freight-shipment') {
-                        if (attributes.values[0] === 'True') {
-                            freightShipmentSelected = true; 
-                        } 
-                    }
-                });
-                return freightShipmentSelected;
             },
             refreshShippingMethods: function (methods) {
                 this.set({
@@ -408,59 +319,6 @@
                     this.set(newMethod);
                     this.applyShipping(resetMessage);
                 }
-                var order = this.getOrder();
-                var dutyAmount = 0;
-                if(this.liftGateSelected() === true){
-                    dutyAmount = parseFloat(HyprLiveContext.locals.themeSettings.liftGatePrice);
-                }
-                // order.apiModel.update(_.extend(order.toJSON(), {dutyAmount: dutyAmount }));
-                 order.apiModel.update(_.extend(order.toJSON(), {dutyAmount: dutyAmount }))
-                        .ensure(function(err) {
-                            if(resetMessage) {
-                                me.parent.messages.reset(me.parent.get('messages'));
-                            }
-                        });
-            },
-            updateLiftGateOption: function (liftGateVal) {
-              var order = this.getOrder(),
-                    process = [function() {
-                        return order.update({
-                            ipAddress: order.get('ipAddress'),
-                            shopperNotes: order.get('shopperNotes').toJSON()
-                        });
-                    }];
-                
-                var dutyAmount = 0;
-                if(liftGateVal == 'true'){
-                    dutyAmount = parseFloat(HyprLiveContext.locals.themeSettings.liftGatePrice);
-                }
-                var updateAttrs = [];
-                updateAttrs.push({
-                    'fullyQualifiedName': 'tenant~lift-gate',
-                    'values': [ liftGateVal ]
-                });
-                if(updateAttrs.length > 0){
-                    order.apiUpdateAttributes(updateAttrs);
-                }
-                order.apiModel.update(_.extend(order.toJSON(), {dutyAmount: dutyAmount }));
-               
-            },
-            updateFreightShipment: function (freightShipmentVal) {
-                var order = this.getOrder(),
-                    process = [function() {
-                        return order.update({
-                            ipAddress: order.get('ipAddress'),
-                            shopperNotes: order.get('shopperNotes').toJSON()
-                        });
-                    }];
-                var updateAttrs = [];
-                updateAttrs.push({
-                    'fullyQualifiedName': 'tenant~freight-shipment',
-                    'values': [ freightShipmentVal ]
-                });
-                if(updateAttrs.length > 0){
-                    order.apiUpdateAttributes(updateAttrs);
-                }
             },
             applyShipping: function(resetMessage) {
                 if (this.validate()) return false;
@@ -489,287 +347,7 @@
             },
             next: function () {
                 this.stepStatus('complete');
-                // To show the TBYB step when tbyb line item exist
-                if(this.parent.get('tbybInfo').tbybItemExist()) {
-                    this.parent.get('tbybInfo').stepStatus('incomplete');
-                } else {
-                    this.parent.get('tbybInfo').stepStatus('complete');
-                    this.parent.get('billingInfo').calculateStepStatus();
-                }
-            }
-        }),
-        TbybInfo = CheckoutStep.extend({
-            initialize: function () {                
-                var storefrontOrderAttributes = require.mozuData('pagecontext').storefrontOrderAttributes;
-                if(storefrontOrderAttributes && storefrontOrderAttributes.length > 0) {
-                    this.set('orderAttributes', storefrontOrderAttributes);
-                }
-                
-                var tbybProducts = [];
-                var items = require.mozuData('checkout').items;
-                var j = 0;
-                j = parseInt(j,10);
-                var hasTybyItem = false;
-                for(var index in items){
-                    var item = items[index];
-                    var properties = item.product.properties;
-                    
-                   for(var propindextwo in properties){
-                        var propertytwo = properties[propindextwo];
-                        if(propertytwo.name === 'Try Before You Buy' && propertytwo.values[0].value === true ){
-                            hasTybyItem = true;
-                            this.set('tbybProduct',true);
-                            tbybProducts[j] = item;
-                            j++;
-                            break;
-                        }
-                    }
-                }
-                this.set('tbybProducts',tbybProducts);
-               
-            },
-            helpers: ['requireOrderModel', 'tbybSelectedProd','checktbybProductExist'],
-            requireOrderModel: function() {
-                var items = this.getOrder().get('items');
-                var selectedTbybExists = false;
-                // var selectedTbybItem = this.tbybSelectedProd();
-                var prodVals = [];
-                for(var index in items){
-                    var item = items[index];
-                    var properties = item.product.properties;
-                    
-                    for(var propindex in properties){
-                        var propertytwo = properties[propindex];
-                        if(propertytwo.name === 'Try Before You Buy' && propertytwo.values[0].value === true ){
-                            var itemOptions = item.product.options;
-                            var optionsVals = '';
-                            var optionsCodes = '';
-                            var prodFullName = item.product.name;
-                            if(itemOptions.length > 0) {                                
-                                for(var optionindex in itemOptions){
-                                    var option = itemOptions[optionindex];
-                                    optionsVals = optionsVals.concat(option.stringValue);
-                                    optionsCodes = optionsCodes.concat(option.value);
-                                    if(optionindex < itemOptions.length-1) {
-                                        optionsVals = optionsVals.concat(",");
-                                        optionsCodes = optionsCodes.concat("_");
-                                    }  
-                                }
-                               
-                                prodFullName = prodFullName+"("+optionsVals+")";
-                            }
-                            
-                            var pCode = item.product.variationProductCode ? item.product.variationProductCode : item.product.productCode;
-                            // var selectionCode = pCode+"_"+item.id;
-                            var selectionCode = '';
-                            if(optionsCodes !== ''){
-                                selectionCode = pCode+"_"+optionsCodes;
-                            } else {
-                                selectionCode = pCode;
-                            }
-                            
-                            var prod_match = pCode+"_"+item.id;
-                            prodVals.push({prodName:item.product.name, prodFullName:prodFullName, prodMatch:prod_match, prodCode: item.product.productCode, varCode:item.product.variationProductCode, prodId:item.id, selCode: selectionCode});
-                            break;
-                        }
-                    }
-                }
-               
-                return prodVals;
-            },
-            calculateStepStatus: function () {
-                if(this.tbybItemExist()) {
-                    var fulfillmentStepComplete = this.parent.get('fulfillmentInfo').stepStatus() === 'complete';
-                    var billingStepComplete = this.parent.get('billingInfo').stepStatus() === 'complete';
-                    
-                    var thisStepComplete = this.checkTbybSelected();
-                    
-                    
-                    if(fulfillmentStepComplete && thisStepComplete) {
-                        if(this.getTbybSelected() === 'NONE') {
-                            return this.stepStatus('incomplete');
-                        } else {
-                            this.parent.get('billingInfo').stepStatus('incomplete');
-                            return this.stepStatus('complete');
-                        }
-
-                    } else if(fulfillmentStepComplete && !thisStepComplete) {
-                        return this.stepStatus('incomplete');
-                    } else if(!fulfillmentStepComplete) {
-                        return this.stepStatus('new');
-                    }                  
-                } else {
-                    return this.stepStatus('invalid');
-                }
-                // return this.stepStatus('incomplete');
-            },
-            checktbybProductExist: function(){
-                if(this.get('tbybProducts').length > 0) {
-                    return "true";
-                } else {
-                    this.setTbybEmpty();
-                    return "false";
-                }
-                 
-            },
-            setTbybEmpty: _.once(function() {
-                var order = this.getOrder();
-                var storefrontOrderAttributes = require.mozuData('pagecontext').storefrontOrderAttributes;
-                if(storefrontOrderAttributes && storefrontOrderAttributes.length > 0) {
-                    var updateAttrs = [];
-                    storefrontOrderAttributes.forEach(function(attr){
-                        var attrVal;
-                        if(attr.attributeFQN === 'tenant~trybeforebuy'){
-                            attrVal = "NONE";
-                            updateAttrs.push({
-                                'fullyQualifiedName': attr.attributeFQN,
-                                'values': [ attrVal ]
-                            });
-                        }                    
-                    });
-                    order.apiUpdateAttributes(updateAttrs);
-                }
-            }),
-            tbybSelectedProd: function(){
-                if(this.checkTbybSelected()){
-                    return this.getTbybSelected();
-                } else {
-                    return "NONE";
-                }
-            },
-            setTybySelected: function(prodCode) {
-                var order = this.getOrder();
-                var storefrontOrderAttributes = require.mozuData('pagecontext').storefrontOrderAttributes;
-                if(storefrontOrderAttributes && storefrontOrderAttributes.length > 0) {
-                    var updateAttrs = [];
-                    storefrontOrderAttributes.forEach(function(attr){
-                        var attrVal;
-                        if(attr.attributeFQN === 'tenant~trybeforebuy'){
-                            attrVal = prodCode;
-                            updateAttrs.push({
-                                'fullyQualifiedName': attr.attributeFQN,
-                                'values': [ attrVal ]
-                            });
-                        }                    
-                    });
-                    order.apiUpdateAttributes(updateAttrs);
-                     
-                }
-                this.isLoading(true);
-                // order.update();
-            },
-            getTbybSelected: function() {
-                var order = this.getOrder();
-                var tbybProducts = this.get('tbybProducts');
-                var attribs = order.get('attributes');
-                var selectedTbybExists = false;
-                var code = 'NONE';
-                _.each(attribs, function(obj){
-                  if(obj.fullyQualifiedName === 'tenant~trybeforebuy') {
-                    // Check if the TBYB attribute code is present in the line items or not
-                    for(var prodindex in tbybProducts ){
-                        var itemVal = tbybProducts[prodindex].product.productCode;
-                        var itemVarVal = tbybProducts[prodindex].product.variationProductCode;
-                        // var optionCodes = this.productOptionsCodes(tbybProducts[prodindex]);
-                        var item = tbybProducts[prodindex];
-                        var properties = item.product.properties; 
-                        var property = _.filter(properties, 
-                        function(attr) { return attr.name === 'Try Before You Buy' && attr.values[0].value === true ; });
-
-                        var optionsCodes = '';
-                        if(property.length > 0) {
-                            var itemOptions = item.product.options;
-                            
-                            if(itemOptions.length > 0) {                                
-                                for(var optionindex in itemOptions){
-                                    var option = itemOptions[optionindex];
-                                    optionsCodes = optionsCodes.concat(option.value);
-                                    if(optionindex < itemOptions.length-1) {
-                                        optionsCodes = optionsCodes.concat("_");
-                                    }  
-                                }
-                            }  
-                        }
-                        var pCode = item.product.variationProductCode ? item.product.variationProductCode : item.product.productCode;
-                        var itemCode = '';
-                        if(optionsCodes !== '') {
-                            itemCode = pCode+"_"+optionsCodes;
-                        } else {
-                            itemCode = pCode;
-                        }
-                        
-                        if(itemCode === obj.values[0]) {
-                            selectedTbybExists = true;
-                        }                    
-                    }
-
-                    // If selected Tbyb order attribute doesn't exist in line items then set 'code' = NONE
-                    if(selectedTbybExists){
-                        code  = obj.values[0];
-                    } else {
-                        code = "NONE";
-                    }
-                  }  
-                });
-                this.setTybySelected(code);
-                this.isLoading(false);
-                return code;
-                
-            },
-            checkTbybSelected: function() {
-                var order = this.getOrder();
-                var attribs = order.get('attributes');
-                var isSelected = false;
-                _.each(attribs, function(obj){
-                  if(obj.fullyQualifiedName === 'tenant~trybeforebuy') {
-                    isSelected  = true;
-                  }  
-                });
-                return isSelected;
-            },
-            tbybItemExist: function() {
-                var tbprd = [];
-                tbprd = this.get("tbybProducts");
-                var count = false;
-                if(tbprd !== '' || typeof tbprd !== 'undefined') {
-                    _.each(tbprd, function(obj){
-                      if(typeof obj.id !== 'undefined') {
-                        count = true;
-                      }                       
-                    });
-                }                
-                return count;      
-            },
-            updateTbyb: function(e) {
-                $(".tbyb").prop('checked', false);
-                var elm = e.target;
-                var code = elm.getAttribute('data-mz-tbyb-code');
-                this.set("tbyb", "TRUE");
-                
-                var order = this.getOrder();
-                $('input[value='+code+']').prop("checked","checked");
-                var storefrontOrderAttributes = require.mozuData('pagecontext').storefrontOrderAttributes;
-                if(storefrontOrderAttributes && storefrontOrderAttributes.length > 0) {
-                    var updateAttrs = [];
-                    storefrontOrderAttributes.forEach(function(attr){
-                        var attrVal;
-                        if(attr.attributeFQN === 'tenant~trybeforebuy'){
-                            attrVal = code;
-                            updateAttrs.push({
-                                'fullyQualifiedName': attr.attributeFQN,
-                                'values': [ attrVal ]
-                            });
-                        }                    
-                    });
-                    order.apiUpdateAttributes(updateAttrs);
-                }
-                this.isLoading(true);
-                order.update();
-                
-            },
-            next: function () {
-                this.stepStatus('complete');
-                this.parent.get('billingInfo').stepStatus('incomplete');
+                this.parent.get('billingInfo').calculateStepStatus();
             }
         }),
         BillingInfo = CheckoutStep.extend({
@@ -801,12 +379,9 @@
             validatePaymentType: function(value, attr) {
                 var order = this.getOrder();
                 var payment = order.apiModel.getCurrentPayment();
-/*                console.log("Vlaue : "+value);
-                console.log("validatePaymentType : "+JSON.stringify(payment));*/
                 var errorMessage = Hypr.getLabel('paymentTypeMissing');
                 if (!value) return errorMessage;
                 if ((value === "StoreCredit" || value === "GiftCard") && this.nonStoreCreditTotal() > 0 && !payment) return errorMessage;
-                // console.log("errorMessage : "+JSON.stringify(errorMessage));
             },
             validateSavedPaymentMethodId: function (value, attr, computedState) {
                 if (this.get('usingSavedCard')) {
@@ -1672,8 +1247,6 @@
                         return false;
                     }
                 } else {
-                   /* console.log("Val : "+JSON.stringify(val));
-                    console.log("Has : "+_.has(val, "billingContact.email"));*/
                     if(_.has(val, "billingContact.email")) {
                        if (this.nonStoreCreditTotal() > 0 && val) {
                             // display errors:
@@ -1717,7 +1290,6 @@
                     var payment = order.apiModel.getCurrentPayment();
                     order.messages.reset();
                     return order.apiAddPayment().then(function(o) {
-                        // console.log("Success : "+JSON.stringify(o));
                         var payment = order.apiModel.getCurrentPayment();
                         var modelCard, modelCvv;
                         var activePayments = order.apiModel.getActivePayments();
@@ -1824,7 +1396,6 @@
             relations: {
                 fulfillmentInfo: FulfillmentInfo,
                 billingInfo: BillingInfo,
-                tbybInfo: TbybInfo,
                 shopperNotes: ShopperNotes,
                 customer: CustomerModels.Customer
             },
@@ -1844,12 +1415,11 @@
                         fulfillmentInfo = self.get('fulfillmentInfo'),
                         fulfillmentContact = fulfillmentInfo.get('fulfillmentContact'),
                         billingInfo = self.get('billingInfo'),
-                        tbybInfo = self.get('tbybInfo'),
-                        steps = [fulfillmentInfo, fulfillmentContact, tbybInfo, billingInfo];
+                        steps = [fulfillmentInfo, fulfillmentContact, billingInfo];
                         var paymentWorkflow = latestPayment && latestPayment.paymentWorkflow,
                         visaCheckoutPayment = activePayments && _.findWhere(activePayments, { paymentWorkflow: 'VisaCheckout' }),
                         allStepsComplete = function () {
-                            return _.reduce(steps, function(m, i) { return m + i.stepStatus(); }, '') === 'completecompletecompletecomplete';
+                            return _.reduce(steps, function(m, i) { return m + i.stepStatus(); }, '') === 'completecompletecomplete';
                         },
                         isReady = allStepsComplete();
 
@@ -2098,9 +1668,9 @@
                     var deals = $('#PSNewsLetter').is(':checked') ? "PSNewsLetter" : '';
                     if(deals !== '') {
                         api.request("POST", "/mailchimp", {'accountId':email, 'deals':deals}).then(function (response){
-                           console.log("Response : "+JSON.stringify(response));    
+                           console.log("Success");    
                         }, function(err) {
-                            console.log("MailChimp");
+                            console.log("Error : "+JSON.stringify(err));
                         });
                     }
                     self.customerCreated = true;
@@ -2318,29 +1888,13 @@
                     billingContact.set("address", null);
                 }
 
-                var liftGateVal;
-                var freightShipmentVal;
-                if (this.get('fulfillmentInfo').liftGateSelected() === true) {
-                    liftGateVal = 'true';
-                } else {
-                    liftGateVal = 'false';
-                }
-                if (this.get('fulfillmentInfo').freightShipmentSelected() === true) {
-                    freightShipmentVal = 'true';
-                } else {
-                    freightShipmentVal = 'false';
-                }
                 var tbybVal = this.get('tenant~trybeforebuy');
                 var storefrontOrderAttributes = require.mozuData('pagecontext').storefrontOrderAttributes;
                 if(storefrontOrderAttributes && storefrontOrderAttributes.length > 0) {
                     var updateAttrs = [];
                     storefrontOrderAttributes.forEach(function(attr){
                         var attrVal;
-                        if(attr.attributeFQN === 'tenant~lift-gate'){
-                            attrVal = liftGateVal;                            
-                        } else if(attr.attributeFQN === 'tenant~freight-shipment'){
-                            attrVal = freightShipmentVal;
-                        } else if(attr.attributeFQN === 'tenant~trybeforebuy') {
+                        if(attr.attributeFQN === 'tenant~trybeforebuy') {
                                 var attribs = order.get('attributes');
                                 var code = '';
                                 _.each(attribs, function(obj){
@@ -2387,7 +1941,6 @@
                 // skip payment validation, if there are no payments, but run the attributes and accept terms validation.
                 var radioVal = $('input[name=paymentType]:checked').val(); 
                 if(radioVal !== 'Check') {
-                // console.log("INside : "+JSON.stringify(this.validate()));
                 if (nonStoreCreditTotal > 0 && this.validate() && ( !this.isNonMozuCheckout() || this.validate().agreeToTerms)) {
                     this.isSubmitting = false;
                     return false;
@@ -2461,7 +2014,6 @@
                 _.each([
                        'fulfillmentInfo.fulfillmentContact', 
                        'fulfillmentInfo',
-                       'tbybInfo',
                        'billingInfo'
                 ], function(name) {
                     cb.call(me.get(name));

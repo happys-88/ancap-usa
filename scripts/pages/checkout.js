@@ -53,7 +53,6 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
     var ShippingSummary = Backbone.MozuView.extend({
 
         initialize: function () {
-           console.log("BillingSummary");
            // this.listenTo(this.model.get('billingInfo'), 'orderPayment', this.onOrderCreditChanged, this);
            
         },
@@ -61,7 +60,6 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
             this.render();
         },
         render: function() {
-            console.log("Current Model : ");
         }
     });
 
@@ -112,10 +110,8 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
     var ShippingInfoView = CheckoutStepView.extend({
         templateName: 'modules/checkout/step-shipping-method',
         initialize: function() {
-            // console.log("JSON : "+JSON.stringify(this.model));
             var shippings = this.model.get('availableShippingMethods');
             var selectedShipping = localStorage.getItem('selectedShipping');
-            console.log("value : "+selectedShipping);
             if(shippings && selectedShipping && selectedShipping !== 'null') {
                 var code = _.find(shippings, function(arr){
                     return arr.shippingMethodName === selectedShipping;
@@ -127,9 +123,7 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
             'availableShippingMethods'
         ],
         additionalEvents: {
-            "change [data-mz-shipping-method]": "updateShippingMethod",
-            "change [data-mz-lift-gate-option]": "updateLiftGateOption",
-            "change [data-mz-freight-shipment]": "updateFreightShipment"
+            "change [data-mz-shipping-method]": "updateShippingMethod"
         },
         updateShippingMethod: function (e) {
             var code = this.$('[data-mz-shipping-method]:checked').val();
@@ -139,13 +133,6 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
             }).shippingMethodName;
             localStorage.setItem('selectedShipping', shippingName);
             this.model.updateShippingMethod(this.$('[data-mz-shipping-method]:checked').val());
-        },
-        updateLiftGateOption: function (e) {
-            this.model.updateLiftGateOption(this.$('[data-mz-lift-gate-option]:checked').val());
-                        
-        },
-        updateFreightShipment: function (e) {
-            this.model.updateFreightShipment(this.$('[data-mz-freight-shipment]:checked').val());
         }
     });
     var TbybInfoView = CheckoutStepView.extend({
@@ -154,8 +141,6 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
             "change [data-mz-tbyb]": "updateTbyb"
         },
         initialize: function() {
-
-            // console.log("Model : "+JSON.stringify(this.model));
         },
         updateTbyb: function (e) {
            this.model.updateTbyb(e);
@@ -284,7 +269,6 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
             }
 
             $('#mailBillingForm').hide();
-            // console.log("SESSION STORAGE : "+sessionStorage.getItem('guestEmail'));
             if(sessionStorage.getItem('guestEmail')) {
                 $('#billing-email').val(sessionStorage.getItem('guestEmail'));
                 $('#billing-email').focus();
@@ -365,7 +349,6 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
             var val = $(e.currentTarget).prop('value'),
                 creditCode = $(e.currentTarget).attr('data-mz-credit-code-target');  //target
             if (!creditCode) {
-                //console.log('checkout.applyDigitalCredit could not find target.');
                 return;
             }
             var amtToApply = this.stripNonNumericAndParseFloat(val);
@@ -429,7 +412,6 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
             // on success, attach the encoded payment data to the window
             // then call the sdk's api method for digital wallets, via models-checkout's helper
             window.V.on("payment.success", function(payment) {
-                //console.log({ success: payment });
                 me.editing.savedCard = false;
                 me.model.parent.processDigitalWallet('VisaCheckout', payment);
             });
@@ -604,10 +586,6 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
                     shippingInfo: new ShippingInfoView({
                         el: $('#step-shipping-method'),
                         model: checkoutModel.get('fulfillmentInfo')
-                    }),
-                    tbybInfo: new TbybInfoView({
-                        el: $('#step-tbyb'),
-                        model: checkoutModel.get('tbybInfo')
                     }),
                     paymentInfo: new BillingInfoView({
                         el: $('#step-payment-info'),

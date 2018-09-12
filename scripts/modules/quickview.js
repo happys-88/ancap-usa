@@ -11,10 +11,8 @@ define([
     "modules/page-header/global-cart",
     "modules/cart-monitor",
     "hyprlive",
-    "modules/block-ui",
-    'yotpo'
-
-], function($, _, api, Backbone, HyprLiveContext, ProductModels, bxslider, cart, cartModel, GlobalCart, CartMonitor, Hypr, blockUiLoader, yotpo) { 
+    "modules/block-ui"
+], function($, _, api, Backbone, HyprLiveContext, ProductModels, bxslider, cart, cartModel, GlobalCart, CartMonitor, Hypr, blockUiLoader) { 
 $(document).on('click', '.mz-quick-view', function (event) {
     var $Elem = $(event.currentTarget);
     var prdCode = $Elem.attr("data-mz-productcode-quickview");
@@ -427,8 +425,6 @@ $(document).on('click', '.mz-quick-view', function (event) {
         });
         Quickview.render();
 
-        yotpo.showYotpoRatingStars(".mz-product-quick-view");   
-    
         product.on('addedtocart', function (cartitem) {
             GlobalCart.update();
         });

@@ -10,9 +10,8 @@ define([
     'modules/get-partial-view',
     'modules/facet-clear',
     'modules/block-ui',
-    'yotpo',
     'modules/category/infinite-scroller'
-], function(Backbone, $, _, UrlDispatcher, IntentEmitter, getPartialView, makeClearUrl, blockUiLoader, yotpo, InfiniteScroller) {   
+], function(Backbone, $, _, UrlDispatcher, IntentEmitter, getPartialView, makeClearUrl, blockUiLoader, InfiniteScroller) {   
 
     function factory(conf) {
         var _$body = conf.$body;
@@ -28,7 +27,6 @@ define([
                 InfiniteScroller.update();
             }*/ 
             blockUiLoader.unblockUi();  
-            yotpo.update();
         } 
 
         function showError(error) {

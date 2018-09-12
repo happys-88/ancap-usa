@@ -61,9 +61,9 @@ define([
    				$("#newsletterEmail").val('');
    				$("#thanksMsg").show().delay(2000).fadeOut();
    				api.request("POST", "/mailchimp", {'accountId':email, 'deals':"AncapNewsLetter"}).then(function (response){
-                   console.log("Response 22 : "+JSON.stringify(response));    
+                   console.log("Success");    
                 }, function(err) {
-                    console.log("Failure : "+JSON.stringify(err));
+                    console.log("Error : "+JSON.stringify(err));
                 });
    			} else {
    				$("#errorEmail").show();
@@ -93,9 +93,6 @@ define([
 	                currentParentOffset = currentElemnt.parents(".mz-sitenav-item").offset().left, 
 	                leftOrigin = $(".mz-sitenav-list").offset().left;
 	                
-	                //console.log(leftOrigin); 
-	                //console.log(currentDropWidth + "--" + currentParentOffset);   
-	              
 	            if (currentParentOffset + currentDropWidth >= rightReference) {
 	                currentElemnt.addClass("menu-right");
 	            } else {
@@ -187,11 +184,6 @@ define([
 			  }
 			}); 
 		});
-
-		/*$(".mz-table-cart .mz-carttable-items").find(".mz-carttable-item").each(function(){ 
-			var getCartItemHeight = $(this).outerHeight(); 
-			console.log(getCartItemHeight);   
-		});*/ 
 
 		// Category Slider in mobile
 		var windowWidth = $(window).width();

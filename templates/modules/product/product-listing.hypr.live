@@ -1,5 +1,4 @@
-﻿{% require_script "pages/stock-message" %}
-<div class="mz-productlisting {% block module-classes %}{% endblock module-classes %}" data-mz-product="{{ model.productCode }}">
+﻿<div class="mz-productlisting {% block module-classes %}{% endblock module-classes %}" data-mz-product="{{ model.productCode }}">
     <div class="mz-productlisting-image {% if model.content.productImages.length >1 %}mz-image-hover{% endif %}">
         {% block product-image %}
         <a href="{% make_url "product" model %}">
@@ -119,4 +118,3 @@
         {% endcomment %} 
     </div>
 </div>
-{# {% require_script "pages/stock-message" %} #}

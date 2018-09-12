@@ -1,10 +1,7 @@
 ﻿<div class="mz-ordersummary">  
     <div class="mz-ordersummary-product-lists">
         {% with model.attributes|findwhere("fullyQualifiedName", "tenant~trybeforebuy") as selectedTbybItem %}
-            {% with model.attributes|findwhere("fullyQualifiedName", "tenant~lift-gate") as liftGate %}
-                {% set liftGateMsgShow=liftGate.values %}
                 {% set selectedTbybItemVal=selectedTbybItem.values %}
-            {% endwith %}
         {% endwith %}
         {% for item in model.items %}
             <div class="mz-ordersummary-lineitems">
@@ -39,15 +36,6 @@
 
                                 {% with labels.tbybProductCode|string_format(prodCode, item.id) as tbybItem %}
                                     {% for property in item.product.properties %}
-                                        {% if property.name == 'Free Liftgate' %}
-                                            {% for v in property.values %}
-                                                {% if v.stringValue == true or v.value == true %}
-                                                    {% if liftGateMsgShow == 'True' %}
-                                                    <div class="lift-gate-msg"><i class="fa fa-exclamation-triangle"></i>{{ labels.liftGateMsg }}</div>
-                                                    {% endif %}
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endif %}
                                         {% if property.name == 'Try Before You Buy' %}
                                             {% for v in property.values %}
                                                 {% if v.stringValue == true or v.value == true %}

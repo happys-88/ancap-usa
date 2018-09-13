@@ -1,12 +1,12 @@
 {% if model.properties and themeSettings.showProductDetailProperties %}
-    <div class="mz-product-tabs"> 
+    <div class="mz-product-prop mz-product-tabs"> 
         <ul class="nav nav-tabs" role="tablist">
             {% for property in model.properties %}
-                {% if property.attributeFQN == "tenant~field_overview" or property.attributeFQN == "tenant~field_features" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" %}
-                    {% if property.attributeFQN == "tenant~field_overview" %} 
+                {% if property.attributeFQN == "tenant~warranty_note" or property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" %}
+                    {% if property.attributeFQN == "tenant~warranty_note" %} 
                         <li class="active" role="presentation"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
                     {% endif %}
-                    {% if property.attributeFQN == "tenant~field_features" %}  
+                    {% if property.attributeFQN == "tenant~product-overview" %}  
                         <li role="presentation"><a href="#features" aria-controls="features" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
                     {% endif %}
                     {% if property.attributeFQN == "tenant~field_spec_text" %}  
@@ -20,15 +20,15 @@
         </ul>
         <div class="tab-content mz-mobile-tabs">
             {% for property in model.properties %}
-                {% if property.attributeFQN == "tenant~field_overview" or property.attributeFQN == "tenant~field_features" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" %}
-                    {% if property.attributeFQN == "tenant~field_overview" %} 
+                {% if property.attributeFQN == "tenant~warranty_note" or property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" %}
+                    {% if property.attributeFQN == "tenant~warranty_note" %} 
                         <div role="tabpanel" class="tab-pane active" id="overview">
-                            {{ model|get_product_attribute_value("tenant~field_overview")|safe }}      
+                            {{ model|get_product_attribute_value("tenant~warranty_note")|safe }}      
                         </div>
                     {% endif %}
-                    {% if property.attributeFQN == "tenant~field_features" %} 
+                    {% if property.attributeFQN == "tenant~product-overview" %} 
                         <div role="tabpanel" class="tab-pane" id="features">
-                            {{ model|get_product_attribute_value("tenant~field_features")|safe }}    
+                            {{ model|get_product_attribute_value("tenant~product-overview")|safe }}    
                         </div>
                     {% endif %}
                     {% if property.attributeFQN == "tenant~field_spec_text" %} 
@@ -45,4 +45,4 @@
             {% endfor %}
         </div>
     </div>
-{% endif %}   
+{% endif %}

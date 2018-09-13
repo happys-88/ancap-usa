@@ -109,7 +109,7 @@
                         {% include "modules/product/product-detail" with model=prodMod %}
                     </div> 
                 </div>
-                <div class="col-xs-12 mz-product-prop">
+                <div class="col-xs-12">
                     {% include "modules/product/product-properties" with model=prodMod %} 
                 </div>
                 {% comment %}

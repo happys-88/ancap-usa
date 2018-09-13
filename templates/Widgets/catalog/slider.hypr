@@ -10,7 +10,7 @@
                         <p style="color: {{ model.config.slideOneColor }}">{{ model.config.slideShortDescOne }}</p>
                     {% endif %}
                     {% if model.config.slideButtonOne %}
-                        <a class="mz-button" 
+                        <a class="mz-button" href="{{ model.config.slideLinkOne }}"
                             style="
                                 color: {{ model.config.slideOneColor }}; 
                                 border-color: {{ model.config.slideOneColor }}
@@ -38,7 +38,7 @@
                         <p style="color: {{ model.config.slideTwoColor }}">{{ model.config.slideShortDescTwo }}</p>
                     {% endif %}
                     {% if model.config.slideButtonTwo %}
-                        <a class="mz-button" 
+                        <a class="mz-button" href="{{ model.config.slideLinkTwo }}"
                             style="
                                 color: {{ model.config.slideTwoColor }}; 
                                 border-color: {{ model.config.slideTwoColor }}
@@ -67,7 +67,7 @@
                         <p style="color: {{ model.config.slideThreeColor }}">{{ model.config.slideShortDescThree }}</p>
                     {% endif %}
                     {% if model.config.slideButtonThree %}
-                        <a class="mz-button" 
+                        <a class="mz-button" href="{{ model.config.slideLinkThree }}"
                             style="
                                 color: {{ model.config.slideThreeColor }}; 
                                 border-color: {{ model.config.slideThreeColor }}

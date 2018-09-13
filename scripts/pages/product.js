@@ -8,9 +8,10 @@
     "modules/product/recently-viewed-products", 
     "hyprlivecontext",
     "modules/api",
-    "modules/page-header/global-cart" 
-], function ($, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageViews, RVIModel, HyprLiveContext, api, GlobalCart) {
-
+    "modules/page-header/global-cart",
+    'modules/block-ui' 
+], function ($, _, Hypr, Backbone, CartMonitor, ProductModels, ProductImageViews, RVIModel, HyprLiveContext, api, GlobalCart, blockUiLoader) {
+    blockUiLoader.globalLoader();
     var ProductView = Backbone.MozuView.extend({
         templateName: 'modules/product/product-detail',
         additionalEvents: {
@@ -22,6 +23,7 @@
             "click [data-mz-qty=plus]": "quantityPlus"
         },
         render: function () {
+            blockUiLoader.unblockUi();
             var me = this;
             Backbone.MozuView.prototype.render.apply(this);
             this.productCarousel();
@@ -172,33 +174,25 @@
             }
             var options = JSON.parse(JSON.stringify(this.model.get('options')));
             var addons = this.model.get('addons');
-            for (var k = 0; k < options.length; k++) {
-                var addonValues = addons[k].values;
-                var optionValues = options[k].values;
-                for (var j = 0; j < optionValues.length; j++) {
-                    var addonValue = addonValues[j];
-                    var optionValue = optionValues[j];
-                    optionValue.productUrl = addonValue.productUrl;
-                    optionValue.imageFilePath = addonValue.imageFilePath;
-                    optionValue.imageData = addonValue.imageData;
-                    optionValues[j] = optionValue;
+            if (addons) {
+                for (var k = 0; k < options.length; k++) {
+                    var addonValues = addons[k].values;
+                    var optionValues = options[k].values;
+                    for (var j = 0; j < optionValues.length; j++) {
+                        var addonValue = addonValues[j];
+                        var optionValue = optionValues[j];
+                        optionValue.productUrl = addonValue.productUrl;
+                        optionValue.imageFilePath = addonValue.imageFilePath;
+                        optionValue.imageData = addonValue.imageData;
+                        optionValues[j] = optionValue;
+                    }
+                    options[k].values = optionValues;
                 }
-                options[k].values = optionValues;
+                this.model.set('addons', options);
             }
-            this.model.set('addons', options);
         },
         addToCart: function () {
             this.model.addToCart();
-            this.model.on('addedtocart', function (cartitem) {
-                $('.mz-errors').remove();
-            });
-            this.model.on('addedtocarterror', function (error) {
-                if (error.message.indexOf('Validation Error: The following items have limited quantity or are out of stock') > -1) {
-                    $('.mz-errors').find('.mz-message-item').html(Hypr.getLabel('outOfStockError'));
-                } else if(error.message.indexOf('Missing or invalid parameter: variationProductCode Product is configurable. Variation code must be specified') > -1) {
-                    $('.mz-errors').find('.mz-message-item').html(Hypr.getLabel('variationError'));
-                }
-            });
         },
         addToWishlist: function () {
             this.model.addToWishlist();
@@ -458,6 +452,7 @@
        
         product.on('addedtocart', function (cartitem) {
             if (cartitem && cartitem.prop('id')) {
+                $('.mz-errors').remove();
                 //product.isLoading(true);
                 CartMonitor.addToCount(product.get('quantity')); 
                 $('html,body').animate({
@@ -473,7 +468,13 @@
                 product.trigger("error", { message: Hypr.getLabel('unexpectedError') });
             }
         });
-
+        product.on('addedtocarterror', function (error) {
+            if (error.message.indexOf('Validation Error: The following items have limited quantity or are out of stock') > -1) {
+                $('.mz-errors').find('.mz-message-item').html(Hypr.getLabel('outOfStockError'));
+            } else if(error.message.indexOf('Missing or invalid parameter: variationProductCode Product is configurable. Variation code must be specified') > -1) {
+                $('.mz-errors').find('.mz-message-item').html(Hypr.getLabel('variationError'));
+            }
+        });
         product.on('addedtowishlist', function (cartitem) {
             $('#add-to-wishlist').prop('disabled', 'disabled').text(Hypr.getLabel('addedToWishlist'));
         });

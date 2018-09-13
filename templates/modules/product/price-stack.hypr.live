@@ -14,14 +14,7 @@
             <span class="mz-price-discountname orange-text">{{ model.priceRange.lower.discount.discount.name}} </span>
         {% endif %}
     {% else %}
-        {% if model.mapPrice %}
-            <span class="mz-price is-crossedout">
-                {{model.mapPrice|currency}}
-            </span>
-            <span class="orange-text">{{ labels.mapPrice }}</span>
-        {% else %}
-            {% include "modules/common/price" with model=model.price %}
-        {% endif %}
+        {% include "modules/common/price" with model=model.price %}
         {% if model.price.discount %} 
             <span class="mz-price-discountname orange-text">{{ model.price.discount.discount.name}} </span> 
         {% endif %}   

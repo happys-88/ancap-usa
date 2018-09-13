@@ -42,8 +42,7 @@
                     var prodTypeVal = someThing.suggestion.productType;
                     return prodTypeVal.toUpperCase() !== 'CONTENT';
                     });
-                    console.log("Results : "+JSON.stringify(resultGlobal));
-                    return resultGlobal;
+                    return resultGlobal; 
                 }            
                 return thisGroup.suggestions;
             };

@@ -1521,6 +1521,7 @@
             },
             _onBlurred: function onBlurred() {
                 this.isActivated = false;
+                $('#searchPopup').modal('hide');
                 this.dropdown.empty();
                 this.dropdown.close(); 
             },

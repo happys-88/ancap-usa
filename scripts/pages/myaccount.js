@@ -64,7 +64,7 @@ define([
         },
         finishEdit: function() {
             var self = this;
-            var deals = $('#PrimaDeals').is(':checked') ? $('#PrimaDeals').val() : '';
+            var deals = $('#PSDeals').is(':checked') ? $('#PSDeals').val() : '';
             deals = $('#PSNewsLetter').is(':checked') ? deals+","+$('#PSNewsLetter').val() : deals+","+'';
             deals = $('#PSBlogs').is(':checked') ? deals+","+$('#PSBlogs').val() : deals+","+'';
             
@@ -90,10 +90,10 @@ define([
                 var email = resp.data.emailAddress;
                 
                 if(deals !== '') {
-                    $.get("/mailchimp", {accountId:email, deals:deals},  function(res){ 
-                       console.log("Success");   
-                    }).fail(function(err) {
-                        console.log("Error : "+JSON.stringify(err));   
+                    Api.request("POST", "/mailchimp", {'accountId':email, 'deals':deals}).then(function (response){
+                       console.log("Success : ");     
+                    }, function(err) {
+                        console.log("Error : "+JSON.stringify(err));
                     });
                 }
                 self.editing = false;
@@ -256,15 +256,8 @@ define([
         addItemToCart: function(e) {
             var self = this,
                 $target = $(e.currentTarget),
-                //id = $target.data('mzItemId');
-            /*if (id) { 
-                this.editing.added = id;
-                this.doModelAction('addItemToCart', id).then(function(response){
-                    GlobalCart.update(id);
-                    return response;
-                });  
-            }*/
             id = $target.data('mz-item-id');
+            
             if (id) {  
                 this.editing.added = id;
                 this.doModelAction('addItemToCart', id).then(function(response){
@@ -274,6 +267,9 @@ define([
                     var idd="#"+productcod;
                     $(idd).prependTo(".mz-carttable-items-global"); 
                     $(idd).addClass("recently-added");
+                    $("#global-cart").show().delay(3000).hide(0, function () {
+                        $(this).css("display", "");
+                    });
                     return response; 
                 });
             }

@@ -7,7 +7,7 @@ define([
 	
 	//home slider
 	$('#mz-home-slider .slider').bxSlider({
-		auto: false,
+		auto: true,
 		useCSS: false,
 		speed: 1000,  
 		minSlides: 1,
@@ -17,6 +17,7 @@ define([
 		infiniteLoop: true,
 		pager: true,
 		touchEnabled: true,
+                stopAutoOnClick: true,
 		onSliderLoad: function() {
 			$(".slider").css("visibility", "visible");
 		}
@@ -25,6 +26,14 @@ define([
 
 	// My Account Tabbing Redirection
 	if(window.location.pathname == "/myaccount"){
+		//Account section scroll to top after site left nav choose
+		$(".mz-scrollnav-item").click(function (e) {
+			$("html, body").animate({ scrollTop: 0 }, 600);
+				if (e.currentTarget.className !== 'mz-scrollnav-item active') {
+					$(".mz-messagebar").empty();
+				}
+		}); 
+
 		var hash=window.location.hash;
 		if(hash !==""){
 			$("li.mz-scrollnav-item").removeClass("active");
@@ -148,7 +157,6 @@ define([
 		});
 		
 		var navHeight = $(".mz-sitenav").outerHeight();
-		//alert(navHeight); 
 		$(".mz-sitenav-sub-container").css('top', navHeight);
 			
 		$(window).resize(function(){	
@@ -240,8 +248,6 @@ define([
 
 		// Featured Products Slider in blog detail
 		if(windowWidth <= 767){ 
-			//var sliderElement = $(".mz-blog-content-detail .featured-products").find(".mz-productlist-list");
-
 			$('#productSliderMobile').bxSlider({      
 		        minSlides: 1,    
 	            moveSlides: 1,
@@ -269,11 +275,6 @@ define([
 		if(!HyprLiveContext.locals.user.isAuthenticated){
 			localStorage.setItem("previousTime", null); 
 		} 
-
-		// Global Cart Continue btn
-		// $(document).on('click','#continueShoppingGlobalCart', function(){   
-		//     window.history.back();    
-	    // });    
 
 	});
 }); 

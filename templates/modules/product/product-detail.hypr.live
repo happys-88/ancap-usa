@@ -57,7 +57,7 @@
         </div>
         <div class="col-md-3 col-sm-12 mz-productdetail-conversion-buttons">
             {% if siteContext.generalSettings.isWishlistCreationEnabled and not user.isAnonymous %}
-              <button id="add-to-wishlist" {% if model.checkItem === true %} {% else %} class="mz-productdetail-addtowishlist is-disabled" disabled="disabled" {% endif %} data-mz-action="addToWishlist"> {{ labels.addToWishlist }}</button>
+              <button id="add-to-wishlist" data-mz-action="addToWishlist">{{ labels.addToWishlist }}</button>
             {% endif %}
         </div>
         <div class="col-xs-12 mz-ordered-increments">

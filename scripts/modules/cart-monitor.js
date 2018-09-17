@@ -19,7 +19,7 @@ define([
                 this.$amountEl.text(localAmount);
             },
             setCount: function(count) {
-                $(".mz-cartmonitor").text(count); 
+                $('[data-mz-role="cartcount"]').text(count); 
                 //this.$el.text(count);
                 //this.update(true);
             },
@@ -31,6 +31,7 @@ define([
             },
             update: function(showGlobalCart) {
                 api.get('cartsummary').then(function(summary) {
+
                     $.cookie('mozucart', JSON.stringify(summary.data), { path: '/' });
                     savedCarts[userId] = summary.data;
                     $document.ready(function() {

@@ -13,11 +13,11 @@ define(['modules/jquery-mozu', 'underscore', 'modules/backbone-mozu', 'hyprlive'
 			});
 
 	    	var chkModel = new Backbone.Model(checkoutData);
-	    	console.log("CHECKOUT DTAA : "+JSON.stringify(chkModel));
 			var view = new ShippingItemsDetail({
 				model: chkModel,
 				el: $('#itemsDetail')
 			});
 			view.render();
+			
 	    });
     });

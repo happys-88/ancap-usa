@@ -351,56 +351,7 @@
         $('#indexreviews').hide();  
         $('#disqus-comments-noscript').hide(); 
         var product = ProductModels.Product.fromCurrent();
-        var currentProductCode = product.attributes.productCode;
-        if(typeof product.attributes.categories !== "undefined"){
-            $.each(product.attributes.categories, function( index, value ) {
-            var currentCategoryCode = value.categoryId;
-            $.each(product.attributes.properties, function( index, value ) {
-                
-                        var preUrl;
-                        var hostname = window.location.hostname;
-                        var flag1 = false;
-                        var flag2 = false;
-                        var nxtUrl;
-                        api.request("GET", "/api/commerce/catalog/storefront/products/?filter=categoryId eq "+currentCategoryCode+"").then(function(body){
-                            
-                            $.each(body.items, function(index, item){
-                                var productCode = item.productCode;
-                                var seoFriendlyUrl = item.content.seoFriendlyUrl;
-                                if(currentProductCode === productCode){
-                                    flag1 = true;
-                                }
-                                else{
-                                    if(!flag1){
-                                        preUrl = "http://"+hostname+"/"+seoFriendlyUrl+"/p/"+productCode+"";
-                                    }
-                                    else{
-                                        if(!flag2){
-                                            nxtUrl = "http://"+hostname+"/"+seoFriendlyUrl+"/p/"+productCode+"";
-                                            flag2 = true;
-                                            return false;
-                                        } 
-                                    }
-                                }
-                            }); 
-                            
-                            if(!_.isUndefined(preUrl)){
-                                $("#prev-url").attr("href", preUrl).removeClass("is-disabled");
-                            } 
-                            else{
-                                $("#prev-url").addClass("is-disabled");
-                            }
-                            if(!_.isUndefined(nxtUrl)){
-                                $("#next-url").attr("href", nxtUrl).removeClass("is-disabled");  
-                            }
-                            else{
-                                $("#next-url").addClass("is-disabled");  
-                            }
-                        });
-                    });
-                });
-        }
-       var incr=0;
+        var incr=0;
         $(document).on('click','[name=Color]', function(event){ 
             incr=0;
            

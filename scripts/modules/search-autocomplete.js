@@ -31,34 +31,8 @@
                         break;
                     }
                 }
-                if($('.learningCenterInput').is(':focus') && name==='Pages') { 
-                    var result = _.filter(thisGroup.suggestions, function(someThing) {
-                        var prodTypeVal = someThing.suggestion.productType;
-                        return prodTypeVal.toUpperCase() === 'CONTENT';
-                    });
-                    return result;
-                } else if($('#globalSearch').is(':focus') && name==='Pages') {
-                    var resultGlobal = _.filter(thisGroup.suggestions, function(someThing) {
-                    var prodTypeVal = someThing.suggestion.productType;
-                    return prodTypeVal.toUpperCase() !== 'CONTENT';
-                    });
-                    return resultGlobal; 
-                }            
                 return thisGroup.suggestions;
             };
-        },
-        filterCatsArray= function(){
-            var categories = HyprLiveContext.locals.themeSettings.searchSuggestionFilter;
-            var categoryArray = [];
-            if(categories !== '') {
-                var arrayCats = categories.split(',');          
-                for(var i = 0; i < arrayCats.length; i++) {
-                    if(arrayCats[i] !== '') {
-                        categoryArray.push(Number(arrayCats[i]));
-                    }
-                }
-            }
-            return categoryArray;
         },
         makeTemplateFn = function(name) {
             var tpt = Hypr.getTemplate(name);
@@ -173,16 +147,6 @@
                 e.preventDefault();
             } else if (searchVal.length < 3) {
                 window.alert("Your keyword or item number must be at least 3 characters long"); 
-                e.preventDefault();
-            }
-        });
-        $('[data-mz-form="lcSearchBox"]').on('submit', function(e) { 
-            var searchVal = $('#learningCenter').val().trim();  
-            if (searchVal === "") {
-                window.alert(Hypr.getLabel('blankSearchResult'));
-                e.preventDefault();
-            } else if (searchVal.length < 3) {
-                window.alert("Your keyword or item number must be at least 3 characters long");
                 e.preventDefault();
             }
         });

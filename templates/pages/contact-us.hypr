@@ -7,7 +7,6 @@
 {% endblock breadcrumbs %}
 {% block body-content %}
 {% preload_json selectTopic "selectTopic" %}
-{% require_script "pages/contactus" %}
 <div class="mz-customer-service-page">
     <div id="contactus-container">
         <div class="mz-l-container">
@@ -15,9 +14,6 @@
                 <div class="col-xs-12 col-sm-9 pull-right">
                     <h3 class="mz-l-stack-sectiontitle">{{ labels.contactUs }}</h3>
                     <div class="row">
-                        <div class="contact">
-                            {% include "modules/contact-us/contact" with model=model %}
-                        </div>
                         <div class="col-md-6 col-xs-12 text-center">
                             <div class="mz-dropzone">
                                 {% dropzone "contact" scope="page" %}

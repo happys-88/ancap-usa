@@ -38,7 +38,7 @@
 
     <!-- AddThis Button END --> 
     <script>
-        addthis.sharecounters.getShareCounts({service: ['twitter','facebook','linkedin'], countUrl: '{{ pageContext.url }}{{ model.url }}'}, function(response) {  
+        addthis.sharecounters.getShareCounts({service: ['twitter','facebook','linkedin'], countUrl: '{{ pageContext.secureHost }}{{ model.url }}'}, function(response) {  
             var count = 0;
             for(var i=0; i<response.length; i++){
                 if(response[i].error){

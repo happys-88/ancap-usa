@@ -86,4 +86,3 @@ var disqus_config = function () {
 
 {% endblock disqus-section %}
 
-{% require_script "pages/product" %}  

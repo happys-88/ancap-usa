@@ -1888,25 +1888,11 @@
                     billingContact.set("address", null);
                 }
 
-                var tbybVal = this.get('tenant~trybeforebuy');
                 var storefrontOrderAttributes = require.mozuData('pagecontext').storefrontOrderAttributes;
                 if(storefrontOrderAttributes && storefrontOrderAttributes.length > 0) {
                     var updateAttrs = [];
                     storefrontOrderAttributes.forEach(function(attr){
-                        var attrVal;
-                        if(attr.attributeFQN === 'tenant~trybeforebuy') {
-                                var attribs = order.get('attributes');
-                                var code = '';
-                                _.each(attribs, function(obj){
-                                  if(obj.fullyQualifiedName === 'tenant~trybeforebuy') {
-                                    code  = obj.values[0];
-                                  }  
-                                });
-                                attrVal = code;
-                                
-                        } else {                            
-                            attrVal = order.get('orderAttribute-' + attr.attributeFQN);
-                        }
+                        var attrVal = order.get('orderAttribute-' + attr.attributeFQN);
                         if(attrVal) {
                             updateAttrs.push({
                                 'fullyQualifiedName': attr.attributeFQN,

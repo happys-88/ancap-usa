@@ -60,126 +60,7 @@ define([
                this.model.set({'selectedState': localStorage.getItem('selectedState')}) ;
             }          
         },
-        beforeRender: _.once(function() {
-            var cart = this.model;
-            var productCode = this.model.get("items").models[0].get('product').get('productCode');
-            var shipping = localStorage.getItem("selectedShipping");
-            var stateData = this.model.get("selectedState");
-            if(this.model.get("selectedState")) {
-                stateData = this.model.get("selectedState");
-            } else {
-                stateData = localStorage.getItem('selectedState');
-            }
-            
-            if(typeof stateData !== 'undefined' && stateData !== null) {
-                this.model.set({'selectedState': stateData});
-                this.calculateTax(stateData, false, this.model);
-            }
-            if(typeof shipping === 'undefined' || shipping === null) {
-                var url = "api/commerce/catalog/storefront/shipping/request-rates";
-                api.request("POST", url, {
-                    originAddress: {
-                        cityOrTown: 'California',
-                        isValidated: true,
-                        countryCode: 'US',
-                        postalOrZipCode: '94945',
-                        stateOrProvince: 'CA'
-                    },
-                    items: [
-                          {
-                            itemId: productCode,
-                            quantity: 1,
-                            shipsByItself: true,
-                            unitMeasurements: {
-                                girth: 2.3,
-                                height: {
-                                   unit: 'in',
-                                   value: 50.0
-                                },
-                                length: {
-                                   unit: 'in',
-                                   value: 12.0
-                                },
-                                weight: {
-                                   unit: 'oz',
-                                   value: 12.0
-                                },
-                                width: {
-                                   unit: 'in',
-                                   value: 12.0
-                                }
-                             }
-                        }
-                    ],
-                    destinationAddress: {
-                          cityOrTown: 'Florida',
-                          countryCode: 'US',
-                          isValidated: true,
-                          postalOrZipCode: "32007",
-                          stateOrProvince: "FL"
-                    }
-                    
-                }).then(function (response){
-                   
-                   _.defer(function() {
-                    var shippingRates = response.rates[0].shippingRates;
-                    localStorage.setItem("shippingData", JSON.stringify(shippingRates));
-                    var Ships = localStorage.getItem("shippingData");
-                    var ratesParse = JSON.parse(Ships);
-                    cart.set("shippingDetail", ratesParse);
-                    var shipPrice = _.filter(shippingRates, 
-                        function(rates) { return (rates.amount === 0);   });
-                    if(shipPrice.length > 0) {
-                        cart.set('selectedShipping', shipPrice[0].content.name);
-                        cart.set('shippingTotal', shipPrice[0].amount);
-                        localStorage.setItem('selectedShipping',shipPrice[0].content.name);
-                    } else {
-                        cart.set('selectedShipping', shippingRates[0].content.name);
-                        cart.set('shippingTotal', shippingRates[0].amount);
-                        localStorage.setItem('selectedShipping',shippingRates[0].content.name);
-                    }
-
-                    var shipping = cart.get('selectedShipping');
-                    if(typeof shipping !== 'undefined') {
-                        var shippingDetailObj = cart.get("shippingDetail");
-                        var selectedShipping = cart.get("selectedShipping");
-                        var selectedMethod = _.find(shippingDetailObj, function(obj) {
-                          if(obj.content.name === selectedShipping){ 
-                              return obj;
-                            }
-                        });
-
-                        var selectedMethodAmount = selectedMethod.amount;
-                        cart.set({'shippingTotal': selectedMethodAmount});
-                        var tot = cart.get('shippingTotal');
-                        var total = cart.get('discountedTotal');
-                        var newTotal = Number(tot)+Number(total);
-                    }
-                   });
-                   
-                });
-            } else {
-                // this.render();
-                var shippingDetailObj = this.model.get("shippingDetail");
-                var selectedShipping = this.model.get("selectedShipping");
-
-                var selectedMethod = _.find(shippingDetailObj, function(obj) {
-                  if(obj.content.name === selectedShipping){ 
-                      return obj;
-                    }
-                });
-                var selectedMethodAmount = selectedMethod.amount;
-                this.model.set({'shippingTotal': selectedMethodAmount});
-                var tot = this.model.get('shippingTotal');
-                var total = this.model.get('discountedTotal');
-                var newTotal = Number(tot)+Number(total);
-            }
-        }),
         render: function() {
-            var cartEmpty = this.model.get("isEmpty");
-            if(this.$el.context.location.pathname === '/cart' && !cartEmpty && typeof cartEmpty !== "undefined"){
-                this.beforeRender(); 
-            }
             CartMonitor.update();
             preserveElement(this, ['.v-button', '.p-button'], function() {
                 Backbone.MozuView.prototype.render.call(this);
@@ -385,12 +266,9 @@ define([
         var errormsg = this.$('[data-mz-message]');
         var message = model.messages.models[0].attributes.message;
         var prodCode = message.split(':')[1]; 
-        /*if (message.indexOf('Validation Error: The following items have limited quantity or are out of stock') > -1) {
-            prodCode = message.replace('Validation Error: The following items have limited quantity or are out of stock:','');      
-        }*/
+        
        if (prodCode[prodCode.length-1] === ".")
             prodCode = prodCode.slice(0,-1);
-      //  $('.mz-productdetail-wrap').find('.mz-errors').remove();
     
         $('.mz-productdetail-wrap').find('.mz-errors').remove();
     },

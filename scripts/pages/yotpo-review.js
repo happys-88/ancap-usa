@@ -19,6 +19,11 @@ function ($, _, Hypr, Backbone, HyprLiveContext, ProductModel, api) {
 	    	$(".yotpo-single-image-container").removeClass("hidden-thumbnails");
 	   	});
 
+	   	// Learning Center Gallery
+	   	var singleThumbHeight = $(singleImgContainer).outerHeight(true);
+	   	var totalHeight = singleThumbHeight*2;
+	   	var parentDiv = $(".mz-sidebar-content-widget .yotpo-pictures-gallery").css("height", totalHeight);      
+	   	
 	    var product = ProductModel.Product.fromCurrent();
 	    var prodType = product.attributes.productType;
 	    if(typeof product.attributes.productType!=="undefined")
@@ -42,11 +47,6 @@ function ($, _, Hypr, Backbone, HyprLiveContext, ProductModel, api) {
 	            console.log("Error : "+JSON.stringify(err));
 	        }); 
 	   }
-
-	   	// Instagram Feed for learning center 
-	   	var galleryThumbnailsLC = 4; 
-	   	$(".yotpo-single-image-container").addClass("hidden-thumbnails");
-	    $('.yotpo-single-image-container:lt('+galleryThumbnailsLC+')').removeClass("hidden-thumbnails");
 
 	    if(typeof product.attributes.productType!=="undefined")
 	    if(typeof prodType !== 'undefined' && prodType.toUpperCase() !== 'CONTENT') { 

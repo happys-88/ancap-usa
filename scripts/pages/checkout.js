@@ -53,7 +53,6 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
     var ShippingSummary = Backbone.MozuView.extend({
 
         initialize: function () {
-           // this.listenTo(this.model.get('billingInfo'), 'orderPayment', this.onOrderCreditChanged, this);
            
         },
         onOrderCreditChanged: function (order, scope) {

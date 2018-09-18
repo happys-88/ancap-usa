@@ -1,8 +1,5 @@
 ﻿<div class="mz-ordersummary">  
     <div class="mz-ordersummary-product-lists">
-        {% with model.attributes|findwhere("fullyQualifiedName", "tenant~trybeforebuy") as selectedTbybItem %}
-                {% set selectedTbybItemVal=selectedTbybItem.values %}
-        {% endwith %}
         {% for item in model.items %}
             <div class="mz-ordersummary-lineitems">
                 <div class="mz-ordersummary-line mz-ordersummary-line-item {% if item.discountTotal > 0 %}is-discounted{% endif %} clearfix">
@@ -19,10 +16,21 @@
 
                             <div class="mz-product-options">
                                 {% for optionlist in item.product.options %}
-                                    <div><span>{{ optionlist.name }}:</span> {{ optionlist.value }}</div>
+                                    <div>
+                                        <span>{{ optionlist.name }}:</span>
+                                        {% if optionlist.stringValue %} 
+                                            {{ optionlist.stringValue }} 
+                                        {% else %} 
+                                            {% if optionlist.value %} 
+                                                {{ optionlist.value }} 
+                                            {% else %} 
+                                                {{ optionlist.shopperEnteredValue }} 
+                                            {% endif %} 
+                                        {% endif %} 
+                                    </div>
                                 {% endfor %}
                              </div>
-
+                            {% comment %}
                             {% if item.product.bundledProducts.length %}
                                 <div class="mz-propertylist">
                                     {% for bundledProduct in item.product.bundledProducts %}
@@ -31,26 +39,7 @@
                                     {% endfor %}
                                 </div>
                             {% endif %} 
-
-                            {% with item.product.variationProductCode|default(item.product.productCode) as prodCode %}
-
-                                {% with labels.tbybProductCode|string_format(prodCode, item.id) as tbybItem %}
-                                    {% for property in item.product.properties %}
-                                        {% if property.name == 'Try Before You Buy' %}
-                                            {% for v in property.values %}
-                                                {% if v.stringValue == true or v.value == true %}
-                                                    {% if selectedTbybItemVal == tbybItem %}
-                                                        <div class="tbyb-msg" id="tbyb_{{ item.product.variationProductCode|default(item.product.productCode) }}_{{item.id}}">
-                                                            {{ labels.tbybMsg }}
-                                                        </div>
-                                                    {% endif %}
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endwith %}
-                            {% endwith %}
-
+                            {% endcomment %}
                         </div>
                     </div>
                     <div class="mz-order-product-qty">

@@ -30,11 +30,6 @@
                     <p>{{ labels.yourOrderEmailText }} <span>{{ model.billingInfo.billingContact.email }}</span></p>
                 </div>
                 <div class="row">
-                    <div class="col-sm-9">
-                        <div class="mz-signup-other-email" id="confirmationDeals">
-                            
-                        </div>
-                    </div>
                     <div class="col-sm-3">
                         <div class="mz-live-chat">
                             <a href="javascript:void(0);" onclick="SnapEngage.startLink();"> 
@@ -47,15 +42,12 @@
                 </div>
             </div>
 
-            {% if not user or user.isAnonymous %}
-                <div class="col-md-6" id="guestUserSignUp"></div>    
-            {% endif %}
+            
         </div>
     </div>
 {% endblock body-content %}
 
 {% block trailing-scripts %}
-    {% require_script "modules/confirmation" %} 
 	{% parent %}
 	{% if siteContext.generalSettings.isGoogleAnalyticsEnabled and siteContext.generalSettings.isGoogleAnalyticsEcommerceEnabled %}
 	{% include "modules/analytics/google-analytics-ecommerce-tracking-code" %}

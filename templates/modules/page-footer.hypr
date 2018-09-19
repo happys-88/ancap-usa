@@ -14,7 +14,7 @@
                 <div class="col-xs-12">
                     <div class="mz-footer-nav">
                         <ul>
-                            <li><a href="/about">About</a></li>
+                            <li><a href="/about-us">About</a></li>
                             <li>
                                 {% if not user.isAnonymous %}
                                     <a href="/myaccount">Account</a>                                    

@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "94ed91f6ed3c7fbc08306b813ec1d85684cdee08"
+      "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
@@ -894,11 +894,11 @@
     "instagramFollowUsLink": "https://www.instagram.com/prima.supply/?hl=en",
     "addThisPubId": "ra-519bb90e58f9bf27",
     "showProductTooltip": true,
-    "noHasstleReturnTooltip": "PS: \"This item may be returned under our <a href=\"/returns-exchange\">Prima Returns Policy</a>. Please note there will be a 25% restocking fee on all returned merchandise.\" and PC: \"Returning this product is simple under our <a href=\"/returns-exchange\">No-Hassle Return Policy</a>.\"", 
-    "tryBeforeYouBuyTooltip": "\"Wonder if this product is exactly what you need? Try it out risk free for 14 days from the date of shipment! If you don't like it we will pay to ship it back.<br /><a href=\"/try-before-you-buy\">Read about it here</a>.\"", 
+    "noHasstleReturnTooltip": "PS: \"This item may be returned under our <a href=\"/returns-exchange\">Prima Returns Policy</a>. Please note there will be a 25% restocking fee on all returned merchandise.\" and PC: \"Returning this product is simple under our <a href=\"/returns-exchange\">No-Hassle Return Policy</a>.\"",
+    "tryBeforeYouBuyTooltip": "\"Wonder if this product is exactly what you need? Try it out risk free for 14 days from the date of shipment! If you don't like it we will pay to ship it back.<br /><a href=\"/try-before-you-buy\">Read about it here</a>.\"",
     "priceMatchGuaranteeTooltip": "Found a better price somewhere else? We'll beat it! Call us at <b>[store phone]</b> or <a href=\"/price-match-request\">fill out our price match form</a>.\"",
     "freeShippingTooltip": "\"Lucky you! This product qualifies for free shipping (contiguous United States only).<br /><a href=\"/prima-advantage\">Click here to see why</a>.\" (PC uses /prima-edge as the link currently.)",
-    "defaultStoreImage": "/cms/files/prima-supply-store-image.jpg"  
+    "defaultStoreImage": "/cms/files/prima-supply-store-image.jpg"
   },
   "layoutWidgets": [
     {
@@ -1807,29 +1807,6 @@
         }
       ],
       "icon": "/resources/admin/widgets/28_deal_of_the_day.png",
-      "validPageTypes": [
-        "*"
-      ]
-    },
-    {
-      "displayName": "Learning Center Banner With Title",
-      "displayTemplate": "misc/learning-center-banner",
-      "editViewFields": [
-        {
-          "anchor": "100%",
-          "xtype": "mz-input-text",
-          "name": "blogName",
-          "fieldLabel": "Enter Blog Name"
-        },
-        {
-          "anchor": "100%",
-          "fieldLabel": "Add Banner Image",
-          "name": "lcBannerImage",
-          "xtype": "mz-input-image"
-        }
-      ],
-      "icon": "/resources/admin/widgets/01_photo_text.png",
-      "id": "learning-center-banner",
       "validPageTypes": [
         "*"
       ]

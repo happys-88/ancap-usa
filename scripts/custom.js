@@ -258,9 +258,5 @@ define([
 			});  
 		}
 
-		if(!HyprLiveContext.locals.user.isAuthenticated){
-			localStorage.setItem("previousTime", null); 
-		} 
-
 	});
 }); 

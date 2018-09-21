@@ -17,7 +17,7 @@ define([
 
         //Product List Item View
         var ProductListItemView = Backbone.MozuView.extend({
-            templateName: 'modules/product/recent/recent-products',
+            templateName: 'modules/product/recent/recent-products' 
         }); 
 
         function getProductCodeFromUrl() {

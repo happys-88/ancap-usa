@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "eb878a55b22f2241216b3ceb18255ae08f1ce264"
+      "commit": "fdadc98548290f1470827c7a62b46e11a909f90a"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
@@ -621,7 +621,7 @@
     "showProductDetailShortDesc": true,
     "showProductDetailUPC": true,
     "textColor": "#444444",
-    "categoryEntityName": "categoryattributes@prima",  
+    "categoryEntityName": "categoryattributes@prima",
     "columnBreaker": "~",
     "liftGatePrice": 59,
     "snapengaeWidgetId": "d93fa82a-6087-44f8-bd79-3df50a1c3130",

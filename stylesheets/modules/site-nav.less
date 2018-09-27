@@ -8,9 +8,6 @@
 
     > .mz-sitenav-list {
         display: table-row;
-        > .mz-sitenav-item:first-child {
-            //padding-left: @gutter * .75;
-        }
     } 
 
     .mz-sitenav-item {
@@ -22,11 +19,6 @@
         .mz-sitenav-item-inner {
             position: relative;
         }
-        
-        /*&:hover .mz-sitenav-sub {
-            visibility: visible;
-            .transition-delay(0s);
-        }*/
     }
 
     .mz-sitenav-sub {
@@ -35,36 +27,13 @@
         position: absolute;
         width: 200px;
         z-index: 1;
-        /*visibility: hidden;
-        .transition(visibility 0s ease-out .25s);*/
-
         > .mz-sitenav-item {
             display: block;
             width: 100%;
-
-            .mz-sitenav-link {
-                /*.transition-property(~"height, padding, opacity");
-                .transition-duration(~".25s, .25s, .08s");
-                .transition-delay(~"0s, 0s, .05s");
-                height: 0px;
-                opacity: 0;
-                padding: 0;
-                display: block;
-                white-space: nowrap;*/
-            }
-        }
-    }
-
-    .mz-sitenav-item:hover > .mz-sitenav-link, .mz-sitenav-link.is-current {
-        background-color: #eee;
-        color: @textColor;
-        &:visited {
-            color: @textColor;
         }
     }
 
     .mz-sitenav-item:hover .mz-sitenav-sub .mz-sitenav-link {
-        //height: 20px;
         height: auto;
         padding: 9px @gutter*.75;
         opacity: 1;

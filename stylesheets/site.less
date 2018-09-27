@@ -204,28 +204,15 @@ img[data-mztp]{
     	width: auto;   
         -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
         box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-        left: 0;
+        right: 0;
         padding: 15px;
         background: @textColorWhite;
         z-index: 99;
         display: none;
-   		/*&.calculating{
-   			display: block;
-   		}*/
-        
-        &.menu-right {
-            left: auto;
-            right: 0;
-            &:before {
-                left: auto;
-                right: 15%;
-            }
-        }
+        top: 45px!important;
         .heading-3{
 			float: left;
-		}
-		
-		        
+		}       
         .mz-sitenav-item{ 
         	float: left;
         	width: 100%;
@@ -289,45 +276,12 @@ img[data-mztp]{
     }
 
     /**** Top Categories ****/
-    /*.mz-sitenav-top-categories{
-	 	float: left;
-	 	padding: 15px 0;  
-	 	border-bottom: 1px solid #c0c6cc;
-	 	.mz-sitenav-item{
-	 		width: 220px; 
-	 		padding: 0 15px;
-	 	}
-		
-	 	.mz-category-image, .mz-category-name{
-	 		float: left;
-	 		width: 100%;
-	 		text-align: center;
-	 		img, .mz-sitenav-link{
-	 			display: inline-block;
-	 			font-size: 14px;
-	 			color: @textColor;
-	 			line-height: 18px;
-	 			font-weight: bold;
-	 			&:hover{
-	 				text-decoration: none;
-	 			}
-	 		}
-	 	}
-	 	.mz-category-image{
-	 		font-size: 14px;
-	 		min-height: 80px;  
-			img{
-				max-width: 80px;
-				max-height: 80px;  
-			}   
-	 	}  
-	}*/
 	.mz-sitenav-all-categories{ 
 		float: left;
 		clear: both;
 		padding: 15px 0; 
 		.mz-sitenav-sub{
-			width: 220px;  
+			width: 150px;  
 		}	
 	}
 }
@@ -345,7 +299,6 @@ img[data-mztp]{
 	.mz-header-bottom{
 		padding: 12px 0;
 		.mz-storebranding{
-			/*margin-right: 150px;*/ 
 			.mz-logo{
 				width: 170px;
 				height: 50px;
@@ -776,19 +729,6 @@ img[data-mztp]{
 	transform: rotate(-90deg);
 	text-transform: uppercase;
 }
-
-//search result
-// .mz-searchresults { 
-// 	.mz-l-pagecontent {
-// 		h1 {
-// 			&.mz-pagetitle {
-// 				margin-bottom: 16px;
-// 				text-transform: none;
-// 				font-size: 22px; 
-// 			}
-// 		}
-// 	}
-// }
 
 /**** Print Order Page ****/ 
 .print-order{

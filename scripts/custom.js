@@ -87,23 +87,23 @@ define([
         });
 		
 		// Global Navigation - Calculate the position of dropdown
-		function calculatingSubPosition() {
-            $(".mz-sitenav-sub-container").each(function() {
-	            var currentElemnt = $(this),
-	            	currentDropWidth = currentElemnt.outerWidth(),
-	                rightReference = $("#store-branding").offset().left + $(".mz-header-bottom .container").outerWidth(),
-	                currentParentOffset = currentElemnt.parents(".mz-sitenav-item").offset().left, 
-	                leftOrigin = $(".mz-sitenav-list").offset().left;
+		// function calculatingSubPosition() {
+  //           $(".mz-sitenav-sub-container").each(function() {
+	 //            var currentElemnt = $(this),
+	 //            	currentDropWidth = currentElemnt.outerWidth(),
+	 //                rightReference = $("#store-branding").offset().left + $(".mz-header-bottom .container").outerWidth(),
+	 //                currentParentOffset = currentElemnt.parents(".mz-sitenav-item").offset().left, 
+	 //                leftOrigin = $(".mz-sitenav-list").offset().left;
 	                
-	            if (currentParentOffset + currentDropWidth >= rightReference) {
-	                currentElemnt.addClass("menu-right");
-	            } else {
-	                currentElemnt.removeClass("menu-right"); 
-	            }
-	        });
-        }
+	 //            if (currentParentOffset + currentDropWidth >= rightReference) {
+	 //                currentElemnt.addClass("menu-right");
+	 //            } else {
+	 //                currentElemnt.removeClass("menu-right"); 
+	 //            }
+	 //        });
+  //       }
 
-        calculatingSubPosition();
+  //       calculatingSubPosition();
 
         // Declaration of scrollToTop function 
         function scrollToTop(){
@@ -152,10 +152,10 @@ define([
 		var navHeight = $(".mz-sitenav").outerHeight();
 		$(".mz-sitenav-sub-container").css('top', navHeight);
 			
-		$(window).resize(function(){	
-			// Global Nav Dropdown function
-			calculatingSubPosition(); 
-		});
+		// $(window).resize(function(){	
+		// 	// Global Nav Dropdown function
+		// 	calculatingSubPosition(); 
+		// });
 
 		$(".mz-sitenav-item .mz-sitenav-link").css('height', navHeight); 
 

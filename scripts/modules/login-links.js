@@ -252,7 +252,11 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
                 url = domain + returnUrl;
                 window.location = url;
             }else{
-                window.location.reload();
+                if((window.location.href).includes('/buy') ) { 
+                    window.location = 'myaccount';
+                } else {
+                    window.location.reload();      
+                }  
             }
         },
         displayResetPasswordMessage: function () {

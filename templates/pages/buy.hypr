@@ -25,38 +25,7 @@
         </div>
     </div>
 
-    <section class="mz-our-retailers clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h2>To purchase for home, visit one of our retailers:</h2>
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="mz-retailer-name">
-                                <a href="https://clivecoffee.com/product-category/brand/ancap/">
-                                    <img src="{% make_url "cdn" "/cms/files/clive.jpg" %}" alt="Clive">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="mz-retailer-name">
-                                <a href="https://prima-coffee.com/manufacturers/ancap">
-                                    <img src="{% make_url "cdn" "/cms/files/prima-coffee.png" %}" alt="Prima coffee">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="mz-retailer-name">
-                                <a href="https://www.wholelattelove.com/brands/ancap">
-                                    <img src="{% make_url "cdn" "/cms/files/whole-latte-love.png" %}" alt="Whole latte love">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% dropzone "retailes-listing" scope="paage" %}
 
     <section class="mz-creating-an-account">
         <div class="container">

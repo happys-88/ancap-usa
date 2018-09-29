@@ -4,25 +4,33 @@
             <h3>{{ labels.customRequestForm }}</h3>
             <p>{{ labels.customRequestFormMsg }}</p>
             <div class="separator-line"></div>
-            <input type="text" name="firstname" data-mz-value="firstname" placeholder="{{ labels.firstName }}" maxlength="{{themeSettings.firstNameLength}}" required class="form-control">
-            <span class="mz-validationmessage" data-mz-validationmessage-for="firstname"></span>
-      
-            <input type="text" name="lastname" data-mz-value="lastname" placeholder="{{ labels.lastName }}" maxlength="{{themeSettings.lastNameLength}}" required class="form-control">
-            <span class="mz-validationmessage" data-mz-validationmessage-for="lastname"></span>
-       
-            <input type="email" id="email" name="email" data-mz-value="email" placeholder="{{ labels.emailAddress }}" maxlength="{{themeSettings.emailLength}}" required class="form-control">
-            <span class="mz-validationmessage" data-mz-validationmessage-for="email"></span>
-       
-            <input type="text" name="businessAddr" data-mz-value="businessAddr" placeholder="{{ labels.businessAddress }}" maxlength="{{themeSettings.emailLength}}" required class="form-control">
-            <span class="mz-validationmessage" data-mz-validationmessage-for="businessAddr"></span>
-       
-            <label for="{{ labels.collectionLabel }}">{{ labels.collectionLabel }}</label>
-            <input type="text" name="collection" placeholder="{{ labels.collectionph }}"  data-mz-value="collection" required class="form-control">
-            <span class="mz-validationmessage" data-mz-validationmessage-for="collection"></span>                                        
-            <label for="{{ labels.itemsLabel }}">{{ labels.itemsLabel }}</label>                         
-            <input type="text" name="items" placeholder="{{ labels.itemsph }}" required data-mz-value="items" class="form-control">
-            <span class="mz-validationmessage" data-mz-validationmessage-for="items"></span>
 
+            <div class="form-group">
+                <input type="text" name="firstname" data-mz-value="firstname" placeholder="{{ labels.firstName }}" maxlength="{{themeSettings.firstNameLength}}" required class="form-control">
+                <span class="mz-validationmessage" data-mz-validationmessage-for="firstname"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" name="lastname" data-mz-value="lastname" placeholder="{{ labels.lastName }}" maxlength="{{themeSettings.lastNameLength}}" required class="form-control">
+                <span class="mz-validationmessage" data-mz-validationmessage-for="lastname"></span>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" data-mz-value="email" placeholder="{{ labels.emailAddress }}" maxlength="{{themeSettings.emailLength}}" required class="form-control">
+                <span class="mz-validationmessage" data-mz-validationmessage-for="email"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" name="businessAddr" data-mz-value="businessAddr" placeholder="{{ labels.businessAddress }}" maxlength="{{themeSettings.emailLength}}" required class="form-control">
+                <span class="mz-validationmessage" data-mz-validationmessage-for="businessAddr"></span>
+            </div>
+            <div class="form-group">
+                <label for="{{ labels.collectionLabel }}">{{ labels.collectionLabel }}</label>
+                <input type="text" name="collection" placeholder="{{ labels.collectionph }}"  data-mz-value="collection" required class="form-control">
+                <span class="mz-validationmessage" data-mz-validationmessage-for="collection"></span>
+            </div>
+            <div class="form-group">                                      
+                <label for="{{ labels.itemsLabel }}">{{ labels.itemsLabel }}</label>                         
+                <input type="text" name="items" placeholder="{{ labels.itemsph }}" required data-mz-value="items" class="form-control">
+                <span class="mz-validationmessage" data-mz-validationmessage-for="items"></span>
+            </div>
             <div class="mz-file-upload">
                 <label for="{{ labels.uploadVectorDesign }}">{{ labels.uploadVectorDesign }}</label>
                 <div class="mz-file-managed">
@@ -41,19 +49,24 @@
                 </div>
             </div>
             
-            <label for="{{ labels.pantoneLable }}">{{ labels.pantoneLable }}</label>                    
-            <input type="text" name="pantone" placeholder="{{ labels.pantoneph }}" required data-mz-value="pantone" class="form-control">
-            <span class="mz-validationmessage" data-mz-validationmessage-for="pantone"></span>
-            
-            <label for="{{ labels.instructionLabel }}">{{ labels.instructionLabel }}</label>             
-            <textarea class="form-control" name="instruction" id="{{ labels.placementInstructions }}" placeholder="{{ labels.instructionph }}" required data-mz-value="instruction"></textarea>
-            <span class="mz-validationmessage" data-mz-validationmessage-for="instruction"></span>
-           
-            <label for="{{ labels.notesLabel }}">{{ labels.notesLabel }}</label>                         
-            <textarea class="form-control" name="notes" id="{{ labels.notes }}" placeholder="{{ labels.notesph }}" required data-mz-value="notes"></textarea>
-            <span class="mz-validationmessage" data-mz-validationmessage-for="notes"></span>
-                        
-            <span id="customRequestError"></span>                              
+            <div class="form-group">
+                <label for="{{ labels.pantoneLable }}">{{ labels.pantoneLable }}</label>                    
+                <input type="text" name="pantone" placeholder="{{ labels.pantoneph }}" required data-mz-value="pantone" class="form-control">
+                <span class="mz-validationmessage" data-mz-validationmessage-for="pantone"></span>
+            </div>
+            <div class="form-group">
+                <label for="{{ labels.instructionLabel }}">{{ labels.instructionLabel }}</label>             
+                <textarea class="form-control" name="instruction" id="{{ labels.placementInstructions }}" placeholder="{{ labels.instructionph }}" required data-mz-value="instruction"></textarea>
+                <span class="mz-validationmessage" data-mz-validationmessage-for="instruction"></span>
+            </div>
+            <div class="form-group">
+                <label for="{{ labels.notesLabel }}">{{ labels.notesLabel }}</label>                         
+                <textarea class="form-control" name="notes" id="{{ labels.notes }}" placeholder="{{ labels.notesph }}" required data-mz-value="notes"></textarea>
+                <span class="mz-validationmessage" data-mz-validationmessage-for="notes"></span>
+            </div>
+            <div>    
+                <span id="customRequestError" class="mz-validationmessage"></span>                              
+            </div>
             <button class="mz-button" type="button" data-mz-action="submitRequest">{{ labels.submit }}</button> 
         </form>
     </div>

@@ -15,8 +15,7 @@
         bootstrap:"vendor/bootstrap/js/bootstrap.min",
         bxslider:"vendor/jquery-bxslider/jquery.bxslider.min",
         blockui:"vendor/jquery.blockUI/jquery.blockUI.min",
-        elevatezoom: "vendor/elevate-zoom/elevateZoom",
-        "session-management":"vendor/sessionManagement/sessionManagement"
+        elevatezoom: "vendor/elevate-zoom/elevateZoom"
       }
   });
   {% if debugMode %}

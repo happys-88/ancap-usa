@@ -32,10 +32,5 @@
             </a>
         </li>
         {% endif %}
-        <li class="mz-scrollnav-item">
-            <a class="mz-scrollnav-link" href="/logout">
-                {{ labels.logOut }}
-            </a>
-        </li>
     </ul>
 </nav>

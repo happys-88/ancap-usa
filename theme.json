@@ -561,7 +561,7 @@
       }
     ],
     "defaultPageSize": 32,
-    "defaultSort": "createDate asc",
+    "defaultSort": "createDate desc", 
     "enablePartialCaching": true,
     "loadGoogleFonts": [
       "Source Sans Pro"

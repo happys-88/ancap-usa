@@ -281,9 +281,11 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if (e.which === 13) { this.signup(); }
         },
         validate: function (payload) {
-            if (!payload.account.emailAddress) return this.displayMessage(Hypr.getLabel('emailMissing')), false;
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (!payload.account.emailAddress || (!reg.test(payload.account.emailAddress)) ) return this.displayMessage(Hypr.getLabel('emailMissing')), false;
             if (!payload.password) return this.displayMessage(Hypr.getLabel('passwordMissing')), false;
             if (payload.password !== this.$parent.find('[data-mz-signup-confirmpassword]').val()) return this.displayMessage(Hypr.getLabel('passwordsDoNotMatch')), false;
+            
             return true;
         },
         signup: function () {
@@ -310,6 +312,10 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
                 this.setLoading(true);
                 return api.action('customer', 'createStorefront', payload).then(function (resp) {
                     if (self.redirectTemplate) {
+                        var url = window.location.href;
+                        if(url.includes('#cafe')){
+                         history.pushState(null, null, '/buy');
+                        }
                         window.location.pathname = self.redirectTemplate;
                     }
                     else {

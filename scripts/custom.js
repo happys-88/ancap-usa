@@ -86,24 +86,11 @@ define([
             }
         });
 		
-		// Global Navigation - Calculate the position of dropdown
-		// function calculatingSubPosition() {
-  //           $(".mz-sitenav-sub-container").each(function() {
-	 //            var currentElemnt = $(this),
-	 //            	currentDropWidth = currentElemnt.outerWidth(),
-	 //                rightReference = $("#store-branding").offset().left + $(".mz-header-bottom .container").outerWidth(),
-	 //                currentParentOffset = currentElemnt.parents(".mz-sitenav-item").offset().left, 
-	 //                leftOrigin = $(".mz-sitenav-list").offset().left;
-	                
-	 //            if (currentParentOffset + currentDropWidth >= rightReference) {
-	 //                currentElemnt.addClass("menu-right");
-	 //            } else {
-	 //                currentElemnt.removeClass("menu-right"); 
-	 //            }
-	 //        });
-  //       }
-
-  //       calculatingSubPosition();
+		$(".mz-search-icon").click(function(){
+			setTimeout(function(){
+				$('#globalSearch').focus();	
+			},1000);
+		});
 
         // Declaration of scrollToTop function 
         function scrollToTop(){

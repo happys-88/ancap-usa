@@ -47,7 +47,17 @@
                         <div class="mz-title-breadcrumbs">
                             <div class="col-md-7 col-sm-12">
                                 <div class="mz-category-name">
-                                    <h1 class="mz-pagetitle">{{ navigation.currentNode.name|upper|replace("~", "")|safe }}</h1>
+                                    {% for categoryObject in categories.all %}
+                                        {% if categoryObject.content.name == navigation.currentNode.name %}
+                                            {% if categoryObject.content.pageTitle %}
+                                                <h1 class="mz-pagetitle">{{ categoryObject.content.pageTitle|upper|replace("~", "")|safe }}</h1>
+                                                {% set_var pageTitle=true %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if not pageTitle %}
+                                        <h1 class="mz-pagetitle">{{ navigation.currentNode.name|upper|replace("~", "")|safe }}</h1>
+                                    {% endif %}
                                     <p>Pure porcelain with classic style</p>
                                     <div class="separator-line"></div>
                                 </div>

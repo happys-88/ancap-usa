@@ -61,8 +61,10 @@ define(['modules/api',
                                 $("#customRequestError").show();    
                             } else {
                                 $("#customRequestError").html(errorMessage);
-                                $('#customrequestForm').each(function(){
+
+                                $('#priceGuarranteeForm').each(function(){
                                     this.reset();
+                                    self.model.clear();
                                 });
                                 $("#customRequestError").show().delay(4000).fadeOut();    
                             }

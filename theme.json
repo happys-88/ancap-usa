@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-    "commit": "c9dd236a81c92131a5f43a9b03c298cb67050bb5"
+      "commit": "358536af887729f4694b099f3053b4008eafc7d7"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
@@ -512,7 +512,7 @@
     "ogVideoWidth": "500",
     "ogVideoHeight": "270",
     "twitterPlayerWidth": "435",
-    "twitterPlayerHeight": "245", 
+    "twitterPlayerHeight": "245",
     "allProductsCategoryId": "",
     "allProductsCategoryIdLC": "",
     "sessionTimeout": "1800",
@@ -563,7 +563,7 @@
       }
     ],
     "defaultPageSize": 32,
-    "defaultSort": "createDate desc", 
+    "defaultSort": "createDate desc",
     "enablePartialCaching": true,
     "loadGoogleFonts": [
       "Source Sans Pro"
@@ -616,7 +616,7 @@
     "showCategoryFacets": true,
     "showChildCategoriesInFaceting": true,
     "showCheckoutCommentsField": true,
-    "showMSRP": false,  
+    "showMSRP": false,
     "showProductDetailMeasurements": true,
     "showProductDetailMfgPartNumber": true,
     "showProductDetailProperties": true,
@@ -1425,6 +1425,29 @@
         "*"
       ]
     },
+    {
+      "displayName": "Add Image With Link", 
+      "displayTemplate": "misc/image-with-link", 
+      "editViewFields": [
+        { 
+          "anchor": "50%",
+          "fieldLabel": "Add Image",
+          "name": "getImage", 
+          "xtype": "mz-input-image"
+        },
+        {
+          "anchor": "50%",
+          "fieldLabel": "Add Link/Url",
+          "name": "getImageLink",    
+          "xtype": "mz-input-text"
+        }
+      ],
+      "icon": "/resources/admin/widgets/00_photo.png",  
+      "id": "image-with-link",  
+      "validPageTypes": [
+        "*"
+      ]
+    }, 
     {
       "displayName": "Shop By Category",
       "displayTemplate": "misc/shop-by-category",

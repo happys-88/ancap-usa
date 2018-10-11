@@ -1,46 +1,49 @@
 {% if model.properties and themeSettings.showProductDetailProperties %}
+
     <div class="mz-product-prop mz-product-tabs"> 
         <ul class="nav nav-tabs" role="tablist">
             {% for property in model.properties %}
-                {% if property.attributeFQN == "tenant~warranty_note" or property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" %}
-                    {% if property.attributeFQN == "tenant~warranty_note" %} 
-                        <li class="active" role="presentation"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
-                    {% endif %}
+                {% if property.attributeFQN == "tenant~assembled-height" or property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~product_info_note" %}
+
                     {% if property.attributeFQN == "tenant~product-overview" %}  
                         <li role="presentation"><a href="#features" aria-controls="features" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
                     {% endif %}
-                    {% if property.attributeFQN == "tenant~field_spec_text" %}  
-                        <li role="presentation"><a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
+
+                    {% if property.attributeFQN == "tenant~firing-temp" or property.attributeFQN == "tenant~assembled-height" or property.attributeFQN == " tenant~ingredients" or property.attributeFQN == "tenant~assembled-diameter" %}  
+                        <li role="presentation">3 <a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">Specification</a></li>
                     {% endif %}
-                    {% if property.attributeFQN == "tenant~body" %}  
-                        <li role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
+
+                    {% if property.attributeFQN == "tenant~product_info_note" %}  
+                        <li role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Care</a></li>
                     {% endif %}
+
                 {% endif %}
             {% endfor %}
         </ul>
         <div class="tab-content mz-mobile-tabs">
             {% for property in model.properties %}
-                {% if property.attributeFQN == "tenant~warranty_note" or property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~body" %}
-                    {% if property.attributeFQN == "tenant~warranty_note" %} 
-                        <div role="tabpanel" class="tab-pane active" id="overview">
-                            {{ model|get_product_attribute_value("tenant~warranty_note")|safe }}      
-                        </div>
-                    {% endif %}
-                    {% if property.attributeFQN == "tenant~product-overview" %} 
+                {% if property.attributeFQN == "tenant~assembled-height" or property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~product_info_note" %}
+                    
+                    {% if model.content.productFullDescription %} 
                         <div role="tabpanel" class="tab-pane" id="features">
-                            {{ model|get_product_attribute_value("tenant~product-overview")|safe }}    
+                            {{ model.content.productFullDescription|safe }}
                         </div>
                     {% endif %}
-                    {% if property.attributeFQN == "tenant~field_spec_text" %} 
+
+                    {% if property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~firing-temp" or property.attributeFQN == "tenant~assembled-height" or property.attributeFQN == "tenant~ingredients" or property.attributeFQN == "tenant~assembled-diameter" %} 
                         <div role="tabpanel" class="tab-pane" id="specification">
-                            {{ model|get_product_attribute_value("tenant~field_spec_text")|safe }}    
+                             {{ model|get_product_attribute_value("tenant~per-unit-weight")|safe }} <br> 
+                             {{ model|get_product_attribute_value("tenant~firing-temp")|safe }}<br>
+                           11{{ model|get_product_attribute_value("tenant~assembled-height")|safe }}<br>
+                             {{ model|get_product_attribute_value("tenant~ingredients")|safe }}<br>
+                             {{ model|get_product_attribute_value("tenant~assembled-diameter")|safe }}<br>
                         </div>
                     {% endif %}
-                    {% if property.attributeFQN == "tenant~body" %} 
-                        <div role="tabpanel" class="tab-pane" id="description">
-                            {{ model|get_product_attribute_value("tenant~body")|safe }}    
-                        </div>
-                    {% endif %}
+
+                    <div role="tabpanel" class="tab-pane" id="description">
+                        {{ model|get_product_attribute_value("tenant~product_info_note")|safe }}    
+                    </div>
+
                 {% endif %}
             {% endfor %}
         </div>

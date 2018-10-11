@@ -13,11 +13,9 @@
 
 <h1 class="mz-pagetitle" itemprop="name">{{ model.content.productName }}</h1>
 <div class="separator-line"></div>
+
 <div class="options">
-    <div>Verona Collection</div>
-    <div>11.8oz (350mL)</div>
-    <div>Pure Porcelain</div>
-    <div>Made in Italy</div>
+  {{ model|get_product_attribute_value("tenant~product-overview")|safe }}    
 </div>
 
 {% if not user.isAnonymous %}

@@ -30,19 +30,7 @@
                 </div> 
                 <div class="col-xs-12 col-sm-6 mz-productdetail-wrap">
                     {% include "modules/common/message-bar" with model=prodMod %}   
-                    {% comment %}
-                    <div class="yotpo-review-section-pdp">   
-                        <!-- Yotpo Rating -->
-                        {% block star-rating %}
-                            <div class="yotpo bottomLine" data-product-id="{{prodMod.productCode}}" id="reviewLink"></div>  
-                        {% endblock star-rating %} 
-
-                        {% block question-answer %}
-                            <div class='yotpo QABottomLine' data-appkey='{{ themeSettings.yotpoApiKey }}' data-product-id='{{ prodMod.productCode }}' id="askQuestionLink"></div> 
-                        {% endblock question-answer %}
-                        <!-- Yotpo Rating --> 
-                    </div>
-                    {% endcomment %}
+                
                     <div id="product-detail" class="mz-productdetail mz-l-stack">
                         {% include "modules/product/product-detail" with model=prodMod %}
                     </div> 
@@ -50,12 +38,6 @@
                 <div class="col-xs-12">
                     {% include "modules/product/product-properties" with model=prodMod %} 
                 </div>
-                {% comment %}
-                {% block yotpo-reviews-questions %} 
-                    {% include "modules/product/yotpo-review-and-qa" with model=prodMod reviewData=reviews %}
-                    {% require_script "pages/yotpo-review" %} 
-                {% endblock yotpo-reviews-questions %}  
-                {% endcomment %}
             </div>
         </div>
     </div>

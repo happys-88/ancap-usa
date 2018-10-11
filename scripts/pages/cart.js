@@ -17,8 +17,8 @@ define([
         templateName: "modules/cart/cart-table",
         additionalEvents: {
                 /*"change [data-mz-value=usShipping]":"populateShipping",
-                "change [data-mz-value=usStates]":"populateShipping"*/
-                "change [data-mz-value=usShipping]":"populateDropDowns",
+                "change [data-mz-value=usStates]":"populateShipping"
+                "change [data-mz-value=usShipping]":"populateDropDowns",*/
                 "click [data-mz-qty=minus]": "quantityMinus", 
                 "click [data-mz-qty=plus]": "quantityPlus",
                 "keyup [data-mz-value=quantity]":"updateQuantity",
@@ -190,10 +190,10 @@ define([
             }
         }),
         render: function() {
-            var cartEmpty = this.model.get("isEmpty");
+            /*var cartEmpty = this.model.get("isEmpty");
             if(this.$el.context.location.pathname === '/cart' && !cartEmpty && typeof cartEmpty !== "undefined"){
                 this.beforeRender(); 
-            }
+            }*/
             CartMonitor.update();
             preserveElement(this, ['.v-button', '.p-button'], function() {
                 Backbone.MozuView.prototype.render.call(this);
@@ -309,7 +309,7 @@ define([
             e.stopImmediatePropagation();
             var stateSel = $('#zip').val();
             this.calculateTax(stateSel, true);
-            this.populateShipping(false);
+            // this.populateShipping(false);
 
         },
         populateShipping: function(bool){

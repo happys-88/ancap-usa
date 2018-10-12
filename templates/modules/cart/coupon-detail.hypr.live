@@ -1,6 +1,6 @@
 {% if model.couponCodes.length > 0 %}
 
-	{% if model.couponCodes.length = 1 %}
+	{% if model.couponCodes.length == 1 %}   
 	 	{% if not model.tentativeCoupon %}
 		 	<div class="mz-coupon-detail">
 				<p class="mz-coupon-success-msg text-success">Code Applied Successfully</p>

@@ -1,51 +1,78 @@
 {% if model.properties and themeSettings.showProductDetailProperties %}
-
     <div class="mz-product-prop mz-product-tabs"> 
         <ul class="nav nav-tabs" role="tablist">
-            {% for property in model.properties %}
-                {% if property.attributeFQN == "tenant~assembled-height" or property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~product_info_note" %}
-
-                    {% if property.attributeFQN == "tenant~product-overview" %}  
-                        <li role="presentation"><a href="#features" aria-controls="features" role="tab" data-toggle="tab">{{property.attributeDetail.name}}</a></li>
-                    {% endif %}
-
-                    {% if property.attributeFQN == "tenant~firing-temp" or property.attributeFQN == "tenant~assembled-height" or property.attributeFQN == " tenant~ingredients" or property.attributeFQN == "tenant~assembled-diameter" %}  
-                        <li role="presentation">3 <a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">Specification</a></li>
-                    {% endif %}
-
-                    {% if property.attributeFQN == "tenant~product_info_note" %}  
-                        <li role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Care</a></li>
-                    {% endif %}
-
+            {% if model.content.productFullDescription %}
+                <li role="presentation" class="active"><a href="#features" aria-controls="features" role="tab" data-toggle="tab">Description</a></li>
+            {% endif %}
+            {% with model|get_product_attribute("tenant~per-unit-weight", "tenant~firing-temp", "tenant~assembled-height", "tenant~ingredients", "tenant~assembled-diameter", "tenant~disclaimer" ) as specification %}
+                {% if specification %}
+                    <li role="presentation"><a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">Specs</a></li>
                 {% endif %}
-            {% endfor %}
+            {% endwith %}
+            {% with model|get_product_attribute("tenant~product_info_note") as care %}
+                {% if care %}
+                    <li role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Care</a></li>
+                {% endif %}
+            {% endwith %}
         </ul>
+
         <div class="tab-content mz-mobile-tabs">
-            {% for property in model.properties %}
-                {% if property.attributeFQN == "tenant~assembled-height" or property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~field_spec_text" or property.attributeFQN == "tenant~product_info_note" %}
-                    
-                    {% if model.content.productFullDescription %} 
-                        <div role="tabpanel" class="tab-pane" id="features">
-                            {{ model.content.productFullDescription|safe }}
-                        </div>
-                    {% endif %}
-
-                    {% if property.attributeFQN == "tenant~product-overview" or property.attributeFQN == "tenant~firing-temp" or property.attributeFQN == "tenant~assembled-height" or property.attributeFQN == "tenant~ingredients" or property.attributeFQN == "tenant~assembled-diameter" %} 
-                        <div role="tabpanel" class="tab-pane" id="specification">
-                             {{ model|get_product_attribute_value("tenant~per-unit-weight")|safe }} <br> 
-                             {{ model|get_product_attribute_value("tenant~firing-temp")|safe }}<br>
-                           11{{ model|get_product_attribute_value("tenant~assembled-height")|safe }}<br>
-                             {{ model|get_product_attribute_value("tenant~ingredients")|safe }}<br>
-                             {{ model|get_product_attribute_value("tenant~assembled-diameter")|safe }}<br>
-                        </div>
-                    {% endif %}
-
+            {% if model.content.productFullDescription %} 
+                <div role="tabpanel" class="tab-pane  active" id="features">
+                    {{ model.content.productFullDescription|safe }}
+                </div>
+            {% endif %}     
+            <div role="tabpanel" class="tab-pane" id="specification">
+                <div class="mz-attribute">
+                    {% with model|get_product_attribute("tenant~ingredients") as ingr %} 
+                        {% if ingr %}
+                        {{ ingr.attributeDetail.name }}: {{ ingr.values.0.value|safe }} <br>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="mz-attribute">
+                    {% with model|get_product_attribute("tenant~firing-temp") as temp %} 
+                        {% if temp %}
+                        {{ temp.attributeDetail.name }}: {{ temp.values.0.value|safe }} <br>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="mz-attribute">
+                    {% with model|get_product_attribute("tenant~assembled-diameter") as diameter %} 
+                        {% if diameter %}
+                        {{ diameter.attributeDetail.name }}: {{ diameter.values.0.value|safe }} 
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="mz-attribute">
+                    {% with model|get_product_attribute("tenant~assembled-height") as height %} 
+                        {% if height %}
+                        {{ height.attributeDetail.name }}: {{ height.values.0.value|safe }} <br>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="mz-attribute">
+                    {% with model|get_product_attribute("tenant~per-unit-weight") as weight %} 
+                        {% if weight %}
+                        {{ weight.attributeDetail.name }}: {{ weight.values.0.value|safe }}<br>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="mz-attribute">
+                    {% with model|get_product_attribute("tenant~disclaimer") as disclaimer %} 
+                        {% if disclaimer %}
+                        {{ disclaimer.attributeDetail.name }}: {{ disclaimer.values.0.value|safe }}<br>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+           {% with model|get_product_attribute("tenant~product_info_note") as care %}
+                {% if care %}
                     <div role="tabpanel" class="tab-pane" id="description">
                         {{ model|get_product_attribute_value("tenant~product_info_note")|safe }}    
                     </div>
-
                 {% endif %}
-            {% endfor %}
+           {% endwith %}
         </div>
     </div>
 {% endif %}

@@ -358,6 +358,22 @@
 		.mz-productimages {
 			.mz-productimages-main {
 				min-height: 275px;
+				.bxslider {
+					&.mobile {
+						height: 100%;
+						div {
+				    	height: 100%;
+					    	img {
+							    position: relative;
+							    margin: auto;
+							    top: 50%;
+							    right: 0;
+							    left: 0;
+							    transform: translateY(-50%);
+							}
+					    }
+					}
+				}
 				.bx-wrapper {
 					.bx-controls-direction {
 						a {

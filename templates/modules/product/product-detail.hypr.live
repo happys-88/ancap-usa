@@ -58,9 +58,17 @@
               <button id="add-to-wishlist" data-mz-action="addToWishlist">{{ labels.addToWishlist }}</button>
             {% endif %}
         </div>
+        {% comment %}
         <div class="col-xs-12 mz-ordered-increments">
             <p>{{ labels.orderedIncrements }}</p>
         </div>
+        {% endcomment %}
+        {% if model.content.productShortDescription and themeSettings.showProductDetailShortDesc %}
+          <div class=" col-xs-12 mz-productdetail-shortdesc mz-l-stack-section">
+            <span itemscope="description">{{ model.content.productShortDescription|safe }}</span>  
+          </div>
+        {% endif %} 
+
     {% else %}
         <div class="col-xs-12 mz-retailer-buy">
             <a href="/buy" class="mz-button">Find a Retailer</a>
@@ -68,11 +76,8 @@
             <button id="add-to-wishlist" data-toggle="modal" data-target="#loginPopup">{{ labels.addToWishlist }}</button>
         </div>
     {% endif %}
-</section>
+</section> 
 
-<div class="mz-brand-certifications">
-  {% include "modules/product/product-certifications" %}   
-</div>
 {% if not user.isAnonymous %}
 <div class="mz-options-section">
   {% if model.options and model.options.length > 0 and model.hasOptions === true %}
@@ -94,20 +99,7 @@
     </div>
   {% endif %}
 </div>
-{% endif %}
-{% if model.content.productShortDescription and themeSettings.showProductDetailShortDesc %}
-  <div class="mz-productdetail-shortdesc mz-l-stack-section">
-    <h4 class="mz-l-stack-sectiontitle">{{ labels.shortDesc }}</h4>
-    <span itemscope="description">{{ model.content.productShortDescription|safe }}</span>
-  </div>
 {% endif %} 
-
-{% comment %}
-    <div class="mz-productdetail-fulldesc mz-l-stack-section">
-        <h4 class="mz-l-stack-sectiontitle">Overview</h4>  
-        {{ model.content.productFullDescription|safe }}
-    </div>
-{% endcomment %}
 
 {% if model.productUsage == 'Bundle' %}
 <div class="mz-productdetail-bundleitems mz-l-stack-section">

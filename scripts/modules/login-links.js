@@ -109,8 +109,11 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             if(msg.toLowerCase().indexOf('missing') > -1 ) {
                 var val = msg.split(':');
                 msg = val[1].trim();
-                msg = msg.substr(msg.indexOf(' ')+1, msg.length);
+                msg = msg.substr(msg.indexOf(' ')+1, msg.length); 
             }
+            if (msg.indexOf('Item not found:') > -1) { 
+                msg = msg.replace("Item not found:", Hypr.getLabel('forgetPasswordErrorMsg')); 
+            }   
             this.$parent.find('[data-mz-role="popover-message"]').html('<span class="mz-validationmessage">' + msg + '</span>');
         },
         init: function (el) {

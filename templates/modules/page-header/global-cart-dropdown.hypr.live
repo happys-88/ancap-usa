@@ -139,7 +139,7 @@
                         {% endif %}
                       </div>
                       <div class="col-xs-6 col-md-7">
-                          <a class="mz-button mz-button-large" href="/cart">{{ labels.viewCart}}</a> 
+                          <a class="mz-button" href="/cart">{{ labels.viewCart}}</a> 
                       </div>     
                 </div>
 

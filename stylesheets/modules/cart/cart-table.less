@@ -103,7 +103,9 @@
             border-top: 1px solid #dbdbda; 
         } 
         .mz-heading, .merchandise-subtotal, .mz-carttable-total-wrap{
-            font-weight: bold;  
+            color: #000;
+            font-size: 13px;
+            font-weight: bold;
         }
         .mz-heading{
             display: block;
@@ -120,12 +122,10 @@
             word-wrap: break-word;
         } 
     } 
-
     .mz-carttable-item-discount{
         text-align: right;
         margin-top: 5px;  
     } 
-
     .mz-cart-buttons{
         margin: 20px 0 18px;
         .mz-button{
@@ -133,10 +133,12 @@
             max-width: 330px;
             float: right;   
             padding: 15px @gutter;
+            background: @primaryBtnColor;
+            border-color: @primaryBtnColor;
             &:hover{
                 background: #fff; 
-                color: @buttonBgColor;
-                border-color: @buttonBgColor;
+                color: @primaryBtnColor;
+                border-color: @primaryBtnColor;
             }
             &.save-cart{
                 background: @textColorWhite;

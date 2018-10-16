@@ -632,6 +632,7 @@
     "mailChimpKey": "1afe25343b7a71ed977589911f618df7-us7",
     "mailchimpDeals": "{\"AncapNewsLetter\": \"a346027d89\" }",
     "merchantEmail": "sales@ancap-usa.com",
+    "zipCodeRanges": "90001-96162, 40003–42788",
     "usStates": [
       {
         "abbreviation": "AL",

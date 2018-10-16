@@ -58,7 +58,15 @@
                                     {% if not pageTitle %}
                                         <h1 class="mz-pagetitle">{{ navigation.currentNode.name|upper|replace("~", "")|safe }}</h1>
                                     {% endif %}
-                                    <p>Pure porcelain with classic style</p>
+
+                                    {% for categoryObject in categories.all %}
+                                        {% if categoryObject.content.name == navigation.currentNode.name %}
+                                            {% if categoryObject.content.description %}
+                                                <p>{{ categoryObject.content.description|safe }}</p>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+
                                     <div class="separator-line"></div>
                                 </div>
                             </div>

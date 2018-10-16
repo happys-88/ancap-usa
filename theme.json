@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "358536af887729f4694b099f3053b4008eafc7d7"
+      "commit": "63b316b5599721c565abaa72e14a0524af8fb355"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
@@ -632,7 +632,7 @@
     "mailChimpKey": "1afe25343b7a71ed977589911f618df7-us7",
     "mailchimpDeals": "{\"AncapNewsLetter\": \"a346027d89\" }",
     "merchantEmail": "sales@ancap-usa.com",
-    "zipCodeRanges": "90001-96162, 40003–42788",
+    "zipCodeRanges": "90001-96162, 40003-42788",
     "usStates": [
       {
         "abbreviation": "AL",
@@ -1427,28 +1427,28 @@
       ]
     },
     {
-      "displayName": "Add Image With Link", 
-      "displayTemplate": "misc/image-with-link", 
+      "displayName": "Add Image With Link",
+      "displayTemplate": "misc/image-with-link",
       "editViewFields": [
-        { 
+        {
           "anchor": "50%",
           "fieldLabel": "Add Image",
-          "name": "getImage", 
+          "name": "getImage",
           "xtype": "mz-input-image"
         },
         {
           "anchor": "50%",
           "fieldLabel": "Add Link/Url",
-          "name": "getImageLink",    
+          "name": "getImageLink",
           "xtype": "mz-input-text"
         }
       ],
-      "icon": "/resources/admin/widgets/00_photo.png",  
-      "id": "image-with-link",  
+      "icon": "/resources/admin/widgets/00_photo.png",
+      "id": "image-with-link",
       "validPageTypes": [
         "*"
       ]
-    }, 
+    },
     {
       "displayName": "Shop By Category",
       "displayTemplate": "misc/shop-by-category",

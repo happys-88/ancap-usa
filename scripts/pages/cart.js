@@ -323,7 +323,7 @@ define([
             }
         },
         populateTax: function(e){
-            e.stopImmediatePropagation();
+            e.stopPropagation();
             var stateSel = $('#zip').val();
             this.calculateTax(stateSel, true);
             // this.populateShipping(false);

@@ -171,6 +171,12 @@
   ],
   "pageTypes": [
     {
+      "entityType": "siteTemplate",
+      "id": "site_page",
+      "template": "page",
+      "title": "Default Site Template"
+    }, 
+    {
       "documentType": "web_page",
       "entityType": "webpage",
       "id": "about-us",
@@ -340,12 +346,6 @@
       "template": "print-order",
       "title": "Print Order",
       "userCreatable": true
-    },
-    {
-      "entityType": "siteTemplate",
-      "id": "site_page",
-      "template": "page",
-      "title": "Default Site Template"
     },
     {
       "documentType": "web_page",

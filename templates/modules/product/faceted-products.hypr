@@ -48,7 +48,7 @@
                             <div class="col-md-7 col-sm-12">
                                 <div class="mz-category-name">
                                     {% for categoryObject in categories.all %}
-                                        {% if categoryObject.content.name == navigation.currentNode.name %}
+                                        {% if categoryObject.categoryCode == navigation.currentNode.categoryCode %} 
                                             {% if categoryObject.content.pageTitle %}
                                                 <h1 class="mz-pagetitle">{{ categoryObject.content.pageTitle|upper|replace("~", "")|safe }}</h1>
                                                 {% set_var pageTitle=true %}
@@ -60,7 +60,7 @@
                                     {% endif %}
 
                                     {% for categoryObject in categories.all %}
-                                        {% if categoryObject.content.name == navigation.currentNode.name %}
+                                        {% if categoryObject.categoryCode == navigation.currentNode.categoryCode %} 
                                             {% if categoryObject.content.description %}
                                                 <p>{{ categoryObject.content.description|safe }}</p>
                                             {% endif %}

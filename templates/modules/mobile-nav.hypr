@@ -7,7 +7,7 @@
         {% partial_cache %}
           {% for link in navigation.tree %}
             {% if not link.isHidden and not link.isEmpty and forloop.counter0 <= themeSettings.maxTopLevelNavItems %}
-              <div class="panel">
+              <div class="panel {% if link.name=='Home' %}home-link hidden{% endif %}"> 
                 <div class="panel-heading" role="tab" id="main-nav-heading-{{link.categoryCode}}">
                   <h4 class="panel-title"> 
                     <a role="button" {% if link.openInNewWindow %}target='_blank'{% endif %}

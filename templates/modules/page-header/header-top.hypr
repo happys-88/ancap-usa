@@ -7,7 +7,8 @@
 		</div>
 		<div class="col-xs-12 col-sm-5 pull-right text-right">  
 		    <div class="live-chat">
-		        <a href="javascript:void(0);" class="mz-live-chat-link" onclick="SnapEngage.startLink();">{{ labels.liveChat }}<i class="fa fa-comments"></i></a>     
+		        <a href="javascript:void(0);" class="mz-live-chat-link" onclick="SnapEngage.startLink();">{% comment %}{{ labels.liveChat }}<i class="fa fa-comments"></i>  {% endcomment %}
+		        </a>     
 		    </div>
 		    <div class="phone-no">
 		        <a href="tel:+(888)810-5043">(888) 810-5043</a>   

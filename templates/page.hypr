@@ -228,9 +228,11 @@
                     SnapEngage.getAgentStatusAsync(function (online) {
                       var buttonImageSrc;
                       if (online) {
+                        $(".mz-header-top .container .live-chat .mz-live-chat-link").html("Live Chat"+ '<i class="fa fa-comments"></i>');
                         // IMPORTANT: Replace the link below with your own link to an ONLINE button image!
                         buttonImageSrc = 'https://help.snapengage.com/wp-content/blogs.dir/2/files/2017/01/chat-with-us.png';
                       } else {
+                        $(".mz-header-top .container .live-chat .mz-live-chat-link").html("Email Us"+ '<i class="fa fa-envelope"></i>');
                         // IMPORTANT: Replace the link below with your own link to an OFFLINE button image!
                         buttonImageSrc = 'https://help.snapengage.com/wp-content/blogs.dir/2/files/2017/01/leave-a-message.gif';
                       }

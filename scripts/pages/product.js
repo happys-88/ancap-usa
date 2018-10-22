@@ -415,6 +415,7 @@
       // productView.productCarousel();
         $(window).resize(function(){
             productView.render();
+            productImagesView.render();
             //productView.productCarousel();
         }); 
     });

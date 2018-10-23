@@ -20,7 +20,7 @@
                                 value="{{value.value}}" data-mz-product-option="{{ option.attributeFQN }}"><br>
                                 <label for="{{value.stringValue|default(value.value)}}" class="{{ option.attributeDetail.name }} {% if value.isSelected %}selected{% endif %} {% if not value.isEnabled %} is-disabled-option {% endif %}" {% if option.attributeFQN == 'tenant~color' %} style="background:#{{value.value}}" {% endif %} {% if option.attributeFQN == 'tenant~color' or option.attributeFQN == 'tenant~size' %} title="{{value.stringValue|default(value.value)|safe}}" {% endif %}>         
                                     {% if option.attributeFQN !== 'tenant~color' %}  
-                                        {{value.value}}
+                                        {{value.stringValue|default(value.value)|safe}}
                                         {% if value.deltaPrice and value.deltaPrice > 0 %}  
                                             ( {{ value.deltaPrice|currency }} {{ labels.more }} )
                                         {% endif %} 

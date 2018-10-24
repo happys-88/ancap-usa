@@ -548,7 +548,7 @@
   "merchandiseSubtotal"                    :   "Merchandise Subtotal",
   "zipCode"                                :   "Enter ZipCode", 
   "wrongZipCode"                           :   "Please enter correct Zip Code",
-  "thresholdMsg"                           :   "Merchandise Subtotal Must be more than or equal to $250",
+  "thresholdMsg"                           :   "Merchandise Subtotal must be more than or equal to $250",
 
 // YotPo Reviews
   "reviews"                                :   "reviews",

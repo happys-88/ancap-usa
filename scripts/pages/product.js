@@ -197,6 +197,7 @@
                         optionValue.productUrl = addonValue.productUrl;
                         optionValue.imageFilePath = addonValue.imageFilePath;
                         optionValue.imageData = addonValue.imageData;
+                        optionValue.itemDiscontinued = addonValue.itemDiscontinued;
                         optionValue.dataSequence = addonValue.dataSequence;
                         optionValues[j] = optionValue;
                     }
@@ -302,48 +303,55 @@
                     var items = response.items;
                     var addonCount = 0;
                     addonCount = parseInt(addonCount, 10);
-                    for (var j = 0; j < options.length; j++) {
-                        var option = options[j];
-                        if (option.attributeDetail.dataType == "ProductCode") {
-                            var optionValues = option.values;
-                            for (var k = 0; k < optionValues.length; k++) {
-                                var optionValue = optionValues[k];
-                                var productCode;
-                                var colorCode;
-                                if(optionValue.stringValue.indexOf(':') !== -1) {
-                                    productCode = optionValue.value.slice(0,optionValue.value.lastIndexOf("-"));
-                                    if (optionValue.stringValue.indexOf('color') !== -1) {
-                                        var colorStr = optionValue.stringValue.slice(optionValue.stringValue.indexOf('color'));
-                                        if (colorStr.indexOf(',') !== -1) {
-                                            colorCode = ((colorStr.split(':')[1]).split(',')[0]).trim();
-                                        } else if (colorStr.indexOf(')') !== -1) {
-                                            colorCode = ((colorStr.split(':')[1]).split(')')[0]).trim();
-                                        }
-                                        var sitecontext = HyprLiveContext.locals.siteContext;
-                                        var cdn = sitecontext.cdnPrefix;
-                                        var siteID = cdn.substring(cdn.lastIndexOf('-') + 1);
-                                        optionValue.imageFilePath = cdn + '/cms/' + siteID + '/files/' + productCode + '_' + colorCode +'_v1'+'.jpg';
+                    if (items && items.length > 0) {
+                        for (var j = 0; j < options.length; j++) {
+                            var option = options[j];
+                            if (option.attributeDetail.dataType == "ProductCode") {
+                                var optionValues = option.values;
+                                for (var k = 0; k < optionValues.length; k++) {
+                                    var optionValue = optionValues[k];
+                                    var productCode;
+                                    var colorCode;
+                                    if(optionValue.stringValue.indexOf(':') !== -1) {
+                                        productCode = optionValue.value.slice(0,optionValue.value.lastIndexOf("-"));
+                                        if (optionValue.stringValue.indexOf('color') !== -1) {
+                                            var colorStr = optionValue.stringValue.slice(optionValue.stringValue.indexOf('color'));
+                                            if (colorStr.indexOf(',') !== -1) {
+                                                colorCode = ((colorStr.split(':')[1]).split(',')[0]).trim();
+                                            } else if (colorStr.indexOf(')') !== -1) {
+                                                colorCode = ((colorStr.split(':')[1]).split(')')[0]).trim();
+                                            }
+                                            var sitecontext = HyprLiveContext.locals.siteContext;
+                                            var cdn = sitecontext.cdnPrefix;
+                                            var siteID = cdn.substring(cdn.lastIndexOf('-') + 1);
+                                            optionValue.imageFilePath = cdn + '/cms/' + siteID + '/files/' + productCode + '_' + colorCode +'_v1'+'.jpg';
 
+                                        } 
+                                    } else {
+                                        productCode = optionValue.value;
                                     } 
-                                } else {
-                                    productCode = optionValue.value;
-                                } 
-                                
-                                var product = findElement(items, productCode);
-                                var productImages = product.content.productImages;
-                                if (productImages.length > 0) {
-                                    optionValue.imageData = productImages[0];
-                                }
+                                    
+                                    var product = findElement(items, productCode);
+                                    if (product) {
+                                        var productImages = product.content.productImages;
+                                        if (productImages.length > 0) {
+                                            optionValue.imageData = productImages[0];
+                                        }
 
-                                optionValue.productUrl = "/"+productCode+"/p/"+productCode;
-                                addonCount++;
-                                optionValue.dataSequence = addonCount;
-                                optionValues[k] = optionValue;
+                                        optionValue.productUrl = "/"+productCode+"/p/"+productCode;
+                                        addonCount++;
+                                        optionValue.itemDiscontinued = false;
+                                    } else {
+                                        optionValue.itemDiscontinued = true;
+                                    }
+                                    optionValue.dataSequence = addonCount;
+                                    optionValues[k] = optionValue;
+                                }
+                                option.values = optionValues;
+                                options[j] = option;
                             }
-                            option.values = optionValues;
-                            options[j] = option;
+                        
                         }
-                    
                     }
                     prodModel.set('addons', options);
                     prodModel.set('hasOptions', hasOptions);

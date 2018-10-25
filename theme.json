@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "358536af887729f4694b099f3053b4008eafc7d7"
+      "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
@@ -175,7 +175,7 @@
       "id": "site_page",
       "template": "page",
       "title": "Default Site Template"
-    }, 
+    },
     {
       "documentType": "web_page",
       "entityType": "webpage",
@@ -214,42 +214,6 @@
       "id": "category-gateway",
       "template": "category-gateway",
       "title": "Category Gateway",
-      "userCreatable": false
-    },
-    {
-      "entityType": "category",
-      "id": "learning-center",
-      "template": "modules/learning-center/landing-page",
-      "title": "Learning Center LandingPage",
-      "userCreatable": false
-    },
-    {
-      "entityType": "category",
-      "id": "learning-center-gateway",
-      "template": "modules/learning-center/gateway-page",
-      "title": "Learning Center GatewayPage",
-      "userCreatable": false
-    },
-    {
-      "entityType": "category",
-      "id": "learning-center-directory",
-      "template": "modules/learning-center/category-lc",
-      "title": "Learning Center DirectoryPage",
-      "userCreatable": false
-    },
-    {
-      "entityType": "product",
-      "id": "blog-article",
-      "template": "modules/learning-center/blog-article",
-      "title": "Blog Article",
-      "userCreatable": false,
-      "customEditor": "productContent@mozu"
-    },
-    {
-      "entityType": "category",
-      "id": "Brands",
-      "template": "brand-gateway",
-      "title": "Brand Gateway",
       "userCreatable": false
     },
     {
@@ -1467,23 +1431,6 @@
       ]
     },
     {
-      "displayName": "Shop By Brand",
-      "displayTemplate": "misc/shop-by-brand",
-      "editViewFields": [
-        {
-          "anchor": "100%",
-          "fieldLabel": "Choose Shop By Brand",
-          "name": "shopByBrand",
-          "xtype": "mz-input-categorymulti"
-        }
-      ],
-      "icon": "/resources/admin/widgets/01_photo_text.png",
-      "id": "shop-by-brand",
-      "validPageTypes": [
-        "*"
-      ]
-    },
-    {
       "id": "slider",
       "displayName": "Home Slider",
       "displayTemplate": "catalog/slider",
@@ -1668,136 +1615,6 @@
       ]
     },
     {
-      "id": "hotdealBanner",
-      "displayName": "Hot Deals Banner",
-      "displayTemplate": "misc/hot-deal-banner",
-      "editViewFields": [
-        {
-          "anchor": "50%",
-          "fieldLabel": "Add Banner Title",
-          "name": "BannerTitle",
-          "xtype": "mz-input-text"
-        },
-        {
-          "anchor": "50%",
-          "fieldLabel": "Add Banner Description1 ",
-          "name": "DescTitleOne",
-          "xtype": "mz-input-text"
-        },
-        {
-          "anchor": "50%",
-          "fieldLabel": "Add Banner Description2 ",
-          "name": "DescTitleTwo",
-          "xtype": "mz-input-text"
-        },
-        {
-          "anchor": "50%",
-          "fieldLabel": "Add Banner Description3 ",
-          "name": "DescTitleThree",
-          "xtype": "mz-input-text"
-        }
-      ],
-      "icon": "/resources/admin/widgets/28_deal_of_the_day.png",
-      "validPageTypes": [
-        "*"
-      ]
-    },
-    {
-      "id": "Brandhospitality",
-      "displayName": "Serving the finest in hospitality",
-      "displayTemplate": "misc/hospitality",
-      "title": "Serving The Finest In Hospitality",
-      "collapsed": false,
-      "editViewFields": [
-        {
-          "anchor": "100%",
-          "xtype": "mz-input-text",
-          "name": "input1",
-          "fieldLabel": "input1"
-        },
-        {
-          "anchor": "100%",
-          "fieldLabel": "Add Image for hospitality",
-          "name": "HospitalityImageOne",
-          "xtype": "mz-input-image"
-        },
-        {
-          "anchor": "100%",
-          "xtype": "mz-input-text",
-          "name": "input2",
-          "fieldLabel": "input2",
-          "showIf": "HospitalityImageOne"
-        },
-        {
-          "anchor": "100%",
-          "fieldLabel": "Add Image for hospitality",
-          "name": "HospitalityImageTwo",
-          "xtype": "mz-input-image",
-          "showIf": "HospitalityImageOne"
-        },
-        {
-          "anchor": "100%",
-          "xtype": "mz-input-text",
-          "name": "input3",
-          "fieldLabel": "input3",
-          "showIf": "HospitalityImageTwo"
-        },
-        {
-          "anchor": "100%",
-          "fieldLabel": "Add Image for hospitality",
-          "name": "HospitalityImageThree",
-          "xtype": "mz-input-image",
-          "showIf": "HospitalityImageTwo"
-        },
-        {
-          "anchor": "100%",
-          "xtype": "mz-input-text",
-          "name": "input4",
-          "fieldLabel": "input4",
-          "showIf": "HospitalityImageThree"
-        },
-        {
-          "anchor": "100%",
-          "fieldLabel": "Add Image for hospitality",
-          "name": "HospitalityImageFour",
-          "xtype": "mz-input-image",
-          "showIf": "HospitalityImageThree"
-        },
-        {
-          "anchor": "100%",
-          "xtype": "mz-input-text",
-          "name": "input5",
-          "fieldLabel": "input5",
-          "showIf": "HospitalityImageFour"
-        },
-        {
-          "anchor": "100%",
-          "fieldLabel": "Add Image for hospitality",
-          "name": "HospitalityImageFive",
-          "xtype": "mz-input-image",
-          "showIf": "HospitalityImageFour"
-        },
-        {
-          "anchor": "100%",
-          "xtype": "mz-input-text",
-          "name": "input6",
-          "fieldLabel": "input6",
-          "showIf": "HospitalityImageFive"
-        },
-        {
-          "anchor": "100%",
-          "fieldLabel": "Add Image for hospitality",
-          "name": "HospitalityImageSix",
-          "xtype": "mz-input-image",
-          "showIf": "HospitalityImageFive"
-        }
-      ],
-      "icon": "/resources/admin/widgets/28_deal_of_the_day.png",
-      "validPageTypes": [
-        "*"
-      ]
-    },
-    {
       "displayName": "Promo Banner",
       "displayTemplate": "misc/home-promo-banner",
       "editViewFields": [
@@ -1833,23 +1650,6 @@
         }
       ],
       "icon": "/resources/admin/widgets/28_deal_of_the_day.png",
-      "validPageTypes": [
-        "*"
-      ]
-    },
-    {
-      "displayName": "Featured Categories",
-      "displayTemplate": "misc/featured-categories",
-      "editViewFields": [
-        {
-          "anchor": "100%",
-          "fieldLabel": "Choose Featured Categories",
-          "name": "featuredCategories",
-          "xtype": "mz-input-categorymulti"
-        }
-      ],
-      "icon": "/resources/admin/widgets/29_shop_by_category.png",
-      "id": "featured-categories",
       "validPageTypes": [
         "*"
       ]

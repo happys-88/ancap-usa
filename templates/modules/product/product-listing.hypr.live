@@ -24,7 +24,7 @@
         
         {% if model.content.productShortDescription and themeSettings.listProductShortDesc %}
             <div class="mz-productlisting-shortdesc"> 
-                <span itemscope="description">{{ model.content.productShortDescription|truncatewords(themeSettings.maxProductSummaryWords)|safe }}</span>
+                <span itemscope="description">{{ model.content.productShortDescription|safe }}</span> 
             </div> 
         {% endif %}
         
@@ -33,18 +33,6 @@
                 <div class="mz-productlisting-productcode">{{model.productCode}}</div> 
             {% endif %}
         {% endblock product-code %}
-
-        {% comment %}
-        {% block product-rating %}     
-            <div id="product-rating">
-                <div class="yotpo bottomline">
-                    <div class="yotpo-bottomline pull-left star-clickable">
-                        <span class="yotpo-stars"></span> 
-                    </div>
-                </div> 
-            </div>
-        {% endblock product-rating %}
-        {% endcomment %}   
         
         {% if not user.isAnonymous %}
             <div class="mz-price-in-cart">

@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "320bbeeddc337997007dc42afbaf3e7ab64e9355"
+      "commit": "6a9c0444bf7f0da1c526cb43ab5a4cd776c9cfa9"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"

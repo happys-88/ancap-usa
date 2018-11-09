@@ -15,7 +15,9 @@
 <div class="separator-line"></div>
 
 <div class="options">
-  {{ model|get_product_attribute_value("tenant~product-overview")|safe }}    
+  {% if model|get_product_attribute_value("tenant~product-overview")|safe %}
+    {{ model|get_product_attribute_value("tenant~product-overview")|safe }}
+  {% endif %}
 </div>
 
 {% if not user.isAnonymous %}

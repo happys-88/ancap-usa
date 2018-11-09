@@ -594,6 +594,7 @@
     "avalaraToken": "MjAwMDA4NDgwMzpFQUQyM0JBQzMzNzRBN0I3",
     "avalaraCompanyCode": "PRIMALLC",
     "mailChimpKey": "1afe25343b7a71ed977589911f618df7-us7",
+    "sendGridKey": "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",
     "mailchimpDeals": "{\"AncapNewsLetter\": \"a346027d89\" }",
     "merchantEmail": "sales@ancap-usa.com",
     "zipCodeRanges": "90001-96162, 40003-42788",

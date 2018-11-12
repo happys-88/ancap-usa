@@ -84,6 +84,7 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
         autoUpdate: [
             'firstName',
             'lastNameOrSurname',
+            'companyOrOrganization',
             'address.address1',
             'address.address2',
             'address.address3',
@@ -186,6 +187,7 @@ require(["modules/jquery-mozu", "underscore", "hyprlive", "modules/backbone-mozu
             'isSameBillingShippingAddress',
             'billingContact.firstName',
             'billingContact.lastNameOrSurname',
+            'billingContact.companyOrOrganization',
             'billingContact.address.address1',
             'billingContact.address.address2',
             'billingContact.address.address3',

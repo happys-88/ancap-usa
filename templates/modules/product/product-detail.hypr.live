@@ -42,7 +42,14 @@
         </div>
     </div>
 {% endif %}
-
+<div class="mz-stock-availability">
+  <div class="mz-stock" {% if model.messageColor %} style="color: {{ model.messageColor }}" {% endif %} >
+    {{ model.stockMessage }}
+  </div>
+  <div class="mz-availability">
+    {% if model.checkItem === true %} {{ model.helperMessage }} {% endif %}
+  </div>
+</div>
 <section class="mz-l-stack-section mz-productdetail-conversion row">
     {% if not user.isAnonymous %}
         <div class="col-md-3 col-sm-12 mz-productdetail-conversion-controls"> 

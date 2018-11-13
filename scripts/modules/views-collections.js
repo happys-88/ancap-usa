@@ -10,8 +10,9 @@ define([
     'modules/get-partial-view',
     'modules/facet-clear',
     'modules/block-ui',
+    'stock-messaging',
     'modules/category/infinite-scroller'
-], function(Backbone, $, _, UrlDispatcher, IntentEmitter, getPartialView, makeClearUrl, blockUiLoader, InfiniteScroller) {   
+], function(Backbone, $, _, UrlDispatcher, IntentEmitter, getPartialView, makeClearUrl, blockUiLoader, stockMessaging,InfiniteScroller) {   
 
     function factory(conf) {
         var _$body = conf.$body;
@@ -27,6 +28,7 @@ define([
                 InfiniteScroller.update();
             }*/ 
             blockUiLoader.unblockUi();  
+            stockMessaging.update();
         } 
 
         function showError(error) {

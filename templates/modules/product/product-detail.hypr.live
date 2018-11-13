@@ -45,7 +45,7 @@
 <div class="mz-stock-availability">
   <div class="mz-stock" {% if model.messageColor %} style="color: {{ model.messageColor }}" {% endif %} >
     {{ model.stockMessage }}
-  </div>
+  </div><br>
   <div class="mz-availability">
     {% if model.checkItem === true %} {{ model.helperMessage }} {% endif %}
   </div>

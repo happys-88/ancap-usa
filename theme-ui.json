@@ -486,6 +486,14 @@
                     "fieldLabel": "Zip Ranges for Tax Estimation", 
                     "xtype": "mz-input-text",
                     "name": "zipCodeRanges"
+                },{
+                    "fieldLabel": "Merchant Email", 
+                    "xtype": "mz-input-text",
+                    "name": "merchantEmail"
+                },{
+                    "fieldLabel": "Merchant Email for Custom Form", 
+                    "xtype": "mz-input-text",
+                    "name": "customEmail"
                 }
             ]
         },

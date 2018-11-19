@@ -1,6 +1,6 @@
 <div class="col-xs-12 no-padding">
 
-    {% if model.discountedTotal <=   250  %}
+    {% if model.discountedTotal <   250  %}
       <div class="mz-error-msg-for-checkout text-right">
         <span class="thres-hold-msg">{{ labels.thresholdMsg }}</span>
       </div>

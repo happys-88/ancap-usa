@@ -1,19 +1,51 @@
-.mz-instock-request {
-    background: lightgray;
-    border: 1px;
-    border-style: solid;
-    border-color: gray;
-    padding: 10px;
-    width: 400px;
-
-    button {
-        background: limegreen;
-        color: white;
-        font-weight: bold;
-
-        border:1px;
-        border-style: solid;
-        border-color: gray;
-        border-radius: 5px;
+#mz-drop-zone-instockRequest{
+    display: none; 
+}
+#emailWhenBackInstock{
+    .modal-dialog{
+        width: 500px;  
+    }
+    h4{
+        display: inline-block; 
+        margin: 0;
     }
 }
+
+.mz-productdetail-conversion{
+    .mz-productdetail-conversion-buttons{  
+        .email-me-btn{
+            line-height: 16px; 
+            margin: 0;
+            padding: 13px 20px;  
+        }    
+    }
+}  
+
+.mz-instock-request {
+    p{
+        text-transform: none;
+        margin: 0 0 15px;
+    } 
+    
+    label{ 
+        float: left;
+        width: 25%;  
+        text-transform: none; 
+        margin-top: 8px;   
+    }
+    .mz-instock-request-email{  
+        float: left;
+        width: 75%;   
+        padding: 0 8px;
+        height: 36px;
+        line-height: 36px;
+        border-color: #d4d4d4;
+    }
+    .mz-button{
+        margin-top: 5px;  
+        margin-left: 25%;  
+        min-width: 150px;  
+    }
+}
+
+

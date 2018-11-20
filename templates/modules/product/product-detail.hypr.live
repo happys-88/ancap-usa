@@ -63,7 +63,7 @@
       {% if model.inventoryInfo && model.inventoryInfo.onlineStockAvailable!=0 %}
         <button id="add-to-cart" class="mz-button mz-productdetail-addtocart" data-mz-action="addToCart"><i class="fa fa-shopping-basket"></i> {{ labels.addToCart }}</button>
       {% else %}
-        <a class="mz-button email-me-btn" href="javascript:void(0);" data-toggle="modal" data-target="#emailWhenBackInstock" data-productcode="{{model.productCode}}">Email Me When Back In Stock</a>    
+        <a class="mz-button email-me-btn logged-in" href="javascript:void(0);" data-toggle="modal" data-target="#emailWhenBackInstock" data-productcode="{{model.productCode}}">Email Me When Back In Stock</a>    
       {% endif %}
     </div>
     <div class="col-md-3 col-sm-12 mz-productdetail-conversion-buttons">
@@ -80,12 +80,14 @@
   {% else %}
     <div class="col-xs-12 mz-retailer-buy">
       <a href="/buy" class="mz-button">Find a Retailer</a>
-      <a href="/buy#cafe" class="mz-button">Buy Wholesale</a>
-      <button id="add-to-wishlist" data-toggle="modal" data-target="#loginPopup">{{ labels.addToWishlist }}</button>
+      <a href="/buy#cafe" class="mz-button">Buy Wholesale</a> 
       
       {% if model.inventoryInfo && model.inventoryInfo.onlineStockAvailable==0 %}
         <a class="mz-button email-me-btn" href="javascript:void(0);" data-toggle="modal" data-target="#emailWhenBackInstock" data-productcode="{{model.productCode}}">Email Me When Back In Stock</a>     
-      {% endif %}  
+      {% endif %} 
+
+      <button id="add-to-wishlist" data-toggle="modal" data-target="#loginPopup">{{ labels.addToWishlist }}</button>
+
     </div>
   {% endif %}
 

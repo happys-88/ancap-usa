@@ -31,6 +31,7 @@
                 <input type="text" name="items" placeholder="{{ labels.itemsph }}" required data-mz-value="items" class="form-control">
                 <span class="mz-validationmessage" data-mz-validationmessage-for="items"></span>
             </div>
+            {% comment %}
             <div class="mz-file-upload">
                 <label for="{{ labels.uploadVectorDesign }}">{{ labels.uploadVectorDesign }}</label>
                 <div class="mz-file-managed">
@@ -48,6 +49,7 @@
                     <div class="mz-file-description">Files must be less than <strong>10 MB</strong>.<br>Allowed file types: <strong>eps pdf ai jpeg</strong>.</div>
                 </div>
             </div>
+            {% endcomment %} 
             
             <div class="form-group">
                 <label for="{{ labels.pantoneLable }}">{{ labels.pantoneLable }}</label>                    

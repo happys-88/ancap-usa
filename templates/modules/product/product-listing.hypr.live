@@ -65,7 +65,7 @@
                 {% endif %}
             {% endif %}
         {% endblock product-extrainfo %}
-        <div class="">
+        <div class="mz-product-msg"> 
             <div class="stock-message"></div>
             <div class="shipping-message"></div>
         </div>

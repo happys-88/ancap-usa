@@ -690,5 +690,6 @@
   "passwordStrengthMsg"                   :  "Provide a password for the new account in both fields. Password must be at least 8 characters.",
   "emailMessage"                          :  "We have received your request! We will get back with you shortly!",
   "zipSample"                             : "Example: 93108",
-  "ShippingTo"                            : "Ship-to ZIP Code"
+  "ShippingTo"                            : "Ship-to ZIP Code",
+  "backInStockEmail"                      : "Email Me When Back In Stock"
 }

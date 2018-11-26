@@ -195,6 +195,7 @@
             
         },
         onOptionChange: function (e) {
+            this.model.set("onPageLoad", false);
             this.model.set("addon-sequence", $(e.currentTarget).attr("data-addon-sequence")-1);
             return this.configure($(e.currentTarget));
         },
@@ -378,6 +379,7 @@
             } else {
                 this.model.set('fieldDisplayOOSProp', false);
             }
+            this.model.set('onPageLoad', true);
             var variationTotalStock = 0;
             variationTotalStock = parseInt(variationTotalStock, 10);
             var someOptionsInStock = false;

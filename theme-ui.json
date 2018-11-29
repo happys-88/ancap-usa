@@ -497,6 +497,18 @@
                 }
             ]
         },
+        {
+            "xtype": "panel",
+            "title": "Product Upsells",         
+            "collapsed": false,
+            "items": [
+                {
+                    "fieldLabel": "Add heading text for product upsells block",    
+                    "xtype": "mz-input-text",
+                    "name": "productUpsellsHeading"   
+                }
+            ]
+        }, 
         { 
             "xtype": "panel",
             "title": "Meta Tags - Global Values",        
@@ -534,5 +546,6 @@
                 }
             ]
         }
+         
     ]
 }

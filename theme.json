@@ -9,7 +9,7 @@
     "name": "MasterTheme_AncapUSA",
     "allowProduction": true,
     "baseThemeVersion": {
-      "commit": "63b316b5599721c565abaa72e14a0524af8fb355"
+      "commit": "ca41a2d466906daceb79b0b368ea613f8b6c80fb"
     },
     "baseTheme": "https://github.com/happys-88/ancap-usa",
     "baseThemeChannel": "stable"
@@ -469,6 +469,7 @@
     }
   ],
   "settings": {
+    "productUpsellsHeading": "You May Also Like",
     "ogSiteNameTwitter": "@AncapUSA",
     "ogSiteNameFb": "Ancap USA",
     "ogImageWidth": "500",

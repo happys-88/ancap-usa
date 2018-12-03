@@ -407,6 +407,7 @@ define(['shim!vendor/bootstrap/js/popover[shim!vendor/bootstrap/js/tooltip[modul
             }
             
         });
+        $("#loader").removeClass("mz-track-loader");
     });
 
 });

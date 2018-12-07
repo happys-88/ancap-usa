@@ -15,9 +15,8 @@
     var ProductView = Backbone.MozuView.extend({
         templateName: 'modules/product/product-detail',
         additionalEvents: {
-            "click [data-mz-product-option]": "onOptionChange", 
+            "click [data-mz-product-option]": "onOptionChange",
             "blur [data-mz-product-option]": "onOptionChange",
-            "change [data-mz-value='quantity']": "onQuantityChange",
             "keyup input[data-mz-value='quantity']": "onQuantityChange",
             "click [data-mz-qty=minus]": "quantityMinus",
             "click [data-mz-qty=plus]": "quantityPlus"
@@ -35,7 +34,6 @@
         refreshStock: function () {
             var fieldDisplayOOSProp = this.model.get('fieldDisplayOOSProp');
             var inventoryInfo = this.model.get('inventoryInfo');
-            if (inventoryInfo) {
             var manageStock = inventoryInfo.manageStock;
             var stockMessage;
             var shippingMessage;
@@ -134,7 +132,6 @@
             this.model.set('stockMessage', stockMessage);
             this.model.set('helperMessage', shippingMessage);
             this.model.set('messageColor', color);
-            }
         },
         productCarousel: function () {
             var minSlides, 
@@ -195,15 +192,44 @@
             
         },
         onOptionChange: function (e) {
-            this.model.set("onPageLoad", false);
             this.model.set("addon-sequence", $(e.currentTarget).attr("data-addon-sequence")-1);
             return this.configure($(e.currentTarget));
         },
         onQuantityChange: _.debounce(function (e) {
+            e.target.value = e.target.value.replace(/[^\d]/g, '');
             var $qField = $(e.currentTarget),
-              newQuantity = parseInt($qField.val(), 10);
-            if (!isNaN(newQuantity)) {
-                this.model.updateQuantity(newQuantity);
+            newQuantity = parseInt($qField.val(), 10);
+            var Quantity = e.currentTarget.value;
+            Quantity = Quantity.trim();
+            var lastValue ='';
+            var reg = /^[A-Za-z]+$/;
+            if (Quantity !== '' &&  (!isNaN(newQuantity) || reg.test(newQuantity))){              
+                if(((e.which >= 48 && e.which <= 57) || (e.which >= 96 && e.which <= 105))&& (newQuantity > 0)) {
+                     this.model.updateQuantity(newQuantity);
+                     this.model.set("currentVal", newQuantity);
+                } else if (newQuantity!== 'NaN'  && (!reg.test(newQuantity))) {
+
+                    if (newQuantity > 0){
+                       this.model.updateQuantity(newQuantity);
+                     this.model.set("currentVal", Quantity);
+                     }else {
+                        lastValue =  this.model.get("currentVal");
+                        if(lastValue === undefined){
+                                lastValue ='1';
+                        }
+                        $('.mz-productdetail-qty').val(lastValue);
+                        this.model.updateQuantity(lastValue);
+                     }
+                }else{
+                     lastValue =  this.model.get("currentVal");
+                      if(lastValue === undefined){
+                                lastValue ='1';
+                        }
+                     $('.mz-productdetail-qty').val(lastValue);
+                     this.model.updateQuantity(lastValue);
+                }
+            }else {
+                $('.mz-productdetail-qty').val('1');
             }
         },500),
         quantityMinus: _.debounce(function () {
@@ -379,7 +405,6 @@
             } else {
                 this.model.set('fieldDisplayOOSProp', false);
             }
-            this.model.set('onPageLoad', true);
             var variationTotalStock = 0;
             variationTotalStock = parseInt(variationTotalStock, 10);
             var someOptionsInStock = false;
@@ -407,7 +432,7 @@
             }
 
             var inventory = this.model.get('inventoryInfo');
-            if (variationTotalStock === 0 && inventory && inventory.onlineStockAvailable) {
+            if (variationTotalStock === 0 && inventory.onlineStockAvailable) {
                 variationTotalStock = inventory.onlineStockAvailable;
             }
             if (variationTotalStock === 0 && prop) {

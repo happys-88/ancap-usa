@@ -21,26 +21,26 @@
 </div>
 
 {% if not user.isAnonymous %}
-  <div class="mz-price-rating-section clearfix">
-    <div class="col-md-6">
-      <div class="row">
-        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
-          {% if model.volumePriceRange %}
-            <div class="mz-volume-pricing">
-              <span itemprop="minPrice" class="mz-volume-price-lower">
-                {% include "modules/common/volume-price" with model=model.volumePriceRange.lower %}
-              </span>
-              <span itemprop="maxPrice" class="mz-volume-price-upper">
-                {% include "modules/common/volume-price" with model=model.volumePriceRange.upper %}
-              </span>  
+    <div class="mz-price-rating-section clearfix">
+        <div class="col-md-6">
+            <div class="row">
+                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
+                    {% if model.volumePriceRange %}
+                    <div class="mz-volume-pricing">
+                        <span itemprop="minPrice" class="mz-volume-price-lower">
+                            {% include "modules/common/volume-price" with model=model.volumePriceRange.lower %}
+                        </span>
+                        <span itemprop="maxPrice" class="mz-volume-price-upper">
+                            {% include "modules/common/volume-price" with model=model.volumePriceRange.upper %}
+                        </span>
+                    </div>
+                    {% else %}
+                        {% include "modules/product/price-stack" %}
+                    {% endif %} 
+                </div>
             </div>
-          {% else %}
-            {% include "modules/product/price-stack" %} 
-          {% endif %} 
         </div>
-      </div>
     </div>
-  </div>
 {% endif %}
 <div class="mz-stock-availability">
   <div class="mz-stock" {% if model.messageColor %} style="color: {{ model.messageColor }}" {% endif %} >
@@ -51,75 +51,41 @@
   </div>
 </div>
 <section class="mz-l-stack-section mz-productdetail-conversion row">
-  {% if not user.isAnonymous %}
+    {% if not user.isAnonymous %}
         <div class="col-md-3 col-sm-12 mz-productdetail-conversion-controls"> 
             <div class="qty-block">   
                 <span class="qty-counter" data-mz-qty="plus" role="button"><i class="mz-icon arrow-up" aria-hidden="true"></i></span> 
-                <span class="qty-counter" data-mz-qty="minus" role="button"><i class="mz-icon arrow-down"  aria-hidden="true"></i></span>    
-                <input  class=" mz-productdetail-qty text-center" readonly type="text" min="1" {% if model.quantity %} value="{{ model.quantity }}" {% else %} value="1" {% endif %} {% if not model.isPurchasable %} disabled="disabled" {% endif %} data-mz-value='quantity' title="Quantity">
+                <span class="qty-counter" data-mz-qty="minus" role="button"><i class="mz-icon arrow-down"  aria-hidden="true"></i></span>   
+
+                <input class="mz-productdetail-qty text-center" id="mz-productdetail-qty-text" type="text" min="1" {% if model.quantity %} value="{{ model.quantity }}" {% else %} value="1" {% endif %} {% if model.checkItem === true %} {% else %} disabled="disabled" {% endif %} data-mz-value='quantity' title="Quantity" maxlength="3">
             </div>
         </div>
-
-        {% if model.inventoryInfo && model.inventoryInfo.onlineStockAvailable!=0 %}
-          <div class="col-md-6 col-sm-12 mz-productdetail-conversion-buttons">
+        <div class="col-md-6 col-sm-12 mz-productdetail-conversion-buttons">
             <button id="add-to-cart" class="mz-button mz-productdetail-addtocart" data-mz-action="addToCart"><i class="fa fa-shopping-basket"></i> {{ labels.addToCart }}</button>
-          </div>  
-        {% else %}
-          {% if model.inventoryInfo.outOfStockBehavior == "AllowBackOrder" || model.productUsage && model.productUsage == 'Bundle' %}
-            <div class="col-md-6 col-sm-12 mz-productdetail-conversion-buttons">
-              <button id="add-to-cart" class="mz-button mz-productdetail-addtocart" data-mz-action="addToCart"><i class="fa fa-shopping-basket"></i> {{ labels.addToCart }}</button>
-            </div> 
-          {% else %}
-            {% if model.productUsage == 'Configurable' %}
-              {% if model.onPageLoad %} 
-                <div class="col-md-6 col-sm-12 mz-productdetail-conversion-buttons">
-                  <button id="add-to-cart" class="mz-button mz-productdetail-addtocart" data-mz-action="addToCart"><i class="fa fa-shopping-basket"></i> {{ labels.addToCart }}</button>
-                </div> 
-              {% else %}
-                  {% if model.inventoryInfo && model.inventoryInfo.onlineStockAvailable!=0 %}
-                    <div class="col-md-6 col-sm-12 mz-productdetail-conversion-buttons">
-                      <button id="add-to-cart" class="mz-button mz-productdetail-addtocart" data-mz-action="addToCart"><i class="fa fa-shopping-basket"></i> {{ labels.addToCart }}</button>
-                    </div> 
-                  {% else %}
-                    <div class="col-md-6 col-sm-12 mz-productdetail-conversion-buttons">
-                      <a class="mz-button email-me-btn" href="javascript:void(0);" data-toggle="modal" data-target="#emailWhenBackInstock">{{ labels.backInStockEmail }}</a>
-                    </div>  
-                  {% endif %}                          
-              {% endif %}          
-            {% else %}
-              <div class="col-md-6 col-sm-12 mz-productdetail-conversion-buttons">
-                <a class="mz-button email-me-btn" href="javascript:void(0);" data-toggle="modal" data-target="#emailWhenBackInstock">{{ labels.backInStockEmail }}</a>
-              </div>   
-            {% endif %}  
-          {% endif %}                  
-        {% endif %}
-
-        <div class="col-md-3 col-sm-12 mz-productdetail-conversion-buttons"> 
+        </div>
+        <div class="col-md-3 col-sm-12 mz-productdetail-conversion-buttons">
             {% if siteContext.generalSettings.isWishlistCreationEnabled and not user.isAnonymous %}
               <button id="add-to-wishlist" data-mz-action="addToWishlist">{{ labels.addToWishlist }}</button>
             {% endif %}
         </div>
         {% comment %}
-        <div class="col-xs-12 mz-ordered-increments"> 
+        <div class="col-xs-12 mz-ordered-increments">
             <p>{{ labels.orderedIncrements }}</p>
         </div>
         {% endcomment %}
         {% if model.content.productShortDescription and themeSettings.showProductDetailShortDesc %}
-            <div class=" col-xs-12 mz-productdetail-shortdesc mz-l-stack-section">
-              <span itemscope="description">{{ model.content.productShortDescription|safe }}</span>  
-            </div>
-        {% endif %} 
-        {% else %}
-          <div class="col-xs-12 mz-retailer-buy">
-              <a href="/buy" class="mz-button">Find a Retailer</a>
-              <a href="/buy#cafe" class="mz-button">Buy Wholesale</a>
-              <button id="add-to-wishlist" data-toggle="modal" data-target="#loginPopup">{{ labels.addToWishlist }}</button>
+          <div class=" col-xs-12 mz-productdetail-shortdesc mz-l-stack-section">
+            <span itemscope="description">{{ model.content.productShortDescription|safe }}</span>  
           </div>
-  {% endif %}
+        {% endif %} 
 
-  <!-- Instock Request Dropzone -->  
-  {% dropzone "instockRequest" scope="template" %}  
-
+    {% else %}
+        <div class="col-xs-12 mz-retailer-buy">
+            <a href="/buy" class="mz-button">Find a Retailer</a>
+            <a href="/buy#cafe" class="mz-button">Buy Wholesale</a>
+            <button id="add-to-wishlist" data-toggle="modal" data-target="#loginPopup">{{ labels.addToWishlist }}</button>
+        </div>
+    {% endif %}
 </section> 
 
 {% if not user.isAnonymous %}
@@ -160,7 +126,7 @@
   {% endfor %}
   </dl>
 </div>
-{% endif %} 
+{% endif %}
 
 {% if model.measurements and themeSettings.showProductDetailMeasurements and not model.bundledProducts %}
 <div class="mz-productdetail-measurements mz-l-stack-section hide"> 

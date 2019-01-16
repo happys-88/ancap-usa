@@ -350,15 +350,61 @@ define([
                     this.calculateTax(stateSel, true, this.model);
         },     
         updateQuantity: _.debounce(function (e) {
+            e.target.value = e.target.value.replace(/[^\d]/g, '');
             var $qField = $(e.currentTarget),
                 newQuantity = parseInt($qField.val(), 10),
                 id = $qField.data('mz-cart-item'),
                 item = this.model.get("items").get(id);
-                this._isSyncing = true;
-            if (item && !isNaN(newQuantity)) {
-                item.set('quantity', newQuantity);
-                item.saveQuantity();
-            }
+                var textValue = e.currentTarget.value;
+                textValue = textValue.trim();
+                var reg = /^[A-Za-z]+$/;
+                var lastValue ='';
+                if (textValue !== '' &&  (!isNaN(newQuantity) || reg.test(newQuantity))){              
+                    if(((e.which >= 48 && e.which <= 57) || (e.which >= 96 && e.which <= 105)) && (newQuantity > 0)){
+                        this._isSyncing = true;
+                         item.set('quantity', newQuantity);
+                         item.saveQuantity();  
+                         this.model.set("currentVal", newQuantity); 
+                    } else if (newQuantity!== 'NaN'  && (!reg.test(newQuantity))) {
+                          this._isSyncing = true;
+                          if (newQuantity > 0){
+                            $('#mz-carttable-qty-field').val(newQuantity);
+                            $('#global-mz-carttable-qty-field').val(newQuantity);
+                            item.set('quantity', newQuantity);
+                            this.model.set("currentVal", newQuantity);
+                          }
+                          else{
+                            lastValue =  this.model.get("currentVal");
+                              if(lastValue === undefined){
+                                lastValue ='1';
+                                }
+                            $('#mz-carttable-qty-field').val(lastValue);
+                            $("[data-id='global-mz-carttable-qty-field']").val(lastValue);
+                            item.set('quantity', lastValue);
+                          }
+                          item.saveQuantity();
+                    }else{
+                         
+                         this._isSyncing = true;
+                         if ((textValue === '' ||(!(e.which >= 48 && e.which <= 57) || !(e.which >= 96 && e.which <= 105)))){
+                            lastValue =  this.model.get("currentVal");
+                             if(lastValue === undefined){
+                                lastValue ='1';
+                             }
+                            $('#mz-carttable-qty-field').val(lastValue);
+                            $("[data-id='global-mz-carttable-qty-field']").val(lastValue);
+                            item.set('quantity', lastValue);
+                         }
+                         
+                         item.saveQuantity();   
+                    }
+                }else {
+                    $('#mz-carttable-qty-field').val('1');
+                    $("[data-id='global-mz-carttable-qty-field']").val('1');
+                    this._isSyncing = true;
+                    item.set('quantity', '1');
+                    item.saveQuantity();
+                }
         },400),
         quantityMinus: _.debounce(function (e) {
           

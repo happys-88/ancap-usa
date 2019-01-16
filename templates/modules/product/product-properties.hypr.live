@@ -15,7 +15,7 @@
                 {% endif %}
             {% endwith %}
         </ul>
-
+        
         <div class="tab-content mz-mobile-tabs">
             {% if model.content.productFullDescription %} 
                 <div role="tabpanel" class="tab-pane  active" id="features">
@@ -61,7 +61,7 @@
                 <div class="mz-attribute">
                     {% with model|get_product_attribute("tenant~disclaimer") as disclaimer %} 
                         {% if disclaimer %}
-                        {{ disclaimer.attributeDetail.name }}: {{ disclaimer.values.0.value|safe }}<br>
+                        {{ disclaimer.attributeDetail.name }}: {{ disclaimer.values.0.stringValue|safe }}<br>
                         {% endif %}
                     {% endwith %}
                 </div>
